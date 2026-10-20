@@ -4,6 +4,8 @@ const DEFAULT_ENV_KEY = import.meta.env.VITE_GEMINI_API_KEY || ''
 const DEFAULT_SETTINGS = {
   targetScore: 79, // 79+ = Superior English (20 PR Points in Australia)
   geminiApiKey: DEFAULT_ENV_KEY,
+  useNeuralTts: true,
+  geminiVoice: 'Kore', // Kore, Puck, Aoede, Charon
   preferredVoiceURI: '',
   speechRate: 1.0,
   examDate: '',

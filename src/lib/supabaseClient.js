@@ -14,7 +14,7 @@ const STORAGE_KEYS = {
   CUSTOM_ITEMS: 'aus_prof_custom_items_v1',
   ATTEMPTS: 'aus_prof_attempts_v1',
   MOCK_SESSIONS: 'aus_prof_mock_sessions_v1',
-  YOUTUBE_VIDEOS: 'aus_prof_youtube_videos_v1',
+  YOUTUBE_VIDEOS: 'aus_prof_youtube_videos_v2',
   VOCAB_CARDS: 'aus_prof_vocab_cards_v1',
 }
 

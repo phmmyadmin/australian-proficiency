@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { X, Save, Volume2, Key, Target, CheckCircle2 } from 'lucide-react'
+import { X, Save, Volume2, Key, Target, CheckCircle2, Sparkles } from 'lucide-react'
 import { getUserSettings, saveUserSettings } from '../utils/aiConfigStore'
 import { getAvailableEnglishVoices, speakAustralianEnglish } from '../utils/aussieAudio'
 
@@ -31,7 +31,7 @@ export default function SettingsModal({ isOpen, onClose, onSettingsUpdated }) {
     <div className="modal-backdrop" role="dialog" aria-modal="true" aria-label="Settings">
       <div className="modal-panel">
         <div className="modal-header">
-          <h3>Platform & Australian AI Settings</h3>
+          <h3>Platform & Australian AI Voice Settings</h3>
           <button type="button" className="icon-btn" onClick={onClose} aria-label="Close">
             <X size={20} />
           </button>
@@ -57,7 +57,43 @@ export default function SettingsModal({ isOpen, onClose, onSettingsUpdated }) {
 
           <div className="form-group">
             <label>
-              <Key size={16} /> Gemini AI API Key (for Essay/Speaking Grading & Question Generator)
+              <Sparkles size={16} /> Natural AI Voice Engine (Gemini 2.5 Neural TTS)
+            </label>
+            <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+              <select
+                style={{ flex: 1 }}
+                value={settings.geminiVoice || 'Kore'}
+                onChange={e =>
+                  setSettings(s => ({ ...s, geminiVoice: e.target.value, useNeuralTts: true }))
+                }
+              >
+                <option value="Kore">Kore — Clear Academic Female (Recommended)</option>
+                <option value="Puck">Puck — Natural Academic Male</option>
+                <option value="Aoede">Aoede — Warm Broadcast Female</option>
+                <option value="Charon">Charon — Deep Lecture Male</option>
+              </select>
+              <button
+                type="button"
+                className="btn-secondary-small"
+                onClick={() => {
+                  saveUserSettings(settings)
+                  speakAustralianEnglish(
+                    'Postgraduate students must submit their ethics approval forms before commencing fieldwork.',
+                    { voiceName: settings.geminiVoice || 'Kore' }
+                  )
+                }}
+              >
+                <Volume2 size={15} /> Test AI Voice
+              </button>
+            </div>
+            <small className="subtle-caption">
+              Synthesizes realistic human 24kHz audio with Gemini Neural TTS and caches it locally in IndexedDB.
+            </small>
+          </div>
+
+          <div className="form-group">
+            <label>
+              <Key size={16} /> Gemini AI API Key
             </label>
             <input
               type="password"
@@ -67,45 +103,29 @@ export default function SettingsModal({ isOpen, onClose, onSettingsUpdated }) {
                 setSettings(s => ({ ...s, geminiApiKey: e.target.value }))
               }
             />
-            <small className="form-hint">
-              Pre-configured with your project key (`gemini-3.5-flash` / `gemini-3.6-flash`).
-            </small>
           </div>
 
           <div className="form-group">
             <label>
-              <Volume2 size={16} /> Preferred Australian English Voice (en-AU)
+              <Volume2 size={16} /> Offline Fallback Browser Voice (en-AU)
             </label>
-            <div className="voice-select-row">
-              <select
-                value={settings.preferredVoiceURI}
-                onChange={e =>
-                  setSettings(s => ({ ...s, preferredVoiceURI: e.target.value }))
-                }
-              >
-                <option value="">Auto-detect Best Australian Voice (en-AU)</option>
-                {voices.map(v => (
-                  <option key={v.name} value={v.name}>
-                    {v.name} ({v.lang})
-                  </option>
-                ))}
-              </select>
-              <button
-                type="button"
-                className="btn-secondary-small"
-                onClick={() =>
-                  speakAustralianEnglish(
-                    'G’day! Welcome to Australian Proficiency PTE Academic training.'
-                  )
-                }
-              >
-                Test Voice
-              </button>
-            </div>
+            <select
+              value={settings.preferredVoiceURI}
+              onChange={e =>
+                setSettings(s => ({ ...s, preferredVoiceURI: e.target.value }))
+              }
+            >
+              <option value="">Auto-detect Best System English Voice</option>
+              {voices.map(v => (
+                <option key={v.name} value={v.name}>
+                  {v.name} ({v.lang})
+                </option>
+              ))}
+            </select>
           </div>
 
           <div className="form-group">
-            <label>Audio Speech Speed ({settings.speechRate}x)</label>
+            <label>Default Playback Speed ({settings.speechRate}x)</label>
             <input
               type="range"
               min="0.75"

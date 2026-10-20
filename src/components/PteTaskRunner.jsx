@@ -51,6 +51,8 @@ export default function PteTaskRunner({
   })
   const [micNotice, setMicNotice] = useState('')
   const [isPlayingAudio, setIsPlayingAudio] = useState(false)
+  const [isSynthesizingAudio, setIsSynthesizingAudio] = useState(false)
+  const [showScriptHint, setShowScriptHint] = useState(false)
   const [timeLeft, setTimeLeft] = useState(meta.answerSec || 60)
   const [isEvaluating, setIsEvaluating] = useState(false)
   const [evaluationResult, setEvaluationResult] = useState(null)
@@ -68,6 +70,9 @@ export default function PteTaskRunner({
     setEvaluationResult(null)
     setMicNotice('')
     setIsRecording(false)
+    setIsPlayingAudio(false)
+    setIsSynthesizingAudio(false)
+    setShowScriptHint(false)
     setTimeLeft(meta.answerSec || 60)
 
     if (item.taskType === 'ROP' && Array.isArray(item.paragraphs)) {
@@ -86,11 +91,13 @@ export default function PteTaskRunner({
     return () => clearInterval(timer)
   }, [item.id, evaluationResult])
 
-  const handlePlayAudioPrompt = () => {
+  const handlePlayAudioPrompt = (rateOverride = null) => {
     const script = item.audioScript || item.promptText
     if (!script) return
     setIsPlayingAudio(true)
     speakAustralianEnglish(script, {
+      rate: rateOverride,
+      onLoading: loading => setIsSynthesizingAudio(loading),
       onEnd: () => setIsPlayingAudio(false),
       onError: () => setIsPlayingAudio(false),
     })
@@ -315,16 +322,42 @@ export default function PteTaskRunner({
           <button
             type="button"
             className="btn-aussie-audio"
-            onClick={handlePlayAudioPrompt}
+            onClick={() => handlePlayAudioPrompt(1.0)}
           >
             <Volume2 size={18} />
             <span>
-              {isPlayingAudio ? 'Playing Australian Audio...' : 'Play Audio Recording (en-AU)'}
+              {isSynthesizingAudio
+                ? 'Generating Natural AI Voice...'
+                : isPlayingAudio
+                ? 'Playing Natural Australian Voice...'
+                : 'Play Natural AI Voice (1.0x)'}
             </span>
           </button>
+          <button
+            type="button"
+            className="btn-secondary-small"
+            onClick={() => handlePlayAudioPrompt(0.85)}
+          >
+            <Volume2 size={15} />
+            <span>Play Slow & Clear (0.85x)</span>
+          </button>
+          {!examMode && (
+            <button
+              type="button"
+              className="btn-secondary-small"
+              onClick={() => setShowScriptHint(v => !v)}
+            >
+              <span>{showScriptHint ? 'Hide Audio Script' : 'Show Audio Script Hint'}</span>
+            </button>
+          )}
           <span className="audio-hint">
-            Uses Australian English synthesis for realistic exam pacing
+            Powered by Gemini Neural TTS (24kHz Natural Voice)
           </span>
+          {showScriptHint && !examMode && (
+            <div style={{ width: '100%', marginTop: '0.45rem', padding: '0.65rem 0.85rem', background: '#FFFFFF', borderRadius: '8px', border: '1px solid #E5E5E0', fontSize: '0.9rem' }}>
+              <strong>Audio Transcript:</strong> {item.audioScript}
+            </div>
+          )}
         </div>
       )}
 

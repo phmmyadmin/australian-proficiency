@@ -24,7 +24,7 @@ function extractYoutubeId(input = '') {
   const match = trimmed.match(reg)
   if (match) return match[1]
   if (/^[A-Za-z0-9_-]{11}$/.test(trimmed)) return trimmed
-  return 'Znio724234Q'
+  return '1b5SpVOjy_0'
 }
 
 export default function AussieListeningView({
@@ -163,9 +163,12 @@ export default function AussieListeningView({
 
   if (!activeVideo) return null
 
-  const embedUrl = `https://www.youtube-nocookie.com/embed/${activeVideo.youtubeId}?start=${
+  const embedUrl = `https://www.youtube.com/embed/${activeVideo.youtubeId}?start=${
     activeSegment?.startSec || 0
-  }`
+  }&rel=0&playsinline=1`
+  const watchUrl = `https://www.youtube.com/watch?v=${activeVideo.youtubeId}&t=${
+    activeSegment?.startSec || 0
+  }s`
 
   return (
     <div className="aussie-listening-view">
@@ -259,19 +262,32 @@ export default function AussieListeningView({
         <div className="youtube-player-column">
           <div className="youtube-iframe-wrapper">
             <iframe
+              key={`${activeVideo.youtubeId}_${activeSegment?.startSec || 0}`}
               title={activeVideo.title}
               src={embedUrl}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
             />
           </div>
 
-          <div className="video-meta-strip">
-            <span className="pte-section-pill section-listening">
-              {activeVideo.accentRegion}
-            </span>
-            <span className="pte-difficulty-pill">{activeVideo.difficulty}</span>
-            <span className="video-topic-tag">{activeVideo.topic}</span>
+          <div className="video-meta-strip" style={{ alignItems: 'center', justifyContent: 'space-between' }}>
+            <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', alignItems: 'center' }}>
+              <span className="pte-section-pill section-listening">
+                {activeVideo.accentRegion}
+              </span>
+              <span className="pte-difficulty-pill">{activeVideo.difficulty}</span>
+              <span className="video-topic-tag">{activeVideo.topic}</span>
+            </div>
+            <a
+              href={watchUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-secondary-small"
+              style={{ textDecoration: 'none' }}
+            >
+              Open in YouTube ↗
+            </a>
           </div>
 
           {/* Segment Selector & Dictation Drill */}
@@ -295,14 +311,22 @@ export default function AussieListeningView({
                 ))}
               </div>
 
-              <div className="segment-audio-actions">
+              <div className="segment-audio-actions" style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap' }}>
                 <button
                   type="button"
                   className="btn-aussie-audio"
-                  onClick={() => speakAustralianEnglish(activeSegment.transcript)}
+                  onClick={() => speakAustralianEnglish(activeSegment.transcript, { rate: 1.0 })}
                 >
                   <Volume2 size={17} />
-                  <span>Replay Segment in Clear Australian Voice (en-AU)</span>
+                  <span>Play Segment with Natural AI Voice (1.0x)</span>
+                </button>
+                <button
+                  type="button"
+                  className="btn-secondary-small"
+                  onClick={() => speakAustralianEnglish(activeSegment.transcript, { rate: 0.85 })}
+                >
+                  <Volume2 size={15} />
+                  <span>Slow & Clear (0.85x)</span>
                 </button>
               </div>
 
