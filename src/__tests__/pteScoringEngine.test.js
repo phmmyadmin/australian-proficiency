@@ -123,4 +123,50 @@ describe('Reverse-Engineered PTE Academic Scoring Engine', () => {
     expect(report.communicativeScores.listening).toBe(90)
     expect(report.communicativeScores.writing).toBe(90)
   })
+
+  it('detects exact inter-word extra pauses (pauseLocations & pauseBeforeSec) and penalizes Oral Fluency', () => {
+    const rsItem = {
+      id: 'rs_01',
+      taskType: 'RS',
+      section: 'speaking',
+      audioScript: 'Postgraduate students must submit their ethics approval forms before commencing any fieldwork.',
+    }
+
+    // Smooth response with zero pauses
+    const smooth = evaluatePteTask(rsItem, {
+      transcript: 'Postgraduate students must submit their ethics approval forms before commencing any fieldwork.',
+      wordTimings: [],
+    })
+    expect(smooth.subscores.oralFluency.score).toBeGreaterThanOrEqual(4.5)
+    expect(smooth.pauseLocations.length).toBe(0)
+
+    // Response with 2 extra pauses (1 long 1.45s pause before "submit", 1 short 0.85s pause before "forms")
+    const hesitant = evaluatePteTask(rsItem, {
+      transcript: 'Postgraduate students must    submit their ethics approval  forms before commencing any fieldwork.',
+      wordTimings: [
+        { word: 'Postgraduate', pauseBeforeSec: 0 },
+        { word: 'students', pauseBeforeSec: 0.25 },
+        { word: 'must', pauseBeforeSec: 0.28 },
+        { word: 'submit', pauseBeforeSec: 1.45 },
+        { word: 'their', pauseBeforeSec: 0.3 },
+        { word: 'ethics', pauseBeforeSec: 0.28 },
+        { word: 'approval', pauseBeforeSec: 0.3 },
+        { word: 'forms', pauseBeforeSec: 0.85 },
+        { word: 'before', pauseBeforeSec: 0.28 },
+        { word: 'commencing', pauseBeforeSec: 0.3 },
+        { word: 'any', pauseBeforeSec: 0.25 },
+        { word: 'fieldwork', pauseBeforeSec: 0.28 },
+      ],
+    })
+
+    expect(hesitant.pauseLocations.length).toBe(2)
+    expect(hesitant.pauseLocations[0]).toMatchObject({
+      afterWord: 'must',
+      beforeWord: 'submit',
+      severity: 'long',
+    })
+    expect(hesitant.subscores.oralFluency.score).toBeLessThan(smooth.subscores.oralFluency.score)
+    const submitToken = hesitant.diff.find(t => t.word === 'submit')
+    expect(submitToken.pauseBeforeSec).toBe(1.45)
+  })
 })

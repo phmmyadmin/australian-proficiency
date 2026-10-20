@@ -9,9 +9,9 @@
  *    - Reorder Paragraphs (ROP): +1 per adjacent pair in exact sequence
  *    - Highlight Incorrect Words (HIW): +1 per correct replacement identified, -1 per false click, floor 0
  *    - Write From Dictation (WFD), Read Aloud (RA), Repeat Sentence (RS): Word-level Levenshtein alignment
- *      producing exact matched/omitted/inserted word diffs
+ *      producing exact matched/omitted/inserted word diffs + exact inter-word pause markers
  *    - Strict Form Gates for SWT (5-75 words, 1 single sentence), Essay (200-300 words), SST (50-70 words)
- * 4. Oral Fluency & Pronunciation Acoustic/Lexical Heuristic + AI Rubric Fusion
+ * 4. Calibrated Oral Fluency & Pronunciation Acoustic/Lexical Heuristic + Pause Location Diagnostics
  * 5. PTE 10-90 Scale Converter
  */
 
@@ -254,23 +254,66 @@ export function countWords(text = '') {
 export function countSentences(text = '') {
   const cleaned = String(text || '').trim()
   if (!cleaned) return 0
-  // Split on terminal punctuation (. ! ?) followed by space or end of string, ignoring common abbreviations
   const normalized = cleaned.replace(/\b(Mr|Mrs|Ms|Dr|Prof|Sr|Jr|vs|etc|e\.g|i\.e)\./gi, '$1')
   const matches = normalized.match(/[.!?]+(\s|$)/g)
   return matches ? matches.length : 1
 }
 
+export function extractManualPauseGaps(rawText = '') {
+  const str = String(rawText || '').trim()
+  if (!str) return []
+  // Split while preserving the delimiter between tokens
+  const parts = str.split(/(\s+|\.{2,})/g)
+  const gaps = []
+  let pendingGapSec = 0
+  for (const part of parts) {
+    if (!part) continue
+    if (/^\.{2,}$/.test(part)) {
+      pendingGapSec = Math.max(pendingGapSec, 1.3)
+    } else if (/^\s+$/.test(part)) {
+      if (part.length >= 4 || part.includes('\n')) {
+        pendingGapSec = Math.max(pendingGapSec, 1.35)
+      } else if (part.length >= 2) {
+        pendingGapSec = Math.max(pendingGapSec, 0.75)
+      }
+    } else {
+      const cleaned = part.replace(/^[^a-zA-Z0-9]+|[^a-zA-Z0-9]+$/g, '')
+      if (cleaned) {
+        gaps.push(gaps.length === 0 ? 0 : pendingGapSec)
+        pendingGapSec = 0
+      }
+    }
+  }
+  return gaps
+}
+
 /**
  * Word-level Levenshtein dynamic programming alignment for Read Aloud, Repeat Sentence, and Write From Dictation.
- * Returns matched count, substitutions, omissions, insertions, and a token-by-token diff array.
+ * Also attaches `pauseBeforeSec` from `wordTimings` (or multi-space gaps) onto each candidate word so the UI can highlight
+ * the exact places where the user paused or hesitated!
  */
-export function alignWordSequences(referenceText = '', candidateText = '', caseSensitive = false) {
+export function alignWordSequences(
+  referenceText = '',
+  candidateText = '',
+  caseSensitive = false,
+  wordTimings = []
+) {
   const refTokens = tokenizeWords(referenceText)
   const candTokens = tokenizeWords(candidateText)
+  const manualGaps = extractManualPauseGaps(candidateText)
 
   const norm = w => (caseSensitive ? w : w.toLowerCase())
   const n = refTokens.length
   const m = candTokens.length
+
+  const getPauseForCandIdx = candIdx => {
+    const timedGap =
+      Array.isArray(wordTimings) && wordTimings[candIdx]
+        ? wordTimings[candIdx].pauseBeforeSec || 0
+        : 0
+    const manualGap = manualGaps[candIdx] || 0
+    return Math.max(timedGap, manualGap)
+  }
 
   if (n === 0) {
     return {
@@ -280,7 +323,11 @@ export function alignWordSequences(referenceText = '', candidateText = '', caseS
       insertedCount: m,
       substitutedCount: 0,
       accuracyRatio: 0,
-      diff: candTokens.map(w => ({ word: w, status: 'extra' })),
+      diff: candTokens.map((w, idx) => ({
+        word: w,
+        status: 'extra',
+        pauseBeforeSec: getPauseForCandIdx(idx),
+      })),
     }
   }
 
@@ -298,7 +345,6 @@ export function alignWordSequences(referenceText = '', candidateText = '', caseS
     }
   }
 
-  // Backtrack to build word-level diff
   let i = n
   let j = m
   const diff = []
@@ -309,21 +355,39 @@ export function alignWordSequences(referenceText = '', candidateText = '', caseS
 
   while (i > 0 || j > 0) {
     if (i > 0 && j > 0 && norm(refTokens[i - 1]) === norm(candTokens[j - 1])) {
-      diff.unshift({ word: refTokens[i - 1], spoken: candTokens[j - 1], status: 'correct' })
+      diff.unshift({
+        word: refTokens[i - 1],
+        spoken: candTokens[j - 1],
+        status: 'correct',
+        pauseBeforeSec: getPauseForCandIdx(j - 1),
+      })
       matchedCount++
       i--
       j--
     } else if (i > 0 && j > 0 && dp[i][j] === dp[i - 1][j - 1] + 1) {
-      diff.unshift({ word: refTokens[i - 1], spoken: candTokens[j - 1], status: 'replaced' })
+      diff.unshift({
+        word: refTokens[i - 1],
+        spoken: candTokens[j - 1],
+        status: 'replaced',
+        pauseBeforeSec: getPauseForCandIdx(j - 1),
+      })
       substitutedCount++
       i--
       j--
     } else if (i > 0 && (j === 0 || dp[i][j] === dp[i - 1][j] + 1)) {
-      diff.unshift({ word: refTokens[i - 1], status: 'missing' })
+      diff.unshift({
+        word: refTokens[i - 1],
+        status: 'missing',
+        pauseBeforeSec: 0,
+      })
       omittedCount++
       i--
     } else {
-      diff.unshift({ word: candTokens[j - 1], status: 'extra' })
+      diff.unshift({
+        word: candTokens[j - 1],
+        status: 'extra',
+        pauseBeforeSec: getPauseForCandIdx(j - 1),
+      })
       insertedCount++
       j--
     }
@@ -341,14 +405,22 @@ export function alignWordSequences(referenceText = '', candidateText = '', caseS
 }
 
 /**
- * Calculates PTE Oral Fluency & Pronunciation (0-5 scale) from speech transcript, duration, pauses, and accuracy.
+ * Calibrated PTE Oral Fluency & Pronunciation Evaluator (0-5 scale)
+ * Produces:
+ * - oralFluency (0..5)
+ * - pronunciation (0..5)
+ * - wpm (Active speaking words per minute, excluding pre/post silence)
+ * - speechFlowTokens: Array of spoken words annotated with exact pause gaps (`pauseBeforeSec`)
+ *   and repetition/filler flags so the user can see WHERE they made extra spaces/pauses!
  */
 export function evaluateFluencyAndPronunciation({
   transcript = '',
-  durationSec = 10,
+  durationSec = null,
   pauseCount = 0,
   longPauseCount = 0,
+  wordTimings = [],
   accuracyRatio = null,
+  referenceWordCount = 0,
 }) {
   const words = tokenizeWords(transcript)
   const wordCount = words.length
@@ -358,52 +430,151 @@ export function evaluateFluencyAndPronunciation({
       pronunciation: 0,
       wpm: 0,
       hesitationCount: 0,
+      pauseLocations: [],
+      speechFlowTokens: [],
       fluencyComment: 'No speech detected. Ensure your microphone is active and speak clearly.',
     }
   }
 
-  const effectiveDuration = Math.max(2, durationSec)
+  // Synthesize or normalize wordTimings if the user typed or pasted text or if browser batched tokens
+  const hasRealTimings = Array.isArray(wordTimings) && wordTimings.length > 0
+  const manualGaps = extractManualPauseGaps(transcript)
+  const normalizedTimings = words.map((w, idx) => {
+    const recorded = hasRealTimings ? wordTimings[idx] : null
+    const timedGap =
+      recorded && typeof recorded.pauseBeforeSec === 'number' ? recorded.pauseBeforeSec : 0.3
+    const gap = Math.max(timedGap, manualGaps[idx] || 0)
+    return {
+      word: w,
+      index: idx,
+      pauseBeforeSec: idx === 0 ? 0 : gap,
+    }
+  })
+
+  // Detect immediate word repetitions (stuttering e.g. "the the") and filler words ("um", "uh", "er")
+  let fillerCount = 0
+  let repetitionCount = 0
+  const pauseLocations = []
+
+  const speechFlowTokens = normalizedTimings.map((item, idx) => {
+    const lower = item.word.toLowerCase()
+    const prevLower = idx > 0 ? normalizedTimings[idx - 1].word.toLowerCase() : ''
+    const isFiller = /^(um|uh|er|erm|ah|hmm)$/i.test(lower)
+    const isRepeat = idx > 0 && lower === prevLower && lower.length > 1
+    if (isFiller) fillerCount++
+    if (isRepeat) repetitionCount++
+
+    let pauseSeverity = 'none'
+    if (idx > 0) {
+      if (item.pauseBeforeSec >= 1.2) {
+        pauseSeverity = 'long'
+        pauseLocations.push({
+          beforeWord: item.word,
+          afterWord: normalizedTimings[idx - 1].word,
+          durationSec: item.pauseBeforeSec,
+          severity: 'long',
+        })
+      } else if (item.pauseBeforeSec >= 0.6) {
+        pauseSeverity = 'short'
+        pauseLocations.push({
+          beforeWord: item.word,
+          afterWord: normalizedTimings[idx - 1].word,
+          durationSec: item.pauseBeforeSec,
+          severity: 'short',
+        })
+      }
+    }
+
+    return {
+      ...item,
+      isFiller,
+      isRepeat,
+      pauseSeverity,
+    }
+  })
+
+  const effectiveShortPauses = Math.max(
+    pauseCount,
+    pauseLocations.filter(p => p.severity === 'short').length
+  )
+  const effectiveLongPauses = Math.max(
+    longPauseCount,
+    pauseLocations.filter(p => p.severity === 'long').length
+  )
+
+  // Calculate active speech duration: if durationSec was passed, clamp unrealistic button-wait overhead
+  const naturalDurationEstimate = Math.max(1.5, wordCount * 0.42)
+  const effectiveDuration =
+    typeof durationSec === 'number' && durationSec > 0
+      ? Math.max(1.2, durationSec)
+      : naturalDurationEstimate
+
   const wpm = Math.round((wordCount / effectiveDuration) * 60)
 
-  // Count filler hesitations
-  const fillers = words.filter(w => /^(um|uh|er|erm|ah|hmm|like)$/i.test(w)).length
-
-  // Ideal PTE academic speaking pace: 115 - 160 WPM
+  // Calibrated PTE Academic Oral Fluency (0 - 5.0):
+  // Optimal academic cadence in PTE is 110 - 165 WPM with smooth phrasing (0 long pauses).
   let fluencyScore = 5.0
-  if (wpm < 65) fluencyScore -= 2.5
-  else if (wpm < 95) fluencyScore -= 1.2
-  else if (wpm < 110) fluencyScore -= 0.4
-  else if (wpm > 195) fluencyScore -= 1.0
-  else if (wpm > 175) fluencyScore -= 0.4
 
-  fluencyScore -= Math.min(2.0, longPauseCount * 0.8 + Math.max(0, pauseCount - 1) * 0.3)
-  fluencyScore -= Math.min(1.5, fillers * 0.4)
+  // 1. Speaking Rate Band Penalty
+  if (wpm < 65) fluencyScore -= 2.0
+  else if (wpm < 90) fluencyScore -= 1.0
+  else if (wpm < 105) fluencyScore -= 0.3
+  else if (wpm > 205) fluencyScore -= 0.9
+  else if (wpm > 180) fluencyScore -= 0.3
+
+  // 2. Unnatural Pauses & Hesitation Gaps Penalty
+  fluencyScore -= Math.min(2.4, effectiveLongPauses * 0.75 + effectiveShortPauses * 0.3)
+
+  // 3. Disfluencies (Fillers & Stuttered Repetitions)
+  fluencyScore -= Math.min(1.5, (fillerCount + repetitionCount) * 0.4)
+
+  // 4. Completeness Gate (if reading/repeating less than 50% of a prompt, fluency cannot be 5/5)
+  if (referenceWordCount > 4) {
+    const coverage = wordCount / referenceWordCount
+    if (coverage < 0.4) {
+      fluencyScore = Math.min(fluencyScore, 2.2)
+    } else if (coverage < 0.65) {
+      fluencyScore = Math.min(fluencyScore, 3.6)
+    }
+  }
+
   fluencyScore = Math.max(0.5, Math.min(5, Number(fluencyScore.toFixed(1))))
 
   // Pronunciation (0-5)
-  let pronScore = 4.2
+  let pronScore = 4.3
   if (typeof accuracyRatio === 'number') {
-    pronScore = Math.max(0.5, Math.min(5, Number((accuracyRatio * 5).toFixed(1))))
+    // Smooth curve so minor STT microphone variations don't tank pronunciation
+    const boostedRatio = Math.min(1, Math.pow(accuracyRatio, 0.8))
+    pronScore = Math.max(0.5, Math.min(5, Number((boostedRatio * 5).toFixed(1))))
   } else {
-    // Open-ended speaking: lexical diversity and syllable complexity proxy
     const uniqueRatio = new Set(words.map(w => w.toLowerCase())).size / Math.max(1, wordCount)
-    pronScore = Math.max(1.5, Math.min(5, Number((3.2 + uniqueRatio * 1.8 - fillers * 0.25).toFixed(1))))
+    pronScore = Math.max(
+      1.5,
+      Math.min(5, Number((3.4 + uniqueRatio * 1.6 - fillerCount * 0.25).toFixed(1)))
+    )
   }
 
-  let fluencyComment = 'Smooth, native-like rhythm at an optimal academic speaking pace.'
-  if (wpm < 95) {
-    fluencyComment = `Speaking pace (${wpm} WPM) is below the optimal 115–160 WPM PTE band. Avoid hesitating between clauses.`
+  let fluencyComment = `Smooth, continuous delivery (${wpm} WPM, ${effectiveDuration}s active speech) with zero unnatural pauses.`
+  if (pauseLocations.length > 0) {
+    const details = pauseLocations
+      .slice(0, 3)
+      .map(p => `"${p.afterWord} ⏸ ${p.beforeWord}" (${p.durationSec}s)`)
+      .join(', ')
+    fluencyComment = `Detected ${pauseLocations.length} extra pause(s) at: ${details}. Keep words connected in a single breath group (${wpm} WPM).`
+  } else if (wpm < 95) {
+    fluencyComment = `Speaking pace (${wpm} WPM) is slightly slow; aim for 115–160 WPM by linking prepositions and articles.`
   } else if (wpm > 180) {
-    fluencyComment = `Speaking pace (${wpm} WPM) is slightly rushed; articulate word endings clearly.`
-  } else if (longPauseCount > 0 || fillers > 1) {
-    fluencyComment = `Good speed (${wpm} WPM), but reduce pauses (${longPauseCount} long pauses) and filler words (${fillers}).`
+    fluencyComment = `Speaking pace (${wpm} WPM) is slightly fast; maintain steady syllable rhythm.`
   }
 
   return {
     oralFluency: fluencyScore,
     pronunciation: pronScore,
     wpm,
-    hesitationCount: fillers,
+    activeDurationSec: effectiveDuration,
+    hesitationCount: fillerCount + repetitionCount,
+    pauseLocations,
+    speechFlowTokens,
     fluencyComment,
   }
 }
@@ -489,12 +660,6 @@ export function scoreHighlightIncorrectWords(incorrectWordIndices = [], selected
   }
 }
 
-/**
- * Form & Content/Grammar Scorer for Summarize Written Text (SWT):
- * Official PTE rule:
- * - Must be 1 single sentence (ends with a period, no internal sentence-ending punctuation)
- * - Must be between 5 and 75 words (if <5 or >75 or >1 sentence -> Form = 0 and TOTAL SCORE = 0!)
- */
 export function scoreSummarizeWrittenText(item, userText = '', aiEvaluation = null) {
   const words = tokenizeWords(userText)
   const wordCount = words.length
@@ -527,7 +692,6 @@ export function scoreSummarizeWrittenText(item, userText = '', aiEvaluation = nu
     }
   }
 
-  // Keyword coverage heuristic + AI override if available
   const keywords = item.keywords || tokenizeWords(item.promptText).filter(w => w.length > 6).slice(0, 8)
   const lowerText = userText.toLowerCase()
   const matchedKeywords = keywords.filter(k => lowerText.includes(k.toLowerCase()))
@@ -556,13 +720,6 @@ export function scoreSummarizeWrittenText(item, userText = '', aiEvaluation = nu
   }
 }
 
-/**
- * Form & Rubric Scorer for Write Essay (WE - 200 to 300 words, max 15 points):
- * Content (0-3), Form (0-2), Development/Structure/Coherence (0-2), Grammar (0-2),
- * General Linguistic Range (0-2), Vocabulary Range (0-2), Spelling (0-2).
- * Official PTE rule: <120 or >380 words => Form = 0 and total score = 0!
- * 120-199 or 301-380 words => Form = 1. 200-300 words => Form = 2.
- */
 export function scoreWriteEssay(item, userText = '', aiEvaluation = null) {
   const words = tokenizeWords(userText)
   const wordCount = words.length
@@ -633,11 +790,6 @@ export function scoreWriteEssay(item, userText = '', aiEvaluation = null) {
   }
 }
 
-/**
- * Form & Rubric Scorer for Summarize Spoken Text (SST - 50 to 70 words, max 10 points):
- * Content (0-2), Form (0-2), Grammar (0-2), Vocabulary (0-2), Spelling (0-2).
- * Official PTE rule: 50-70 words => Form = 2; 40-49 or 71-100 => Form = 1; <40 or >100 => Form = 0 (Total = 0).
- */
 export function scoreSummarizeSpokenText(item, userText = '', aiEvaluation = null) {
   const words = tokenizeWords(userText)
   const wordCount = words.length
@@ -712,18 +864,23 @@ export function evaluatePteTask(item, userResponse = {}, aiEvaluation = null) {
     subscores: {},
     feedback: '',
     diff: null,
+    speechFlowTokens: null,
+    pauseLocations: [],
   }
 
   if (type === 'RA') {
     const transcript = userResponse.transcript || ''
-    const alignment = alignWordSequences(item.promptText, transcript, false)
+    const wordTimings = userResponse.wordTimings || []
+    const alignment = alignWordSequences(item.promptText, transcript, false, wordTimings)
     const contentScore = Number((alignment.accuracyRatio * 5).toFixed(1))
     const fp = evaluateFluencyAndPronunciation({
       transcript,
-      durationSec: userResponse.durationSec || 18,
+      durationSec: userResponse.durationSec,
       pauseCount: userResponse.pauseCount || 0,
       longPauseCount: userResponse.longPauseCount || 0,
+      wordTimings,
       accuracyRatio: alignment.accuracyRatio,
+      referenceWordCount: alignment.totalRefWords,
     })
     const rawPoints = Number((contentScore + fp.oralFluency + fp.pronunciation).toFixed(1))
     result = {
@@ -732,7 +889,10 @@ export function evaluatePteTask(item, userResponse = {}, aiEvaluation = null) {
       maxPoints: 15,
       percentage: Math.round((rawPoints / 15) * 100),
       diff: alignment.diff,
+      speechFlowTokens: fp.speechFlowTokens,
+      pauseLocations: fp.pauseLocations,
       wpm: fp.wpm,
+      activeDurationSec: fp.activeDurationSec,
       subscores: {
         content: { score: contentScore, max: 5 },
         oralFluency: { score: fp.oralFluency, max: 5 },
@@ -744,8 +904,13 @@ export function evaluatePteTask(item, userResponse = {}, aiEvaluation = null) {
     }
   } else if (type === 'RS') {
     const transcript = userResponse.transcript || ''
-    const alignment = alignWordSequences(item.audioScript || item.promptText, transcript, false)
-    // Official PTE RS Content: 100% words = 3, >=50% words = 2, <50% = 1, 0 words = 0
+    const wordTimings = userResponse.wordTimings || []
+    const alignment = alignWordSequences(
+      item.audioScript || item.promptText,
+      transcript,
+      false,
+      wordTimings
+    )
     let contentScore = 0
     if (alignment.accuracyRatio >= 0.98) contentScore = 3
     else if (alignment.accuracyRatio >= 0.5) contentScore = 2
@@ -753,10 +918,12 @@ export function evaluatePteTask(item, userResponse = {}, aiEvaluation = null) {
 
     const fp = evaluateFluencyAndPronunciation({
       transcript,
-      durationSec: userResponse.durationSec || 6,
+      durationSec: userResponse.durationSec,
       pauseCount: userResponse.pauseCount || 0,
       longPauseCount: userResponse.longPauseCount || 0,
+      wordTimings,
       accuracyRatio: alignment.accuracyRatio,
+      referenceWordCount: alignment.totalRefWords,
     })
     const rawPoints = Number((contentScore + fp.oralFluency + fp.pronunciation).toFixed(1))
     result = {
@@ -765,31 +932,45 @@ export function evaluatePteTask(item, userResponse = {}, aiEvaluation = null) {
       maxPoints: 13,
       percentage: Math.round((rawPoints / 13) * 100),
       diff: alignment.diff,
+      speechFlowTokens: fp.speechFlowTokens,
+      pauseLocations: fp.pauseLocations,
       wpm: fp.wpm,
+      activeDurationSec: fp.activeDurationSec,
       subscores: {
         content: { score: contentScore, max: 3 },
         oralFluency: { score: fp.oralFluency, max: 5 },
         pronunciation: { score: fp.pronunciation, max: 5 },
       },
       feedback: `Matched ${alignment.matchedCount}/${alignment.totalRefWords} words (${
-        contentScore === 3 ? 'Full 3/3 Content' : contentScore === 2 ? '2/3 Content (>=50% words)' : 'Aim for >50% exact word sequence'
+        contentScore === 3
+          ? 'Full 3/3 Content'
+          : contentScore === 2
+          ? '2/3 Content (>=50% words)'
+          : 'Aim for >50% exact word sequence'
       }). ${fp.fluencyComment}`,
     }
   } else if (type === 'DI' || type === 'RL' || type === 'SGD' || type === 'RTS') {
     const transcript = userResponse.transcript || ''
+    const wordTimings = userResponse.wordTimings || []
     const keywords = item.keywords || []
     const lower = transcript.toLowerCase()
     const matched = keywords.filter(k => lower.includes(k.toLowerCase()))
     const kwRatio = keywords.length > 0 ? matched.length / keywords.length : 0.6
     const wordCount = countWords(transcript)
 
-    let contentScore = aiEvaluation?.content ?? (wordCount === 0 ? 0 : Number(Math.min(5, Math.max(1, kwRatio * 5 + (wordCount >= 35 ? 1 : 0))).toFixed(1)))
+    let contentScore =
+      aiEvaluation?.content ??
+      (wordCount === 0
+        ? 0
+        : Number(Math.min(5, Math.max(1, kwRatio * 5 + (wordCount >= 35 ? 1 : 0))).toFixed(1)))
     const fp = evaluateFluencyAndPronunciation({
       transcript,
-      durationSec: userResponse.durationSec || 25,
+      durationSec: userResponse.durationSec,
       pauseCount: userResponse.pauseCount || 0,
       longPauseCount: userResponse.longPauseCount || 0,
+      wordTimings,
       accuracyRatio: null,
+      referenceWordCount: 30,
     })
     const oralFluency = aiEvaluation?.oralFluency ?? fp.oralFluency
     const pronunciation = aiEvaluation?.pronunciation ?? fp.pronunciation
@@ -800,7 +981,10 @@ export function evaluatePteTask(item, userResponse = {}, aiEvaluation = null) {
       rawPoints,
       maxPoints: 15,
       percentage: Math.round((rawPoints / 15) * 100),
+      speechFlowTokens: fp.speechFlowTokens,
+      pauseLocations: fp.pauseLocations,
       wpm: fp.wpm,
+      activeDurationSec: fp.activeDurationSec,
       subscores: {
         content: { score: contentScore, max: 5 },
         oralFluency: { score: oralFluency, max: 5 },
@@ -919,7 +1103,6 @@ export function evaluatePteTask(item, userResponse = {}, aiEvaluation = null) {
     }
   }
 
-  // Compute 10-90 scale communicative & enabling contributions for this attempt
   const normalizedAccuracy = Math.max(0, Math.min(1, result.percentage / 100))
   const pteScaleEquivalent = Math.round(10 + normalizedAccuracy * 80)
 
@@ -941,11 +1124,6 @@ export function evaluatePteTask(item, userResponse = {}, aiEvaluation = null) {
   }
 }
 
-/**
- * Aggregates an array of evaluated PTE attempts into a full 10-90 PTE Score Report
- * across the 4 Communicative Skills (Speaking, Writing, Reading, Listening)
- * and 6 Enabling Skills (Grammar, Oral Fluency, Pronunciation, Spelling, Vocabulary, Written Discourse).
- */
 export function aggregatePteScoreReport(attempts = []) {
   const commTotals = {
     speaking: { weightedSum: 0, weightTotal: 0 },
@@ -1021,12 +1199,11 @@ export function aggregatePteScoreReport(attempts = []) {
       4
   )
 
-  // Australian Visa / PR Band classification
   let australianVisaBand = {
     label: 'Competent English (IELTS 6.0 eq.)',
     prPoints: 0,
     minRequired: 50,
-    color: '#f59e0b',
+    color: '#D97706',
   }
   const minSkill = Math.min(
     communicativeScores.speaking,
@@ -1040,21 +1217,21 @@ export function aggregatePteScoreReport(attempts = []) {
       label: 'Superior English (IELTS 8.0+ eq. • 20 PR Points)',
       prPoints: 20,
       minRequired: 79,
-      color: '#10b981',
+      color: '#16A34A',
     }
   } else if (minSkill >= 65) {
     australianVisaBand = {
       label: 'Proficient English (IELTS 7.0+ eq. • 10 PR Points)',
       prPoints: 10,
       minRequired: 65,
-      color: '#3b82f6',
+      color: '#2563EB',
     }
   } else if (minSkill < 50) {
     australianVisaBand = {
       label: 'Developing / Vocational (<50 Minimum Band)',
       prPoints: 0,
       minRequired: 50,
-      color: '#ef4444',
+      color: '#DC2626',
     }
   }
 

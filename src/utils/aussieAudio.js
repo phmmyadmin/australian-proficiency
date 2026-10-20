@@ -1,9 +1,10 @@
 import { getUserSettings, getActiveGeminiKey } from './aiConfigStore'
 
 /**
- * High-Fidelity Australian English Neural Audio Service
- * Primary: Gemini 2.5 Flash Neural TTS (`gemini-2.5-flash-preview-tts`) with IndexedDB WAV caching
- * Fallback: Enhanced Browser SpeechSynthesis (`en-AU`)
+ * High-Fidelity Australian English Neural Audio Service + Word-Timestamp Fluency Tracker
+ * Primary TTS: Gemini 2.5 Flash Neural TTS (`gemini-2.5-flash-preview-tts`) with IndexedDB WAV caching
+ * Speech Capture: Tracks exact per-word arrival timestamps (`wordTimings`), active speech duration
+ * (excluding lead-in and trailing silence), and inter-word pause gaps (`pauseBeforeSec`).
  */
 
 const CACHE_DB_NAME = 'aus_prof_neural_tts_v1'
@@ -243,10 +244,6 @@ function speakFallbackBrowserTTS(text, options = {}) {
   window.speechSynthesis.speak(utterance)
 }
 
-/**
- * Speaks Australian English using Gemini Neural TTS (`gemini-2.5-flash-preview-tts`)
- * with automatic IndexedDB caching and instant fallback to browser TTS in tests/offline.
- */
 export async function speakAustralianEnglish(text, options = {}) {
   const cleanText = String(text || '').trim()
   if (!cleanText) {
@@ -258,7 +255,6 @@ export async function speakAustralianEnglish(text, options = {}) {
   const settings = getUserSettings()
   const playbackRate = options.rate || settings.speechRate || 1.0
 
-  // In Vitest/jsdom or when Neural TTS is disabled, use fallback immediately
   const isTestEnv = typeof process !== 'undefined' && process.env?.NODE_ENV === 'test'
   if (settings.useNeuralTts !== false && !isTestEnv && typeof Audio !== 'undefined') {
     try {
@@ -294,9 +290,19 @@ export async function speakAustralianEnglish(text, options = {}) {
   speakFallbackBrowserTTS(cleanText, options)
 }
 
+function splitCleanWords(text = '') {
+  return String(text || '')
+    .trim()
+    .split(/\s+/)
+    .map(w => w.replace(/^[^a-zA-Z0-9]+|[^a-zA-Z0-9]+$/g, ''))
+    .filter(Boolean)
+}
+
 /**
  * Creates a live Web Speech API recognizer configured for Australian English (en-AU)
- * that also tracks inter-phrase pauses and hesitation markers for PTE Oral Fluency scoring.
+ * that records exact per-word arrival timestamps (`wordTimings`) to detect where the
+ * speaker makes unnatural pauses (`pauseBeforeSec >= 0.55s`) and computes active speech
+ * duration (first spoken word to last spoken word, ignoring pre/post button click silence).
  */
 export function createSpeechCaptureSession({ onInterimTranscript, onFinalUpdate, onError }) {
   const SpeechRecognition =
@@ -304,18 +310,84 @@ export function createSpeechCaptureSession({ onInterimTranscript, onFinalUpdate,
     (window.SpeechRecognition || window.webkitSpeechRecognition)
 
   let recognition = null
-  let startTime = 0
-  let lastResultTimestamp = 0
-  let pauseCount = 0
-  let longPauseCount = 0
+  let sessionStartTime = 0
+  let firstWordTime = 0
+  let lastWordTime = 0
+  let wordTimings = [] // [{ word, timestamp, pauseBeforeSec }]
   let finalTranscript = ''
   let interimTranscript = ''
 
+  const computePauseStats = timings => {
+    let pauseCount = 0
+    let longPauseCount = 0
+    timings.forEach((wt, idx) => {
+      if (idx === 0) return
+      if (wt.pauseBeforeSec >= 0.6) pauseCount += 1
+      if (wt.pauseBeforeSec >= 1.2) longPauseCount += 1
+    })
+    return { pauseCount, longPauseCount }
+  }
+
+  const computeActiveDurationSec = (wordsCount, nowTs) => {
+    if (firstWordTime > 0 && lastWordTime > firstWordTime) {
+      // Add ~0.35s for the articulation of the very first word
+      return Math.max(1.2, (lastWordTime - firstWordTime) / 1000 + 0.35)
+    }
+    if (wordsCount > 0) {
+      // Fallback if browser delivered all words in a single batch
+      return Math.max(1.5, (nowTs - sessionStartTime) / 1000)
+    }
+    return 1.0
+  }
+
+  const updateWordTimingsFromTranscript = (combinedText, now) => {
+    const currentWords = splitCleanWords(combinedText)
+    if (currentWords.length === 0) return
+
+    if (!firstWordTime) {
+      firstWordTime = now
+      lastWordTime = now
+    }
+
+    const prevLen = wordTimings.length
+    if (currentWords.length > prevLen) {
+      const newCount = currentWords.length - prevLen
+      const totalGapSec = lastWordTime ? Math.max(0, (now - lastWordTime) / 1000) : 0
+
+      // Expected natural articulation time is ~0.32s per word.
+      // Any excess time above natural articulation of the newly arrived words is a pause gap before the first new word!
+      const naturalArticulationSec = Math.max(0, (newCount - 1) * 0.32)
+      const firstNewWordGapSec =
+        prevLen === 0 ? 0 : Math.max(0.15, totalGapSec - naturalArticulationSec)
+
+      for (let k = prevLen; k < currentWords.length; k++) {
+        const isFirstOfBurst = k === prevLen
+        const gap =
+          k === 0
+            ? 0
+            : isFirstOfBurst
+            ? Number(firstNewWordGapSec.toFixed(2))
+            : 0.3
+        wordTimings.push({
+          word: currentWords[k],
+          timestamp: now,
+          pauseBeforeSec: gap,
+        })
+      }
+      lastWordTime = now
+    } else {
+      // Keep existing timings aligned with updated word spellings
+      for (let k = 0; k < Math.min(prevLen, currentWords.length); k++) {
+        wordTimings[k].word = currentWords[k]
+      }
+    }
+  }
+
   const start = () => {
-    startTime = Date.now()
-    lastResultTimestamp = startTime
-    pauseCount = 0
-    longPauseCount = 0
+    sessionStartTime = Date.now()
+    firstWordTime = 0
+    lastWordTime = 0
+    wordTimings = []
     finalTranscript = ''
     interimTranscript = ''
 
@@ -337,12 +409,6 @@ export function createSpeechCaptureSession({ onInterimTranscript, onFinalUpdate,
 
       recognition.onresult = event => {
         const now = Date.now()
-        const gapSec = (now - lastResultTimestamp) / 1000
-        if (lastResultTimestamp > startTime) {
-          if (gapSec >= 1.2) pauseCount += 1
-          if (gapSec >= 2.5) longPauseCount += 1
-        }
-        lastResultTimestamp = now
 
         let currentInterim = ''
         let accumulatedFinal = ''
@@ -359,13 +425,19 @@ export function createSpeechCaptureSession({ onInterimTranscript, onFinalUpdate,
         }
         interimTranscript = currentInterim.trim()
         const combined = `${finalTranscript} ${interimTranscript}`.trim()
+
+        updateWordTimingsFromTranscript(combined, now)
+        const { pauseCount, longPauseCount } = computePauseStats(wordTimings)
+        const activeDurationSec = computeActiveDurationSec(wordTimings.length, now)
+
         if (onInterimTranscript) onInterimTranscript(combined)
         if (onFinalUpdate) {
           onFinalUpdate({
             transcript: combined,
-            durationSec: Math.max(1, (now - startTime) / 1000),
+            durationSec: Number(activeDurationSec.toFixed(1)),
             pauseCount,
             longPauseCount,
+            wordTimings: [...wordTimings],
           })
         }
       }
@@ -385,7 +457,7 @@ export function createSpeechCaptureSession({ onInterimTranscript, onFinalUpdate,
   }
 
   const stop = () => {
-    const durationSec = startTime ? Math.max(1, (Date.now() - startTime) / 1000) : 1
+    const now = Date.now()
     if (recognition) {
       try {
         recognition.stop()
@@ -394,11 +466,15 @@ export function createSpeechCaptureSession({ onInterimTranscript, onFinalUpdate,
       }
     }
     const combined = `${finalTranscript} ${interimTranscript}`.trim()
+    const { pauseCount, longPauseCount } = computePauseStats(wordTimings)
+    const activeDurationSec = computeActiveDurationSec(wordTimings.length, now)
+
     return {
       transcript: combined,
-      durationSec: Math.round(durationSec * 10) / 10,
+      durationSec: Number(activeDurationSec.toFixed(1)),
       pauseCount,
       longPauseCount,
+      wordTimings: [...wordTimings],
     }
   }
 

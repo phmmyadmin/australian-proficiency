@@ -72,21 +72,33 @@ export default function AussieListeningView({
 
   const handleStopShadowing = () => {
     setIsRecordingShadow(false)
-    let durationSec = 8
+    let durationSec = null
     let pauseCount = 0
+    let longPauseCount = 0
+    let wordTimings = []
     if (window.__ausShadowSession) {
       const res = window.__ausShadowSession.stop()
       if (res.transcript) setShadowTranscript(res.transcript)
       durationSec = res.durationSec
       pauseCount = res.pauseCount
+      longPauseCount = res.longPauseCount
+      wordTimings = res.wordTimings || []
     }
     if (activeSegment) {
-      const align = alignWordSequences(activeSegment.transcript, shadowTranscript, false)
+      const align = alignWordSequences(
+        activeSegment.transcript,
+        shadowTranscript,
+        false,
+        wordTimings
+      )
       const fp = evaluateFluencyAndPronunciation({
         transcript: shadowTranscript,
         durationSec,
         pauseCount,
+        longPauseCount,
+        wordTimings,
         accuracyRatio: align.accuracyRatio,
+        referenceWordCount: align.totalRefWords,
       })
       setShadowResult({ align, fp })
     }
@@ -396,11 +408,20 @@ export default function AussieListeningView({
                       <Square size={16} /> Stop & Score Shadowing
                     </button>
                   )}
+                  {!isRecordingShadow && (
+                    <button
+                      type="button"
+                      className="btn-secondary-small"
+                      onClick={handleStopShadowing}
+                    >
+                      Evaluate Shadowing & Pause Map
+                    </button>
+                  )}
                 </div>
                 <input
                   type="text"
                   className="pte-textarea"
-                  placeholder="Spoken shadowing transcript (or type to test)..."
+                  placeholder="Spoken shadowing transcript (or type 2+ spaces between words to test pause map)..."
                   value={shadowTranscript}
                   onChange={e => setShadowTranscript(e.target.value)}
                 />
@@ -409,8 +430,34 @@ export default function AussieListeningView({
                     <p>
                       <strong>Pronunciation:</strong> {shadowResult.fp.pronunciation}/5 •{' '}
                       <strong>Oral Fluency:</strong> {shadowResult.fp.oralFluency}/5 (
-                      {shadowResult.fp.wpm} WPM)
+                      {shadowResult.fp.wpm} WPM) •{' '}
+                      <strong>Extra Pauses:</strong> {shadowResult.fp.pauseLocations?.length || 0}
                     </p>
+                    <div className="word-diff-tokens">
+                      {(shadowResult.align?.diff || []).map((tok, i) => {
+                        const pauseSec = tok.pauseBeforeSec || 0
+                        const hasShortPause = pauseSec >= 0.6 && pauseSec < 1.2
+                        const hasLongPause = pauseSec >= 1.2
+                        return (
+                          <React.Fragment key={i}>
+                            {(hasShortPause || hasLongPause) && (
+                              <span
+                                className={`pause-gap-badge ${
+                                  hasLongPause ? 'pause-gap-long' : 'pause-gap-short'
+                                }`}
+                              >
+                                {hasLongPause
+                                  ? `⚠️ +${pauseSec}s PAUSE`
+                                  : `⏸ +${pauseSec}s`}
+                              </span>
+                            )}
+                            <span className={`diff-token diff-${tok.status}`}>
+                              {tok.word}
+                            </span>
+                          </React.Fragment>
+                        )
+                      })}
+                    </div>
                     <p className="subtle-caption">{shadowResult.fp.fluencyComment}</p>
                   </div>
                 )}

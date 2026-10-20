@@ -1810,3 +1810,56 @@ button, input, select, textarea {
     grid-template-columns: 1fr;
   }
 }
+
+/* Inline Pause Gap Badges & Fluency Diagnostic Box */
+.pause-gap-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.16rem 0.5rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 700;
+  border: 1px dashed currentColor;
+}
+
+.pause-gap-short {
+  background: var(--pos-adj-bg);
+  color: var(--pos-adj-text);
+  border-color: var(--accent-warning);
+}
+
+.pause-gap-long {
+  background: var(--accent-danger-light);
+  color: var(--accent-danger);
+  border-color: var(--accent-danger);
+}
+
+.fluency-pause-summary-box {
+  margin-top: 0.85rem;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  font-size: 0.86rem;
+}
+
+.pause-summary-clean {
+  color: var(--pos-verb-text);
+  font-weight: 600;
+}
+
+.pause-locations-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.45rem;
+}
+
+.pause-location-pill {
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  border: 1px solid currentColor;
+}

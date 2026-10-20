@@ -48,6 +48,7 @@ export default function PteTaskRunner({
     durationSec: 0,
     pauseCount: 0,
     longPauseCount: 0,
+    wordTimings: [],
   })
   const [micNotice, setMicNotice] = useState('')
   const [isPlayingAudio, setIsPlayingAudio] = useState(false)
@@ -73,6 +74,7 @@ export default function PteTaskRunner({
     setIsPlayingAudio(false)
     setIsSynthesizingAudio(false)
     setShowScriptHint(false)
+    setSpeechMetrics({ durationSec: 0, pauseCount: 0, longPauseCount: 0, wordTimings: [] })
     setTimeLeft(meta.answerSec || 60)
 
     if (item.taskType === 'ROP' && Array.isArray(item.paragraphs)) {
@@ -113,6 +115,7 @@ export default function PteTaskRunner({
           durationSec: data.durationSec,
           pauseCount: data.pauseCount,
           longPauseCount: data.longPauseCount,
+          wordTimings: data.wordTimings || [],
         })
       },
       onError: msg => setMicNotice(msg),
@@ -130,6 +133,7 @@ export default function PteTaskRunner({
         durationSec: summary.durationSec,
         pauseCount: summary.pauseCount,
         longPauseCount: summary.longPauseCount,
+        wordTimings: summary.wordTimings || [],
       })
     }
     setIsRecording(false)
@@ -165,9 +169,10 @@ export default function PteTaskRunner({
     selectedOption,
     userOrder,
     selectedIndices: selectedWordIndices,
-    durationSec: speechMetrics.durationSec || 12,
+    durationSec: speechMetrics.durationSec || null,
     pauseCount: speechMetrics.pauseCount || 0,
     longPauseCount: speechMetrics.longPauseCount || 0,
+    wordTimings: speechMetrics.wordTimings || [],
   })
 
   const handleSubmit = async () => {
@@ -542,21 +547,55 @@ export default function PteTaskRunner({
               </button>
             )}
             {(item.taskType === 'RA' || item.taskType === 'RS') && (
-              <button
-                type="button"
-                className="btn-secondary-small"
-                onClick={() => {
-                  setTranscript(item.audioScript || item.promptText)
-                  setSpeechMetrics({ durationSec: 14, pauseCount: 0, longPauseCount: 0 })
-                }}
-              >
-                Simulate Native Response
-              </button>
+              <>
+                <button
+                  type="button"
+                  className="btn-secondary-small"
+                  onClick={() => {
+                    const text = item.audioScript || item.promptText
+                    setTranscript(text)
+                    setSpeechMetrics({
+                      durationSec: null,
+                      pauseCount: 0,
+                      longPauseCount: 0,
+                      wordTimings: [],
+                    })
+                  }}
+                >
+                  Simulate Smooth Native Flow
+                </button>
+                <button
+                  type="button"
+                  className="btn-secondary-small"
+                  onClick={() => {
+                    const baseWords = String(item.audioScript || item.promptText)
+                      .trim()
+                      .split(/\s+/)
+                    // Insert simulated extra pauses (double/quadruple spaces) at 2 places
+                    const withPauses = baseWords
+                      .map((w, idx) => (idx === 3 ? `    ${w}` : idx === 7 ? `  ${w}` : w))
+                      .join(' ')
+                    const simulatedTimings = baseWords.map((w, idx) => ({
+                      word: w.replace(/^[^a-zA-Z0-9]+|[^a-zA-Z0-9]+$/g, ''),
+                      pauseBeforeSec: idx === 3 ? 1.45 : idx === 7 ? 0.85 : 0.28,
+                    }))
+                    setTranscript(withPauses)
+                    setSpeechMetrics({
+                      durationSec: Number((baseWords.length * 0.42 + 2.3).toFixed(1)),
+                      pauseCount: 2,
+                      longPauseCount: 1,
+                      wordTimings: simulatedTimings,
+                    })
+                  }}
+                >
+                  Simulate Response with Pauses
+                </button>
+              </>
             )}
           </div>
           {micNotice && <p className="mic-notice-text">{micNotice}</p>}
           <label className="transcript-label">
-            Spoken Transcript (Captured via en-AU Speech Recognition or editable below):
+            Spoken Transcript (Speak via microphone, or type 2+ spaces / &ldquo;...&rdquo; between words to test pause detection):
           </label>
           <textarea
             rows={3}
@@ -661,26 +700,125 @@ export default function PteTaskRunner({
                 <strong className="subscore-val">{evaluationResult.wpm} WPM</strong>
               </div>
             )}
+            {Array.isArray(evaluationResult.pauseLocations) && isSpeaking && (
+              <div className="subscore-card">
+                <span className="subscore-name">EXTRA PAUSES</span>
+                <strong className="subscore-val">
+                  {evaluationResult.pauseLocations.length} detected
+                </strong>
+              </div>
+            )}
           </div>
 
-          {/* Word-Level Alignment Diff for RA, RS, WFD */}
+          {/* Word-Level Alignment Diff + Exact Pause Badges for RA, RS, WFD */}
           {Array.isArray(evaluationResult.diff) && evaluationResult.diff.length > 0 && (
             <div className="word-diff-container">
-              <h5>Word-by-Word Alignment Diagnostic:</h5>
+              <h5>
+                Word-by-Word Alignment & Pause Map (Shows Exact Places Where You Paused):
+              </h5>
               <div className="word-diff-tokens">
-                {evaluationResult.diff.map((tok, i) => (
-                  <span key={i} className={`diff-token diff-${tok.status}`}>
-                    {tok.word}
-                    {tok.status === 'replaced' && tok.spoken ? ` (${tok.spoken})` : ''}
-                  </span>
-                ))}
+                {evaluationResult.diff.map((tok, i) => {
+                  const pauseSec = tok.pauseBeforeSec || 0
+                  const hasShortPause = pauseSec >= 0.6 && pauseSec < 1.2
+                  const hasLongPause = pauseSec >= 1.2
+                  return (
+                    <React.Fragment key={i}>
+                      {(hasShortPause || hasLongPause) && (
+                        <span
+                          className={`pause-gap-badge ${
+                            hasLongPause ? 'pause-gap-long' : 'pause-gap-short'
+                          }`}
+                          title={`Unnatural pause of ${pauseSec}s before "${tok.word}"`}
+                        >
+                          {hasLongPause
+                            ? `⚠️ +${pauseSec}s PAUSE`
+                            : `⏸ +${pauseSec}s`}
+                        </span>
+                      )}
+                      <span className={`diff-token diff-${tok.status}`}>
+                        {tok.word}
+                        {tok.status === 'replaced' && tok.spoken ? ` (${tok.spoken})` : ''}
+                      </span>
+                    </React.Fragment>
+                  )
+                })}
               </div>
               <div className="diff-legend">
                 <span className="legend-item diff-correct">Matched</span>
                 <span className="legend-item diff-missing">Omitted</span>
                 <span className="legend-item diff-replaced">Substituted</span>
                 <span className="legend-item diff-extra">Extra Word</span>
+                <span className="legend-item pause-gap-short">⏸ Short Pause (0.6–1.1s)</span>
+                <span className="legend-item pause-gap-long">⚠️ Long Pause (&ge;1.2s)</span>
               </div>
+            </div>
+          )}
+
+          {/* Open-Ended Speaking Pause Map (for DI, RL, SGD, RTS where there is no fixed diff) */}
+          {!evaluationResult.diff &&
+            Array.isArray(evaluationResult.speechFlowTokens) &&
+            evaluationResult.speechFlowTokens.length > 0 && (
+              <div className="word-diff-container">
+                <h5>Spoken Rhythm & Pause Map (Shows Where You Hesitated or Paused):</h5>
+                <div className="word-diff-tokens">
+                  {evaluationResult.speechFlowTokens.map((tok, i) => {
+                    const pauseSec = tok.pauseBeforeSec || 0
+                    const hasShortPause = pauseSec >= 0.6 && pauseSec < 1.2
+                    const hasLongPause = pauseSec >= 1.2
+                    return (
+                      <React.Fragment key={i}>
+                        {(hasShortPause || hasLongPause) && (
+                          <span
+                            className={`pause-gap-badge ${
+                              hasLongPause ? 'pause-gap-long' : 'pause-gap-short'
+                            }`}
+                          >
+                            {hasLongPause
+                              ? `⚠️ +${pauseSec}s PAUSE`
+                              : `⏸ +${pauseSec}s`}
+                          </span>
+                        )}
+                        <span
+                          className={`diff-token ${
+                            tok.isFiller || tok.isRepeat ? 'diff-replaced' : 'diff-correct'
+                          }`}
+                        >
+                          {tok.word}
+                        </span>
+                      </React.Fragment>
+                    )
+                  })}
+                </div>
+              </div>
+            )}
+
+          {/* Explicit Pause Locations Summary Box */}
+          {isSpeaking && Array.isArray(evaluationResult.pauseLocations) && (
+            <div className="fluency-pause-summary-box">
+              {evaluationResult.pauseLocations.length === 0 ? (
+                <span className="pause-summary-clean">
+                  ✓ Zero unnatural pauses detected! Your words flowed smoothly without gaps.
+                </span>
+              ) : (
+                <div>
+                  <strong>
+                    ⏸ Where You Made Extra Pauses ({evaluationResult.pauseLocations.length}):
+                  </strong>
+                  <div className="pause-locations-chips">
+                    {evaluationResult.pauseLocations.map((p, idx) => (
+                      <span
+                        key={idx}
+                        className={`pause-location-pill ${
+                          p.severity === 'long' ? 'pause-gap-long' : 'pause-gap-short'
+                        }`}
+                      >
+                        &ldquo;{p.afterWord}&rdquo; <strong>⏸ +{p.durationSec}s</strong> &ldquo;
+                        {p.beforeWord}&rdquo;
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           )}
         </div>
