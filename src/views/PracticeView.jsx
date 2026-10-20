@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react'
-import { Sparkles, Filter, PlusCircle } from 'lucide-react'
+import { Sparkles, Filter, PlusCircle, CheckCircle2 } from 'lucide-react'
 import { PTE_TASK_META } from '../scoring/pteScoringEngine'
 import { generatePteQuestionWithAI } from '../utils/geminiClient'
 import PteTaskRunner from '../components/PteTaskRunner'
@@ -14,6 +14,7 @@ const SECTIONS = [
 
 export default function PracticeView({
   questions = [],
+  attempts = [],
   onAddCustomQuestion,
   onRecordAttempt,
 }) {
@@ -26,6 +27,18 @@ export default function PracticeView({
   const [aiTopic, setAiTopic] = useState('Australian Renewable Energy & Urban Ecology')
   const [isGenerating, setIsGenerating] = useState(false)
   const [aiError, setAiError] = useState('')
+
+  // Group attempts by itemId for quick lookup in sidebar and active runner
+  const attemptsByItem = useMemo(() => {
+    const map = new Map()
+    attempts.forEach(att => {
+      if (!att.itemId) return
+      const list = map.get(att.itemId) || []
+      list.push(att)
+      map.set(att.itemId, list)
+    })
+    return map
+  }, [attempts])
 
   const availableTaskTypes = useMemo(() => {
     const entries = Object.values(PTE_TASK_META)
@@ -48,6 +61,11 @@ export default function PracticeView({
       questions[0]
     )
   }, [filteredQuestions, activeItemId, questions])
+
+  const activeItemAttempts = useMemo(() => {
+    if (!activeItem) return []
+    return attemptsByItem.get(activeItem.id) || []
+  }, [activeItem, attemptsByItem])
 
   const handleGenerateAiItem = async e => {
     e.preventDefault()
@@ -146,7 +164,7 @@ export default function PracticeView({
                 type="text"
                 value={aiTopic}
                 onChange={e => setAiTopic(e.target.value)}
-                placeholder="e.g.,CSIRO Quantum Computing, Sydney Metro, Coral Bleaching..."
+                placeholder="e.g., CSIRO Quantum Computing, Sydney Metro, Coral Bleaching..."
               />
             </div>
             <button
@@ -169,23 +187,39 @@ export default function PracticeView({
             <span>Questions ({filteredQuestions.length})</span>
           </div>
           <div className="question-list-scroll">
-            {filteredQuestions.map(q => (
-              <button
-                key={q.id}
-                type="button"
-                className={`question-list-item ${activeItem?.id === q.id ? 'active' : ''}`}
-                onClick={() => setActiveItemId(q.id)}
-              >
-                <div className="q-item-top">
-                  <span className="q-code-badge">{q.taskType}</span>
-                  <span className="q-diff-badge">{q.difficulty || 'C1'}</span>
-                  {q.source === 'ai_generated' && (
-                    <span className="q-ai-badge">AI</span>
-                  )}
-                </div>
-                <span className="q-item-title">{q.title}</span>
-              </button>
-            ))}
+            {filteredQuestions.map(q => {
+              const qAttempts = attemptsByItem.get(q.id) || []
+              const bestScore =
+                qAttempts.length > 0
+                  ? Math.max(
+                      ...qAttempts.map(
+                        a => a.scores?.pteScaleEquivalent || a.scores?.percentage || 0
+                      )
+                    )
+                  : null
+              return (
+                <button
+                  key={q.id}
+                  type="button"
+                  className={`question-list-item ${activeItem?.id === q.id ? 'active' : ''}`}
+                  onClick={() => setActiveItemId(q.id)}
+                >
+                  <div className="q-item-top">
+                    <span className="q-code-badge">{q.taskType}</span>
+                    <span className="q-diff-badge">{q.difficulty || 'C1'}</span>
+                    {q.source === 'ai_generated' && (
+                      <span className="q-ai-badge">AI</span>
+                    )}
+                    {qAttempts.length > 0 && (
+                      <span className="q-history-badge" title="Completed attempts & best score">
+                        <CheckCircle2 size={11} /> {qAttempts.length}x • Best {bestScore}/90
+                      </span>
+                    )}
+                  </div>
+                  <span className="q-item-title">{q.title}</span>
+                </button>
+              )
+            })}
           </div>
         </aside>
 
@@ -193,6 +227,7 @@ export default function PracticeView({
           {activeItem ? (
             <PteTaskRunner
               item={activeItem}
+              itemAttempts={activeItemAttempts}
               onCompleteAttempt={onRecordAttempt}
             />
           ) : (

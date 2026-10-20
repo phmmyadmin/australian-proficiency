@@ -180,6 +180,7 @@ export default function App() {
         {activeTab === 'practice' && (
           <PracticeView
             questions={questions}
+            attempts={attempts}
             onAddCustomQuestion={handleAddCustomQuestion}
             onRecordAttempt={handleRecordAttempt}
           />
@@ -197,6 +198,8 @@ export default function App() {
         {activeTab === 'aussie-lab' && (
           <AussieListeningView
             videos={youtubeVideos}
+            attempts={attempts}
+            onRecordAttempt={handleRecordAttempt}
             onAddCustomVideo={handleAddCustomVideo}
             onSaveVocabCard={handleSaveSingleVocabCard}
           />

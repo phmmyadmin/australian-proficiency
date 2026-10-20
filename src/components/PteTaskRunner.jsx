@@ -26,6 +26,7 @@ import {
 
 export default function PteTaskRunner({
   item,
+  itemAttempts = [],
   onCompleteAttempt,
   examMode = false,
   onNextExamItem,
@@ -819,6 +820,135 @@ export default function PteTaskRunner({
                   </div>
                 </div>
               )}
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Per-Activity History of Past Responses & Scores */}
+      {!examMode && (
+        <div className="activity-history-section">
+          <div className="activity-history-header">
+            <h4>
+              <Clock size={17} /> Activity History — Saved Responses & Scores ({itemAttempts.length})
+            </h4>
+            <span className="subtle-caption">
+              Click any previous attempt to reload your response and inspect its full diagnostic breakdown
+            </span>
+          </div>
+
+          {itemAttempts.length === 0 ? (
+            <p className="subtle-caption">
+              No attempts saved for this activity yet. Submit a response above to save your score and answer history.
+            </p>
+          ) : (
+            <div className="activity-history-list">
+              {itemAttempts.map((att, idx) => {
+                const sc = att.scores || {}
+                const resp = att.userResponse || {}
+                const attemptNum = itemAttempts.length - idx
+                const dateLabel = att.createdAt
+                  ? new Date(att.createdAt).toLocaleString([], {
+                      month: 'short',
+                      day: 'numeric',
+                      hour: '2-digit',
+                      minute: '2-digit',
+                    })
+                  : 'Just now'
+
+                let responseSummaryText = ''
+                if (resp.transcript) {
+                  responseSummaryText = resp.transcript
+                } else if (resp.textAnswer) {
+                  responseSummaryText = resp.textAnswer
+                } else if (resp.blanks && Object.keys(resp.blanks).length > 0) {
+                  responseSummaryText = Object.entries(resp.blanks)
+                    .map(([k, v]) => `${k}: "${v}"`)
+                    .join(' • ')
+                } else if (Array.isArray(resp.selectedOptions) && resp.selectedOptions.length > 0) {
+                  responseSummaryText = `Selected options: ${resp.selectedOptions.join(', ')}`
+                } else if (resp.selectedOption) {
+                  responseSummaryText = `Selected option: ${resp.selectedOption}`
+                } else if (Array.isArray(resp.userOrder) && resp.userOrder.length > 0) {
+                  responseSummaryText = `Paragraph order: ${resp.userOrder.join(' → ')}`
+                } else if (Array.isArray(resp.selectedIndices) && resp.selectedIndices.length > 0) {
+                  const wordsPicked = resp.selectedIndices
+                    .map(i => (item.displayWords || [])[i])
+                    .filter(Boolean)
+                  responseSummaryText = `Highlighted words: ${wordsPicked.join(', ')}`
+                }
+
+                return (
+                  <div key={att.id || idx} className="activity-history-card">
+                    <div className="history-card-top">
+                      <div className="history-meta-left">
+                        <span className="history-attempt-badge">Attempt #{attemptNum}</span>
+                        <span className="history-date-label">{dateLabel}</span>
+                        <span className="history-raw-score">
+                          Score: <strong>{sc.rawPoints ?? 0}/{sc.maxPoints ?? 10}</strong> ({sc.percentage ?? 0}%)
+                        </span>
+                        <span className="history-pte-eq">
+                          {sc.pteScaleEquivalent ?? 65}/90 PTE Eq.
+                        </span>
+                      </div>
+
+                      <button
+                        type="button"
+                        className="btn-secondary-small"
+                        onClick={() => {
+                          if (resp.transcript !== undefined) setTranscript(resp.transcript)
+                          if (resp.textAnswer !== undefined) setTextAnswer(resp.textAnswer)
+                          if (resp.blanks) setBlanksState(resp.blanks)
+                          if (resp.selectedOptions) setSelectedOptions(resp.selectedOptions)
+                          if (resp.selectedOption !== undefined) setSelectedOption(resp.selectedOption)
+                          if (Array.isArray(resp.userOrder) && resp.userOrder.length > 0) {
+                            setUserOrder(resp.userOrder)
+                          }
+                          if (resp.selectedIndices) setSelectedWordIndices(resp.selectedIndices)
+                          setEvaluationResult(sc)
+                        }}
+                      >
+                        <RotateCcw size={13} /> Inspect / Load Attempt
+                      </button>
+                    </div>
+
+                    {/* Trait Subscores Row */}
+                    {sc.subscores && Object.keys(sc.subscores).length > 0 && (
+                      <div className="history-subscores-pills">
+                        {Object.entries(sc.subscores).map(([trait, tObj]) => (
+                          <span key={trait} className="history-trait-pill">
+                            {trait.toUpperCase()}: <strong>{tObj.score}{tObj.max > 0 ? `/${tObj.max}` : ''}</strong>
+                          </span>
+                        ))}
+                        {typeof sc.wpm === 'number' && sc.wpm > 0 && (
+                          <span className="history-trait-pill">
+                            PACE: <strong>{sc.wpm} WPM</strong>
+                          </span>
+                        )}
+                        {Array.isArray(sc.pauseLocations) && sc.pauseLocations.length > 0 && (
+                          <span className="history-trait-pill pause-gap-short">
+                            ⏸ EXTRA PAUSES: <strong>{sc.pauseLocations.length}</strong>
+                          </span>
+                        )}
+                      </div>
+                    )}
+
+                    {/* Saved User Response Box */}
+                    {responseSummaryText && (
+                      <div className="history-response-box">
+                        <strong>Saved Response:</strong> <span>{responseSummaryText}</span>
+                      </div>
+                    )}
+
+                    {/* Feedback Note */}
+                    {(sc.feedback || att.feedback?.text) && (
+                      <p className="history-feedback-note">
+                        {sc.feedback || att.feedback?.text}
+                      </p>
+                    )}
+                  </div>
+                )
+              })}
             </div>
           )}
         </div>

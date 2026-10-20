@@ -45,4 +45,31 @@ describe('FSRS-5 Spaced Repetition & Australian Proficiency App Integration', ()
     fireEvent.click(screen.getByRole('button', { name: /AI Vocab & Flashcards/i }))
     expect(screen.getByText(/FSRS-5 Vocabulary & Aussie Flashcards/i)).toBeInTheDocument()
   })
+
+  it('saves and displays per-activity response and score history when an exercise is evaluated', async () => {
+    render(<App />)
+
+    // Navigate to PTE Practice
+    fireEvent.click(screen.getByRole('button', { name: /PTE Practice/i }))
+    expect(screen.getByText(/Activity History — Saved Responses & Scores/i)).toBeInTheDocument()
+
+    // Enter a spoken transcript in Read Aloud and evaluate
+    const textarea = screen.getByPlaceholderText(
+      /Speak into your microphone or type\/paste your spoken response here/i
+    )
+    fireEvent.change(textarea, {
+      target: {
+        value:
+          'Researchers at the University of Melbourne have discovered that urban green corridors significantly reduce summertime surface temperatures.',
+      },
+    })
+
+    fireEvent.click(screen.getByRole('button', { name: /Evaluate Response & Show Score Breakdown/i }))
+
+    // Verify the attempt and saved response appear in the Activity History section
+    expect(await screen.findByText(/Attempt #1/i)).toBeInTheDocument()
+    expect(screen.getByText(/Saved Response:/i)).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /Inspect \/ Load Attempt/i })).toBeInTheDocument()
+  })
 })
+

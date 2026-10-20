@@ -9,6 +9,7 @@ import {
   PlusCircle,
   Sparkles,
   Headphones,
+  History,
 } from 'lucide-react'
 import { alignWordSequences, evaluateFluencyAndPronunciation } from '../scoring/pteScoringEngine'
 import {
@@ -29,6 +30,8 @@ function extractYoutubeId(input = '') {
 
 export default function AussieListeningView({
   videos = [],
+  attempts = [],
+  onRecordAttempt,
   onAddCustomVideo,
   onSaveVocabCard,
 }) {
@@ -52,11 +55,35 @@ export default function AussieListeningView({
   const activeVideo = videos.find(v => v.id === selectedVideoId) || videos[0]
   const activeSegment =
     activeVideo?.segments?.[activeSegmentIdx] || activeVideo?.segments?.[0]
+  const activeSegmentItemId =
+    activeVideo && activeSegment ? `${activeVideo.id}_${activeSegment.id}` : ''
+  const segmentAttempts = attempts.filter(a => a.itemId === activeSegmentItemId)
 
   const handleCheckDictation = () => {
     if (!activeSegment) return
     const alignment = alignWordSequences(activeSegment.transcript, dictationInput, false)
     setDictationResult(alignment)
+    if (onRecordAttempt && dictationInput.trim()) {
+      const pct = Math.round(alignment.accuracyRatio * 100)
+      onRecordAttempt({
+        id: `att_yt_dict_${Date.now()}`,
+        itemId: activeSegmentItemId,
+        taskType: 'yt_dictation',
+        section: 'Listening',
+        userResponse: { textAnswer: dictationInput },
+        scores: {
+          rawScore: alignment.matchedCount,
+          maxScore: alignment.totalRefWords,
+          percentage: pct,
+          pteEquivalent: Math.round(10 + alignment.accuracyRatio * 80),
+          subscores: {
+            matchedWords: `${alignment.matchedCount}/${alignment.totalRefWords}`,
+          },
+        },
+        feedback: `Aussie Dictation: ${alignment.matchedCount}/${alignment.totalRefWords} words matched (${pct}%).`,
+        createdAt: new Date().toISOString(),
+      })
+    }
   }
 
   const handleStartShadowing = () => {
@@ -76,9 +103,13 @@ export default function AussieListeningView({
     let pauseCount = 0
     let longPauseCount = 0
     let wordTimings = []
+    let finalTranscript = shadowTranscript
     if (window.__ausShadowSession) {
       const res = window.__ausShadowSession.stop()
-      if (res.transcript) setShadowTranscript(res.transcript)
+      if (res.transcript) {
+        finalTranscript = res.transcript
+        setShadowTranscript(res.transcript)
+      }
       durationSec = res.durationSec
       pauseCount = res.pauseCount
       longPauseCount = res.longPauseCount
@@ -87,12 +118,12 @@ export default function AussieListeningView({
     if (activeSegment) {
       const align = alignWordSequences(
         activeSegment.transcript,
-        shadowTranscript,
+        finalTranscript,
         false,
         wordTimings
       )
       const fp = evaluateFluencyAndPronunciation({
-        transcript: shadowTranscript,
+        transcript: finalTranscript,
         durationSec,
         pauseCount,
         longPauseCount,
@@ -101,6 +132,31 @@ export default function AussieListeningView({
         referenceWordCount: align.totalRefWords,
       })
       setShadowResult({ align, fp })
+      if (onRecordAttempt && finalTranscript.trim()) {
+        const raw = Number((fp.pronunciation + fp.oralFluency).toFixed(1))
+        const ratio = Math.min(1, raw / 10)
+        onRecordAttempt({
+          id: `att_yt_shad_${Date.now()}`,
+          itemId: activeSegmentItemId,
+          taskType: 'yt_shadowing',
+          section: 'Speaking',
+          userResponse: { transcript: finalTranscript },
+          scores: {
+            rawScore: raw,
+            maxScore: 10,
+            percentage: Math.round(ratio * 100),
+            pteEquivalent: Math.round(10 + ratio * 80),
+            subscores: {
+              pronunciation: fp.pronunciation,
+              oralFluency: fp.oralFluency,
+              wpm: fp.wpm,
+              extraPauses: fp.pauseLocations?.length || 0,
+            },
+          },
+          feedback: fp.fluencyComment,
+          createdAt: new Date().toISOString(),
+        })
+      }
     }
   }
 
@@ -459,6 +515,72 @@ export default function AussieListeningView({
                       })}
                     </div>
                     <p className="subtle-caption">{shadowResult.fp.fluencyComment}</p>
+                  </div>
+                )}
+              </div>
+
+              {/* 3. Segment Activity History */}
+              <div className="activity-history-section">
+                <div className="activity-history-header">
+                  <h4>
+                    <History size={16} /> Segment Activity History — Saved Responses & Scores
+                  </h4>
+                  <span className="pte-difficulty-pill">
+                    {segmentAttempts.length}{' '}
+                    {segmentAttempts.length === 1 ? 'Attempt' : 'Attempts'}
+                  </span>
+                </div>
+                {segmentAttempts.length === 0 ? (
+                  <p className="subtle-caption">
+                    No saved attempts for this segment yet. Check your dictation or evaluate shadowing above to save your response and score.
+                  </p>
+                ) : (
+                  <div className="activity-history-list">
+                    {segmentAttempts.map((att, idx) => {
+                      const attemptNum = segmentAttempts.length - idx
+                      const text =
+                        att.userResponse?.textAnswer ||
+                        att.userResponse?.transcript ||
+                        ''
+                      return (
+                        <div key={att.id || idx} className="activity-history-card">
+                          <div className="history-card-top">
+                            <div className="history-meta-left">
+                              <span className="history-attempt-badge">
+                                #{attemptNum} •{' '}
+                                {att.taskType === 'yt_dictation'
+                                  ? 'Dictation'
+                                  : 'Shadowing'}
+                              </span>
+                              <span className="subtle-caption">
+                                {att.createdAt
+                                  ? new Date(att.createdAt).toLocaleString()
+                                  : 'Just now'}
+                              </span>
+                            </div>
+                            <div className="history-scores-right">
+                              <span className="pte-code-pill">
+                                Score: {att.scores?.rawScore ?? 0}/
+                                {att.scores?.maxScore ?? 10} (
+                                {att.scores?.percentage ?? 0}%)
+                              </span>
+                              <span className="recent-attempt-eq">
+                                PTE {att.scores?.pteEquivalent ?? 10}/90
+                              </span>
+                            </div>
+                          </div>
+                          {text && (
+                            <div className="history-response-box">
+                              <span className="transcript-label">Saved Response:</span>
+                              <p className="history-response-text">{text}</p>
+                            </div>
+                          )}
+                          {att.feedback && (
+                            <p className="history-feedback-note">{att.feedback}</p>
+                          )}
+                        </div>
+                      )
+                    })}
                   </div>
                 )}
               </div>
