@@ -13,8 +13,8 @@ export default defineConfig({
         name: 'Australian Proficiency - PTE Academic & Aussie Listening Lab',
         short_name: 'AusProficiency',
         description: 'PTE Academic Practice, Mock Exams, Reverse-Engineered Scoring, Australian Accent YouTube Lab, and AI FSRS-5 Vocabulary Flashcards.',
-        theme_color: '#064e3b',
-        background_color: '#0b132b',
+        theme_color: '#FAFAF7',
+        background_color: '#FAFAF7',
         display: 'standalone',
         icons: [
           {

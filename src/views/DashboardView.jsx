@@ -24,10 +24,10 @@ export default function DashboardView({
   const dueCardsCount = vocabCards.filter(c => isDue(c.fsrs)).length
 
   const skills = [
-    { key: 'speaking', label: 'Speaking', score: report.communicativeScores.speaking, color: '#10b981' },
-    { key: 'writing', label: 'Writing', score: report.communicativeScores.writing, color: '#f59e0b' },
-    { key: 'reading', label: 'Reading', score: report.communicativeScores.reading, color: '#3b82f6' },
-    { key: 'listening', label: 'Listening', score: report.communicativeScores.listening, color: '#8b5cf6' },
+    { key: 'speaking', label: 'Speaking', score: report.communicativeScores.speaking, color: '#16A34A' },
+    { key: 'writing', label: 'Writing', score: report.communicativeScores.writing, color: '#D97706' },
+    { key: 'reading', label: 'Reading', score: report.communicativeScores.reading, color: '#2563EB' },
+    { key: 'listening', label: 'Listening', score: report.communicativeScores.listening, color: '#7C3AED' },
   ]
 
   const enablingList = [
