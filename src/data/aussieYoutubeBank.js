@@ -1,0 +1,201 @@
+/**
+ * Curated Australian English YouTube Listening Lab Bank
+ * Includes timestamped dictation segments, Australian phonetic breakdowns,
+ * comprehension quizzes, and extractable vocabulary for FSRS-5 flashcards.
+ */
+
+export const INITIAL_AUSSIE_VIDEOS = [
+  {
+    id: 'yt_aus_accent_01',
+    youtubeId: 'Znio724234Q',
+    title: 'Mastering the Australian Accent: Vowels, Intonation & Connected Speech',
+    channel: 'Aussie English & Phonetics Lab',
+    accentRegion: 'General Australian (Melbourne / Sydney)',
+    topic: 'Australian Phonetics & Connected Speech',
+    difficulty: 'C1',
+    segments: [
+      {
+        id: 'seg_1',
+        startSec: 12,
+        endSec: 26,
+        transcript: 'Australian English is non-rhotic, which means we drop the R sound at the end of words like car, water, and Melbourne.',
+        phoneticNote: 'Non-rhoticity: "car" -> /kɑː/, "water" -> /ˈwɔː.tə/ (flapped T + schwa ending), "Melbourne" -> /ˈmel.bən/.',
+      },
+      {
+        id: 'seg_2',
+        startSec: 35,
+        endSec: 50,
+        transcript: 'Notice how Australian speakers link words smoothly across vowel boundaries during fast academic lectures.',
+        phoneticNote: 'Intrusive /r/ and linking /r/ connect vowels smoothly without glottal stops.',
+      },
+      {
+        id: 'seg_3',
+        startSec: 65,
+        endSec: 82,
+        transcript: 'Whether you are preparing for university seminars or workplace meetings, listening for stress timing is essential.',
+        phoneticNote: 'Content words carry primary stress while function words reduce to weak schwa /ə/ forms.',
+      },
+    ],
+    comprehensionQuestions: [
+      {
+        question: 'What does it mean that Australian English is "non-rhotic"?',
+        options: [
+          'The /r/ sound is pronounced only before a vowel and dropped at the end of syllables.',
+          'Every vowel is pronounced with a rising question intonation.',
+          'Consonants at the beginning of words are omitted.',
+          'Words borrowed from British English are spelled phonetically.',
+        ],
+        correctIndex: 0,
+        explanation: 'In non-rhotic varieties like General Australian, post-vocalic /r/ (as in "car" or "water") is not pronounced unless followed by a vowel.',
+      },
+      {
+        question: 'How is the city name "Melbourne" typically pronounced by locals?',
+        options: [
+          '/ˈmel.bɔːrn/ with a strong rhotic "born"',
+          '/ˈmel.bən/ with an unstressed schwa in the second syllable',
+          '/ˈmæl.burn/ with a short flat A',
+          '/ˈmɪl.bɜːn/ with a long stressed final syllable',
+        ],
+        correctIndex: 1,
+        explanation: 'Australians reduce the second syllable of Melbourne to a quick schwa: /ˈmel.bən/.',
+      },
+    ],
+    vocabulary: [
+      {
+        word: 'Non-rhotic',
+        phoneticAu: '/nɒn ˈrəʊ.tɪk/',
+        category: 'Aussie Phonetics',
+        topic: 'Australian Accent',
+        meaningEn: 'An English accent in which /r/ is not pronounced after vowels (e.g., "teacher" ends in /ə/).',
+        australianContext: 'All three Australian accent varieties (Broad, General, Cultivated) are non-rhotic.',
+        exampleSentence: 'Understanding non-rhotic linking helps PTE candidates catch fast Write From Dictation sentences.',
+        synonyms: ['R-dropping'],
+        collocations: ['non-rhotic dialect', 'linking R'],
+      },
+      {
+        word: 'Arvo',
+        phoneticAu: '/ˈɑː.vəʊ/',
+        category: 'Aussie Slang',
+        topic: 'Australian Everyday Speech',
+        meaningEn: 'Afternoon (quintessential Australian clipping with -o suffix).',
+        australianContext: 'Used universally in casual Australian workplaces and campus conversations.',
+        exampleSentence: 'Let’s catch up this arvo in the library to review our laboratory data.',
+        synonyms: ['afternoon'],
+        collocations: ['this arvo', 'Sunday arvo'],
+      },
+    ],
+  },
+  {
+    id: 'yt_abc_housing_02',
+    youtubeId: 'dQw4w9WgXcQ',
+    title: 'ABC News In-Depth: Urban Density, Transport & Australia’s Future Cities',
+    channel: 'ABC News Australia Analysis',
+    accentRegion: 'Cultivated / General Australian (Sydney)',
+    topic: 'Urban Planning & Macroeconomics',
+    difficulty: 'C2',
+    segments: [
+      {
+        id: 'seg_201',
+        startSec: 15,
+        endSec: 30,
+        transcript: 'Medium-density housing around suburban rail corridors offers the most sustainable blueprint for growing Australian cities.',
+        phoneticNote: 'Listen to the diphthong shift in "rail" (/ræɪl/) and the crisp reduction in "sustainable" (/səˈstæɪ.nə.bəl/).',
+      },
+      {
+        id: 'seg_202',
+        startSec: 40,
+        endSec: 56,
+        transcript: 'Without coordinated investment in public transit and green spaces, outer suburban sprawl strains municipal budgets.',
+        phoneticNote: '"Suburban sprawl" and "municipal budgets" are high-frequency PTE Summarize Spoken Text collocations.',
+      },
+    ],
+    comprehensionQuestions: [
+      {
+        question: 'According to the broadcast, where should new medium-density housing be prioritized?',
+        options: [
+          'In remote agricultural floodplains far from rail lines',
+          'Around existing suburban railway and transit corridors',
+          'Exclusively inside national parks',
+          'Only in industrial port districts',
+        ],
+        correctIndex: 1,
+        explanation: 'Transit-oriented development around suburban rail stations maximizes existing infrastructure efficiency.',
+      },
+    ],
+    vocabulary: [
+      {
+        word: 'Urban sprawl',
+        phoneticAu: '/ˈɜː.bən sprɔːl/',
+        category: 'PTE Academic',
+        topic: 'Urban Planning',
+        meaningEn: 'The unrestricted expansion of low-density housing and roads across a large geographic area.',
+        australianContext: 'A central debate in Sydney, Melbourne, and Brisbane metropolitan planning.',
+        exampleSentence: 'Curbing outer urban sprawl is essential for preserving peri-urban agricultural land.',
+        synonyms: ['suburban expansion', 'conurbation'],
+        collocations: ['curb urban sprawl', 'unchecked sprawl'],
+      },
+      {
+        word: 'Hard yakka',
+        phoneticAu: '/hɑːd ˈjæk.ə/',
+        category: 'Aussie Idiom',
+        topic: 'Australian Workplace',
+        meaningEn: 'Strenuous, demanding physical or intellectual work (derived from Jagera Indigenous language "yaga").',
+        australianContext: 'Frequently heard in Australian journalism, engineering sites, and everyday speech.',
+        exampleSentence: 'Rebuilding regional infrastructure after the floods required months of hard yakka.',
+        synonyms: ['grueling labor', 'strenuous effort'],
+        collocations: ['put in the hard yakka'],
+      },
+    ],
+  },
+  {
+    id: 'yt_csiro_ecology_03',
+    youtubeId: 'M7lc1UVf-VE',
+    title: 'CSIRO Science Briefing: Biodiversity Conservation & Renewable Microgrids',
+    channel: 'CSIRO Australian Science',
+    accentRegion: 'General Australian (Canberra / Brisbane)',
+    topic: 'Environmental Science & Clean Tech',
+    difficulty: 'C1',
+    segments: [
+      {
+        id: 'seg_301',
+        startSec: 10,
+        endSec: 25,
+        transcript: 'Autonomous acoustic sensors deployed across Queensland rainforests allow ecologists to monitor endangered bird populations non-invasively.',
+        phoneticNote: '"Queensland" -> /ˈkwiːnz.lænd/ or /ˈkwiːnz.lənd/; notice the clear academic articulation.',
+      },
+      {
+        id: 'seg_302',
+        startSec: 32,
+        endSec: 48,
+        transcript: 'Integrating solar microgrids with community battery storage ensures reliable power for remote outback settlements.',
+        phoneticNote: '"Outback" (/ˈæɔt.bæk/) showcases the distinct Australian mouth diphthong in "out".',
+      },
+    ],
+    comprehensionQuestions: [
+      {
+        question: 'How do ecologists track endangered bird species across dense rainforests?',
+        options: [
+          'Using automated acoustic recording sensors and AI sound classification',
+          'By clearing rainforest corridors for helicopter surveys',
+          'By relying solely on satellite thermal imaging at night',
+          'Through manual tagging every week',
+        ],
+        correctIndex: 0,
+        explanation: 'Autonomous acoustic sensors record bird calls continuously without disturbing wildlife.',
+      },
+    ],
+    vocabulary: [
+      {
+        word: 'Non-invasive',
+        phoneticAu: '/nɒn ɪnˈvæɪ.sɪv/',
+        category: 'PTE Academic',
+        topic: 'Ecology & Medicine',
+        meaningEn: 'Not involving physical intrusion, damage, or disturbance to an organism or ecosystem.',
+        australianContext: 'High-frequency adjective in PTE Reading Fill in the Blanks and Retell Lecture.',
+        exampleSentence: 'Environmental DNA sampling provides a non-invasive method for surveying aquatic biodiversity.',
+        synonyms: ['nondestructive', 'unobtrusive'],
+        collocations: ['non-invasive monitoring', 'non-invasive diagnostics'],
+      },
+    ],
+  },
+]

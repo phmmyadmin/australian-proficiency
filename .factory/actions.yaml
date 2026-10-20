@@ -1,0 +1,7 @@
+actions:
+  - id: run_tests
+    label: "Run Vitest Suite"
+    command: "npm test"
+  - id: build_pwa
+    label: "Build Production PWA"
+    command: "npm run build"
