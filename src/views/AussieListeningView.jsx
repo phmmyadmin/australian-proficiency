@@ -25,7 +25,7 @@ function extractYoutubeId(input = '') {
   const match = trimmed.match(reg)
   if (match) return match[1]
   if (/^[A-Za-z0-9_-]{11}$/.test(trimmed)) return trimmed
-  return '1b5SpVOjy_0'
+  return 'OgVW3qQwCoA'
 }
 
 export default function AussieListeningView({
@@ -35,7 +35,7 @@ export default function AussieListeningView({
   onAddCustomVideo,
   onSaveVocabCard,
 }) {
-  const [selectedVideoId, setSelectedVideoId] = useState(videos[0]?.id || 'yt_aus_accent_01')
+  const [selectedVideoId, setSelectedVideoId] = useState(videos[0]?.id || 'yt_josh_milking_01')
   const [activeSegmentIdx, setActiveSegmentIdx] = useState(0)
   const [dictationInput, setDictationInput] = useState('')
   const [dictationResult, setDictationResult] = useState(null)
