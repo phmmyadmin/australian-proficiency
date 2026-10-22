@@ -1,6 +1,8 @@
 /**
  * Curated Australian English YouTube Listening Lab Bank
- * Featured Channel: Josh's Farming Moments (@JoshsFarmingMoments — UCZMRBd6FXKkmpN_ZBlTVPgA)
+ * Featured Channels:
+ * - Josh's Farming Moments (@JoshsFarmingMoments — Australian Dairy Farming)
+ * - The Once A Day Farmer (@theonceadayfarmer — Down Under Dairy & Pastoral Farming)
  * Authentic Regional & Broad/General Australian English (Dairy Farming, Irrigation, Pastures & Rural Economics)
  * Plus Australian News, Science & Phonetics (ABC News, CSIRO, NEO English).
  * All video IDs are verified playableInEmbed=true on YouTube.
@@ -404,6 +406,403 @@ export const INITIAL_AUSSIE_VIDEOS = [
           'We wrapped two hundred bales of ryegrass silage to feed out during autumn.',
         synonyms: ['fermented fodder', 'haylage'],
         collocations: ['silage bales', 'feed out silage'],
+      },
+    ],
+  },
+  {
+    id: 'yt_farmer_selling_01',
+    youtubeId: 'HRDVHGuEgbA',
+    title: 'Farms Are Selling Like Crazy! Is It Time? || The Once A Day Farmer',
+    channel: 'The Once A Day Farmer',
+    accentRegion: 'Broad / Regional Australasian (Rural Down Under Pasture Dialect)',
+    topic: 'Rural Land Values, Heifer Insemination (AB), Cattle Weighing & Farmgate Economics',
+    difficulty: 'C1/C2',
+    segments: [
+      {
+        id: 'seg_farmer_ab_1',
+        startSec: 15,
+        endSec: 42,
+        transcript:
+          'It feels like it is all go at the moment with AB, and today we are heading down to inseminate the last of the heifers who can go out with the bull after this.',
+        phoneticNote:
+          'Down Under connected speech: "all go at the moment" -> /ɔːl ɡəʊ æt ðə ˈməʊ.mənt/; notice non-rhotic "heifers" /ˈhef.əz/ and centralized vowel in "bull" /bʊl/.',
+      },
+      {
+        id: 'seg_farmer_weighing_2',
+        startSec: 525,
+        endSec: 555,
+        transcript:
+          'Monitoring pasture covers and weighing the young stock regularly gives us the exact growth rates we need before the dry summer sets in.',
+        phoneticNote:
+          'Regional pastoral terms: "pasture covers" /ˈpɑːs.tʃə ˈkʌv.əz/ with non-rhotic schwa, flapped /t/ in "rates", and reduced vowel in "before".',
+      },
+      {
+        id: 'seg_farmer_market_3',
+        startSec: 840,
+        endSec: 872,
+        transcript:
+          'Dairy farms in the local area have been selling for really strong prices lately, which gets you thinking about equity, land valuation, and future plans.',
+        phoneticNote:
+          'Economic and real estate vocabulary spoken at rapid conversational rural cadence: "valuation" /ˌvæl.juˈæɪ.ʃən/ with fronted diphthong /æɪ/.',
+      },
+    ],
+    comprehensionQuestions: [
+      {
+        question:
+          'Why is completing the heifer artificial breeding (AB) program important for daily farm operations?',
+        options: [
+          'It frees up daily labor by allowing the heifers to run with the stock bull rather than requiring continuous monitoring for heats',
+          'It forces the immediate sale of all milking cows',
+          'It requires importing hay from North America',
+          'It permanently shuts down the milking platform',
+        ],
+        correctIndex: 0,
+        explanation:
+          'Once artificial insemination rounds conclude, heifers are turned out with a bull, freeing the farmer from daily sorting and insemination duties.',
+      },
+      {
+        question:
+          'What market trend prompted the farmer to reflect on long-term dairy property decisions?',
+        options: [
+          'High transaction prices and strong demand for neighbouring dairy farms in the district',
+          'A sudden drop in global milk solids values',
+          'The complete loss of seasonal groundwater permits',
+          'Severe winter flooding across the lower paddocks',
+        ],
+        correctIndex: 0,
+        explanation:
+          'Strong rural property sales in his local area highlighted rising capital equity and prompted reflection on farm succession and valuation.',
+      },
+    ],
+    vocabulary: [
+      {
+        word: 'Heifer',
+        phoneticAu: '/ˈhef.ə/',
+        category: 'Livestock & Rural Vocabulary',
+        topic: 'Pastoral Farming',
+        meaningEn:
+          'A young female cow that has not yet borne a calf, or has borne only one calf.',
+        australianContext:
+          'Fundamental pastoral term across Australia and New Zealand. Spoken with a non-rhotic schwa ending.',
+        exampleSentence:
+          'Weighed heifers must hit minimum target weights before joining the breeding herd.',
+        synonyms: ['young cow', 'replacement heifer'],
+        collocations: ['rising two-year-old heifer', 'heifer grazing'],
+      },
+      {
+        word: 'AB (Artificial Breeding)',
+        phoneticAu: '/ˌeɪ ˈbiː/',
+        category: 'Agricultural Terminology',
+        topic: 'Dairy Genetics',
+        meaningEn:
+          'The widespread practice of artificial insemination in livestock to improve herd genetics and timing of calving.',
+        australianContext:
+          'In Australia and NZ, farmers and genetics companies almost exclusively use the abbreviation "AB" rather than "AI".',
+        exampleSentence:
+          'The four-week AB period determines the peak calving dates for the following spring.',
+        synonyms: ['artificial insemination', 'AI'],
+        collocations: ['AB technician', 'synchronized AB program'],
+      },
+      {
+        word: 'Pasture cover',
+        phoneticAu: '/ˈpɑːs.tʃə ˈkʌv.ə/',
+        category: 'Agronomy & Management',
+        topic: 'Pasture Grazing',
+        meaningEn:
+          'The estimated total mass of edible dry matter grass available per hectare across a farm.',
+        australianContext:
+          'Central metric used by Australian and NZ rotational graziers to allocate daily paddock feed.',
+        exampleSentence:
+          'Measuring weekly pasture cover ensures cows receive enough dry matter before paddocks get overgrazed.',
+        synonyms: ['grass cover', 'forage availability'],
+        collocations: ['average farm pasture cover', 'pasture cover wedge'],
+      },
+      {
+        word: 'Runoff block',
+        phoneticAu: '/ˈrʌn.ɒf blɒk/',
+        category: 'Rural Real Estate & Land',
+        topic: 'Farm Topography',
+        meaningEn:
+          'A separate support farm or parcel of land used for wintering cows, grazing dry stock, or making silage away from the main milking dairy.',
+        australianContext:
+          'Crucial concept in Down Under dairy economics: separates high-value milking platform land from support grazing.',
+        exampleSentence:
+          'Heifers spend their first winter grazing on the dry runoff block before returning to the home farm.',
+        synonyms: ['support block', 'out-farm'],
+        collocations: ['lease a runoff block', 'dry stock runoff'],
+      },
+    ],
+  },
+  {
+    id: 'yt_farmer_oad_02',
+    youtubeId: '7JTgFz2wVwo',
+    title: "I'm Going Back To OAD Milking || Once-A-Day vs Twice-A-Day & Herd Testing",
+    channel: 'The Once A Day Farmer',
+    accentRegion: 'Broad / Regional Australasian (Rural Down Under)',
+    topic: 'Once-A-Day (OAD) Milking Strategy, Somatic Cell Counts (SCC) & Farm Labor Efficiency',
+    difficulty: 'C1',
+    segments: [
+      {
+        id: 'seg_oad_test_1',
+        startSec: 10,
+        endSec: 38,
+        transcript:
+          'This is our first herd test since finishing the shed upgrade, and we want to see how the cows are performing for milk volume and somatic cell count.',
+        phoneticNote:
+          'High-frequency Australian/NZ dairy terms: "shed upgrade" and "somatic cell count" (/səˈmæt.ɪk sel kæʊnt/).',
+      },
+      {
+        id: 'seg_oad_lifestyle_2',
+        startSec: 580,
+        endSec: 610,
+        transcript:
+          'Switching back to once a day milking reduces cow walking distances, protects pasture lanes, and gives us tremendous lifestyle balance without sacrificing herd condition.',
+        phoneticNote:
+          'Notice non-rhotic "distances" and "condition", and the rapid reduction of "once a day" to /wʌns ə dæɪ/.',
+      },
+    ],
+    comprehensionQuestions: [
+      {
+        question:
+          'What are the main operational advantages of Once-A-Day (OAD) milking emphasized in this video?',
+        options: [
+          'Reduced cow walking fatigue, less track wear, and dramatically improved work-life balance for the farmer',
+          'Doubling total dairy output within forty-eight hours',
+          'Eliminating the need for milking machinery altogether',
+          'Replacing pasture grass with grain-only diets',
+        ],
+        correctIndex: 0,
+        explanation:
+          'OAD milking minimizes physical wear on cows and tracks while eliminating afternoon milking sessions, giving farmers time for family and farm projects.',
+      },
+    ],
+    vocabulary: [
+      {
+        word: 'OAD Milking (Once A Day)',
+        phoneticAu: '/ˌwʌns ə ˈdæɪ ˈmɪl.kɪŋ/',
+        category: 'Dairy Management',
+        topic: 'Milking Systems',
+        meaningEn:
+          'The practice of milking the herd only once in every 24-hour cycle rather than the conventional twice daily (TAD).',
+        australianContext:
+          'A major trend in Australia and NZ to improve farm sustainability, animal welfare, and lifestyle.',
+        exampleSentence:
+          'Adopting full-season OAD milking allowed the family to run the dairy farm without outside hired labor.',
+        synonyms: ['single milking system'],
+        collocations: ['full-season OAD', 'transition to OAD'],
+      },
+      {
+        word: 'Somatic Cell Count (SCC)',
+        phoneticAu: '/səˈmæt.ɪk sel kæʊnt/',
+        category: 'Quality Benchmarks',
+        topic: 'Milk Science',
+        meaningEn:
+          'The number of white blood cells per millilitre of milk, serving as the international indicator of udder health and mastitis.',
+        australianContext:
+          'Milk companies pay significant quality premiums or impose financial penalties based on bulk tank SCC thresholds.',
+        exampleSentence:
+          'Regular herd testing identifies individual cows with high somatic cell count so they can be treated promptly.',
+        synonyms: ['cell count', 'SCC'],
+        collocations: ['low somatic cell count', 'bulk milk SCC penalty'],
+      },
+    ],
+  },
+  {
+    id: 'yt_farmer_silage_03',
+    youtubeId: 'b_ebsN8r7J8',
+    title: 'The Irish Are Here! Spring Silage In New Zealand || Pasture Surplus & Baling',
+    channel: 'The Once A Day Farmer',
+    accentRegion: 'Broad / Regional Australasian (Rural Down Under)',
+    topic: 'Spring Pasture Flush, Silage Conservation, Machinery Contractors & Seasonal Labor',
+    difficulty: 'C1',
+    segments: [
+      {
+        id: 'seg_silage_flush_1',
+        startSec: 20,
+        endSec: 48,
+        transcript:
+          'We have had a massive flush of spring pasture growth, so we have locked up the surplus paddocks to drop and bale for summer supplementary feed.',
+        phoneticNote:
+          '"Spring flush" is the rapid pasture surge in September–November in the Southern Hemisphere, spoken with open vowel /æ/ in "pasture".',
+      },
+      {
+        id: 'seg_silage_baling_2',
+        startSec: 485,
+        endSec: 515,
+        transcript:
+          'The agricultural contractors arrived with the round baler and wrapper to wrap the silage while the dry matter percentage is optimal.',
+        phoneticNote:
+          'Australasian pronunciation of "baler" (/ˈbæɪ.lə/) and "contractor" (/kənˈtræk.tə/) with non-rhotic endings.',
+      },
+    ],
+    comprehensionQuestions: [
+      {
+        question:
+          'Why do pasture graziers "lock up" paddocks to make silage during the spring flush?',
+        options: [
+          'To harvest and conserve surplus grass that exceeds immediate herd appetite, preventing grass from becoming rank and woody',
+          'To keep weeds from blowing onto neighbours properties',
+          'To build residential housing on the pasture',
+          'To let cows sleep in the sun without interruptions',
+        ],
+        correctIndex: 0,
+        explanation:
+          'Locking up paddocks removes them from the grazing round so they can grow to optimal cutting yield, conserving high-quality forage for summer dry spells.',
+      },
+    ],
+    vocabulary: [
+      {
+        word: 'Spring flush',
+        phoneticAu: '/sprɪŋ flʌʃ/',
+        category: 'Seasonal Agronomy',
+        topic: 'Pastoral Growth',
+        meaningEn:
+          'The period in early spring when warm soil temperatures and rainfall cause exceptionally fast grass and clover growth.',
+        australianContext:
+          'Critical period across Victorian and Australasian dairying when feed supply outstrips cow demand.',
+        exampleSentence:
+          'During the spring flush, farmers must mow and bale grass quickly to keep pastures sweet and leafy.',
+        synonyms: ['spring growth peak'],
+        collocations: ['manage the spring flush', 'surplus spring flush'],
+      },
+      {
+        word: 'Silage bale',
+        phoneticAu: '/ˈsaɪ.lɪdʒ bæɪl/',
+        category: 'Forage Conservation',
+        topic: 'Feed Storage',
+        meaningEn:
+          'A dense, round or square compressed bale of semi-wilted forage wrapped airtight in plastic film to undergo lactic acid fermentation.',
+        australianContext:
+          'Ubiquitous feed reserve seen on roadside paddocks across southern Australia and New Zealand.',
+        exampleSentence:
+          'Feeding out two silage bales per day kept the milking herd producing well during the January heatwave.',
+        synonyms: ['wrapped bale', 'balage'],
+        collocations: ['wrap silage bales', 'feed out silage'],
+      },
+    ],
+  },
+  {
+    id: 'yt_farmer_airace_04',
+    youtubeId: 'dKju_-DyhqA',
+    title: 'Dad Gets To Use The New AI Race For The First Time || Sexed Semen & Cattle Handling',
+    channel: 'The Once A Day Farmer',
+    accentRegion: 'Broad / Regional Australasian (Rural Down Under)',
+    topic: 'Livestock Facilities, Artificial Insemination Race, Sexed Semen Economics & Herd Genetics',
+    difficulty: 'C1',
+    segments: [
+      {
+        id: 'seg_airace_chute_1',
+        startSec: 25,
+        endSec: 52,
+        transcript:
+          'Getting the cows lined up in the new AI race makes breeding so much safer and smoother for both the handler and the stock.',
+        phoneticNote:
+          'Notice the word "race" (/ræɪs/) meaning a narrow chute or single-file laneway for livestock, unique to Australian & NZ farming.',
+      },
+      {
+        id: 'seg_airace_genetics_2',
+        startSec: 280,
+        endSec: 310,
+        transcript:
+          'Using sexed semen on our top replacement heifers maximizes our heifer calf numbers while breeding the lower tier to beef bulls.',
+        phoneticNote:
+          'Genetic management terms: "replacement heifers", "sexed semen" (/sekst ˈsiː.mən/).',
+      },
+    ],
+    comprehensionQuestions: [
+      {
+        question:
+          'What is an "AI race" in Australian and New Zealand pastoral farming?',
+        options: [
+          'A narrow, single-file fenced handling chute designed to safely restrain cattle for breeding or veterinary checks',
+          'A horse race held at rural agricultural shows',
+          'A competitive speed-milking contest between local farmers',
+          'An algorithm that calculates tractor fuel efficiency',
+        ],
+        correctIndex: 0,
+        explanation:
+          'A race is a narrow cattle alleyway where animals move in single file, allowing operators to work safely behind or alongside them.',
+      },
+    ],
+    vocabulary: [
+      {
+        word: 'Cattle race',
+        phoneticAu: '/ˈkæt.əl ræɪs/',
+        category: 'Farm Infrastructure',
+        topic: 'Livestock Handling',
+        meaningEn:
+          'A narrow, fenced passage or chute along which cattle move in single file to a drafting gate, crush, or milking pit.',
+        australianContext:
+          'Essential fixture in every Australian and NZ farm yard. In North America, often called an "alley" or "chute".',
+        exampleSentence:
+          'The farmer guided twenty cows into the cattle race to inspect their ear tags.',
+        synonyms: ['chute', 'handling alley'],
+        collocations: ['drafting race', 'concrete cattle race'],
+      },
+      {
+        word: 'Sexed semen',
+        phoneticAu: '/sekst ˈsiː.mən/',
+        category: 'Biotechnology & Genetics',
+        topic: 'Animal Breeding',
+        meaningEn:
+          'Bovine semen that has been sorted through flow cytometry to guarantee approximately 90% female offspring.',
+        australianContext:
+          'Standard tool on modern high-performing Australasian dairy farms to generate replacement cows efficiently.',
+        exampleSentence:
+          'Investing in sexed semen ensures high genetic merit heifer calves while minimizing unwanted bobby calves.',
+        synonyms: ['gender-sorted semen'],
+        collocations: ['inseminate with sexed semen', 'conception rate of sexed semen'],
+      },
+    ],
+  },
+  {
+    id: 'yt_farmer_maize_05',
+    youtubeId: 'uKjOtVv_t-4',
+    title: 'First Time Using Cling Film On My Maize Stack...Has It Worked?? || Forage Preservation',
+    channel: 'The Once A Day Farmer',
+    accentRegion: 'Broad / Regional Australasian (Rural Down Under)',
+    topic: 'Maize Silage Bunker Management, Oxygen Barrier Film & Feed Storage Preservation',
+    difficulty: 'C1',
+    segments: [
+      {
+        id: 'seg_maize_cling_1',
+        startSec: 30,
+        endSec: 58,
+        transcript:
+          'Sealing the maize silage stack with an oxygen barrier film prevents top layer spoilage and locks in high energy starch for winter feeding.',
+        phoneticNote:
+          'Agricultural vocabulary: "silage stack" (/ˈsaɪ.lɪdʒ stæk/), non-rhotic "barrier" and "layer".',
+      },
+    ],
+    comprehensionQuestions: [
+      {
+        question:
+          'Why is an oxygen barrier film used when packing a maize silage stack?',
+        options: [
+          'It adheres tightly to the forage, blocking oxygen penetration to eliminate top-layer mold and nutrient spoilage',
+          'It makes the stack glow in the dark for night inspections',
+          'It increases the moisture content to 95 percent',
+          'It repels rainfall without requiring any weighted tyres',
+        ],
+        correctIndex: 0,
+        explanation:
+          'Oxygen barrier plastic clings to the crop surface, maintaining an anaerobic seal that stops fungal yeast and mold from spoiling the silage.',
+      },
+    ],
+    vocabulary: [
+      {
+        word: 'Maize silage',
+        phoneticAu: '/mæɪz ˈsaɪ.lɪdʒ/',
+        category: 'Forage Crops & Nutrition',
+        topic: 'Dairy Feeding',
+        meaningEn:
+          'Chopped whole-plant corn fermented in a bunker or pit to provide high-energy starch supplementation for ruminants.',
+        australianContext:
+          'Crucial supplementary feed in southern Australia and NZ when pasture protein is high but carbohydrates are limited.',
+        exampleSentence:
+          'Feeding maize silage alongside leafy spring clover balances rumen nitrogen and boosts milk solids.',
+        synonyms: ['corn silage'],
+        collocations: ['maize silage pit', 'harvest maize silage'],
       },
     ],
   },

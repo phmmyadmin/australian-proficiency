@@ -36,6 +36,7 @@ export default function AussieListeningView({
   onSaveVocabCard,
 }) {
   const [selectedVideoId, setSelectedVideoId] = useState(videos[0]?.id || 'yt_josh_milking_01')
+  const [selectedChannel, setSelectedChannel] = useState('ALL')
   const [activeSegmentIdx, setActiveSegmentIdx] = useState(0)
   const [dictationInput, setDictationInput] = useState('')
   const [dictationResult, setDictationResult] = useState(null)
@@ -45,6 +46,12 @@ export default function AussieListeningView({
   const [shadowResult, setShadowResult] = useState(null)
   const [quizAnswers, setQuizAnswers] = useState({})
   const [addedWordsMap, setAddedWordsMap] = useState({})
+
+  const channels = ['ALL', ...Array.from(new Set(videos.map(v => v.channel || 'Other')))]
+  const filteredVideos =
+    selectedChannel === 'ALL'
+      ? videos
+      : videos.filter(v => v.channel === selectedChannel)
 
   const [showAddModal, setShowAddModal] = useState(false)
   const [newYtUrl, setNewYtUrl] = useState('')
@@ -305,9 +312,38 @@ export default function AussieListeningView({
         </form>
       )}
 
+      {/* Channel Filters */}
+      <div className="section-tabs" style={{ marginBottom: '0.6rem', display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+        {channels.map(ch => {
+          const count = ch === 'ALL' ? videos.length : videos.filter(v => v.channel === ch).length
+          const label = ch === 'ALL' ? `All Channels (${count})` : `${ch} (${count})`
+          return (
+            <button
+              key={ch}
+              type="button"
+              className={`section-tab ${selectedChannel === ch ? 'active' : ''}`}
+              style={{ padding: '0.35rem 0.85rem', fontSize: '0.85rem' }}
+              onClick={() => {
+                setSelectedChannel(ch)
+                const firstInChannel = ch === 'ALL' ? videos[0] : videos.find(v => v.channel === ch)
+                if (firstInChannel) {
+                  setSelectedVideoId(firstInChannel.id)
+                  setActiveSegmentIdx(0)
+                  setDictationInput('')
+                  setDictationResult(null)
+                  setShadowResult(null)
+                }
+              }}
+            >
+              {label}
+            </button>
+          )
+        })}
+      </div>
+
       {/* Video Selector Pills */}
       <div className="task-type-pills-scroll">
-        {videos.map(v => (
+        {filteredVideos.map(v => (
           <button
             key={v.id}
             type="button"
