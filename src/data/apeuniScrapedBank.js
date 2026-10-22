@@ -1,6 +1,11 @@
 /**
  * Official APEUni Scraped & Decrypted Question Bank + Full Mock Test Replays
  * All media (MP3s, images, user recordings) downloaded to /apeuni_media for 100% offline access!
+ * Includes:
+ * - 【VIP Full Test】PTE Mock Test 45C (65 items + baseline attempts)
+ * - 【VIP Full Test】PTE Mock Test 44B (65 items + baseline attempts, score 71/90)
+ * - 【Full Exam】PTE Mock Test A (ID: 850) (65 items offline)
+ * - Complete Scraped Practice Bank (total: 1179 real exam items)
  */
 
 export const APEUNI_MOCK_45C_IDS = [
@@ -69,6 +74,74 @@ export const APEUNI_MOCK_45C_IDS = [
   "ape_wfd_1986",
   "ape_wfd_48",
   "ape_wfd_1059"
+];
+
+export const APEUNI_MOCK_44B_IDS = [
+  "ape_ra_672",
+  "ape_ra_911",
+  "ape_ra_1381",
+  "ape_ra_1224",
+  "ape_ra_1222",
+  "ape_ra_916",
+  "ape_rs_1220",
+  "ape_rs_1384",
+  "ape_rs_1441",
+  "ape_rs_1495",
+  "ape_rs_1502",
+  "ape_rs_2325",
+  "ape_rs_1261",
+  "ape_rs_2836",
+  "ape_rs_2834",
+  "ape_rs_2831",
+  "ape_di_1190",
+  "ape_di_1108",
+  "ape_di_1101",
+  "ape_di_1136",
+  "ape_di_1063",
+  "ape_rl_645",
+  "ape_rl_560",
+  "ape_asq_990",
+  "ape_asq_996",
+  "ape_asq_997",
+  "ape_asq_1555",
+  "ape_asq_1004",
+  "ape_sgd_76",
+  "ape_sgd_77",
+  "ape_rts_112",
+  "ape_rts_107",
+  "ape_swt_240",
+  "ape_swt_246",
+  "ape_we_459",
+  "ape_rwfib_1057",
+  "ape_rwfib_1065",
+  "ape_rwfib_1070",
+  "ape_rwfib_1071",
+  "ape_rwfib_1087",
+  "ape_mcma_r_2",
+  "ape_mcma_r_5",
+  "ape_rop_759",
+  "ape_rop_745",
+  "ape_rfib_979",
+  "ape_rfib_974",
+  "ape_rfib_975",
+  "ape_rfib_977",
+  "ape_mcsa_r_132",
+  "ape_mcsa_r_131",
+  "ape_sst_723",
+  "ape_mcma_l_18",
+  "ape_mcma_l_5",
+  "ape_lfib_1",
+  "ape_lfib_2",
+  "ape_hcs_30",
+  "ape_hcs_83",
+  "ape_mcsa_l_18",
+  "ape_mcsa_l_16",
+  "ape_smw_50",
+  "ape_hiw_83",
+  "ape_hiw_241",
+  "ape_wfd_1549",
+  "ape_wfd_1932",
+  "ape_wfd_2046"
 ];
 
 export const APEUNI_MOCK_A_IDS = [
@@ -1872,6 +1945,2023 @@ export const APEUNI_MOCK_45C_ATTEMPTS = [
     },
     "durationSec": 60,
     "createdAt": "2026-10-21T15:30:00.000Z"
+  }
+];
+
+export const APEUNI_MOCK_44B_ATTEMPTS = [
+  {
+    "id": "att_mock44b_ape_ra_672",
+    "itemId": "ape_ra_672",
+    "taskType": "RA",
+    "section": "speaking",
+    "isMock44BBaseline": true,
+    "userAudioUrl": "/apeuni_media/recordings_mock_44b/RA672_2026-10-22_11_20_02-186d.wav",
+    "userResponse": {
+      "text": null,
+      "transcript": "[Mock Test 44B Audio Recording — 21s]",
+      "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/300/338/364/original/RA672_2026-10-22_11_20_02-186d.wav?1792639203"
+    },
+    "scores": {
+      "taskType": "RA",
+      "section": "speaking",
+      "rawPoints": 57,
+      "maxPoints": 90,
+      "percentage": 63,
+      "pteScaleEquivalent": 57,
+      "subscores": {
+        "content": 66,
+        "pronunciation": 55,
+        "fluency": 55
+      },
+      "feedback": "[Mock Test 44B Official Result: 57/90]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 57/90]"
+    },
+    "durationSec": 21,
+    "createdAt": "2026-10-22T11:18:57.775+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_ra_911",
+    "itemId": "ape_ra_911",
+    "taskType": "RA",
+    "section": "speaking",
+    "isMock44BBaseline": true,
+    "userAudioUrl": "/apeuni_media/recordings_mock_44b/RA911_2026-10-22_11_20_58-186d.wav",
+    "userResponse": {
+      "text": null,
+      "transcript": "[Mock Test 44B Audio Recording — 25s]",
+      "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/300/339/638/original/RA911_2026-10-22_11_20_58-186d.wav?1792639258"
+    },
+    "scores": {
+      "taskType": "RA",
+      "section": "speaking",
+      "rawPoints": 72,
+      "maxPoints": 90,
+      "percentage": 80,
+      "pteScaleEquivalent": 72,
+      "subscores": {
+        "content": 80,
+        "pronunciation": 69,
+        "fluency": 71
+      },
+      "feedback": "[Mock Test 44B Official Result: 72/90]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 72/90]"
+    },
+    "durationSec": 25,
+    "createdAt": "2026-10-22T11:19:57.186+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_ra_1381",
+    "itemId": "ape_ra_1381",
+    "taskType": "RA",
+    "section": "speaking",
+    "isMock44BBaseline": true,
+    "userAudioUrl": "/apeuni_media/recordings_mock_44b/RA1381_2026-10-22_11_22_10-186d.wav",
+    "userResponse": {
+      "text": null,
+      "transcript": "[Mock Test 44B Audio Recording — 27s]",
+      "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/300/341/116/original/RA1381_2026-10-22_11_22_10-186d.wav?1792639330"
+    },
+    "scores": {
+      "taskType": "RA",
+      "section": "speaking",
+      "rawPoints": 53,
+      "maxPoints": 90,
+      "percentage": 59,
+      "pteScaleEquivalent": 53,
+      "subscores": {
+        "content": 62,
+        "pronunciation": 51,
+        "fluency": 52
+      },
+      "feedback": "[Mock Test 44B Official Result: 53/90]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 53/90]"
+    },
+    "durationSec": 27,
+    "createdAt": "2026-10-22T11:21:07.164+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_ra_1224",
+    "itemId": "ape_ra_1224",
+    "taskType": "RA",
+    "section": "speaking",
+    "isMock44BBaseline": true,
+    "userAudioUrl": "/apeuni_media/recordings_mock_44b/RA1224_2026-10-22_11_23_07-186d.wav",
+    "userResponse": {
+      "text": null,
+      "transcript": "[Mock Test 44B Audio Recording — 25s]",
+      "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/300/342/446/original/RA1224_2026-10-22_11_23_07-186d.wav?1792639387"
+    },
+    "scores": {
+      "taskType": "RA",
+      "section": "speaking",
+      "rawPoints": 49,
+      "maxPoints": 90,
+      "percentage": 54,
+      "pteScaleEquivalent": 49,
+      "subscores": {
+        "content": 53,
+        "pronunciation": 43,
+        "fluency": 53
+      },
+      "feedback": "[Mock Test 44B Official Result: 49/90]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 49/90]"
+    },
+    "durationSec": 25,
+    "createdAt": "2026-10-22T11:22:06.426+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_ra_1222",
+    "itemId": "ape_ra_1222",
+    "taskType": "RA",
+    "section": "speaking",
+    "isMock44BBaseline": true,
+    "userAudioUrl": "/apeuni_media/recordings_mock_44b/RA1222_2026-10-22_11_24_12-186d.wav",
+    "userResponse": {
+      "text": null,
+      "transcript": "[Mock Test 44B Audio Recording — 25s]",
+      "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/300/343/835/original/RA1222_2026-10-22_11_24_12-186d.wav?1792639452"
+    },
+    "scores": {
+      "taskType": "RA",
+      "section": "speaking",
+      "rawPoints": 48,
+      "maxPoints": 90,
+      "percentage": 53,
+      "pteScaleEquivalent": 48,
+      "subscores": {
+        "content": 53,
+        "pronunciation": 41,
+        "fluency": 54
+      },
+      "feedback": "[Mock Test 44B Official Result: 48/90]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 48/90]"
+    },
+    "durationSec": 25,
+    "createdAt": "2026-10-22T11:23:08.769+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_ra_916",
+    "itemId": "ape_ra_916",
+    "taskType": "RA",
+    "section": "speaking",
+    "isMock44BBaseline": true,
+    "userAudioUrl": "/apeuni_media/recordings_mock_44b/RA916_2026-10-22_11_25_12-186d.wav",
+    "userResponse": {
+      "text": null,
+      "transcript": "[Mock Test 44B Audio Recording — 20s]",
+      "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/300/345/039/original/RA916_2026-10-22_11_25_12-186d.wav?1792639512"
+    },
+    "scores": {
+      "taskType": "RA",
+      "section": "speaking",
+      "rawPoints": 63,
+      "maxPoints": 90,
+      "percentage": 70,
+      "pteScaleEquivalent": 63,
+      "subscores": {
+        "content": 65,
+        "pronunciation": 58,
+        "fluency": 67
+      },
+      "feedback": "[Mock Test 44B Official Result: 63/90]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 63/90]"
+    },
+    "durationSec": 20,
+    "createdAt": "2026-10-22T11:24:04.173+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_rs_1220",
+    "itemId": "ape_rs_1220",
+    "taskType": "RS",
+    "section": "speaking",
+    "isMock44BBaseline": true,
+    "userAudioUrl": "/apeuni_media/recordings_mock_44b/RS1220_2026-10-22_11_25_16-186d.wav",
+    "userResponse": {
+      "text": null,
+      "transcript": "[Mock Test 44B Audio Recording — 6s]",
+      "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/300/345/313/original/RS1220_2026-10-22_11_25_16-186d.wav?1792639516"
+    },
+    "scores": {
+      "taskType": "RS",
+      "section": "speaking",
+      "rawPoints": 63,
+      "maxPoints": 90,
+      "percentage": 70,
+      "pteScaleEquivalent": 63,
+      "subscores": {
+        "content": 2.9,
+        "pronunciation": 56,
+        "fluency": 60
+      },
+      "feedback": "[Mock Test 44B Official Result: 63/90]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 63/90]"
+    },
+    "durationSec": 6,
+    "createdAt": "2026-10-22T11:24:15.690+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_rs_1384",
+    "itemId": "ape_rs_1384",
+    "taskType": "RS",
+    "section": "speaking",
+    "isMock44BBaseline": true,
+    "userAudioUrl": "/apeuni_media/recordings_mock_44b/RS1384_2026-10-22_11_25_30-186d.wav",
+    "userResponse": {
+      "text": null,
+      "transcript": "[Mock Test 44B Audio Recording — 6s]",
+      "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/300/345/612/original/RS1384_2026-10-22_11_25_30-186d.wav?1792639530"
+    },
+    "scores": {
+      "taskType": "RS",
+      "section": "speaking",
+      "rawPoints": 71,
+      "maxPoints": 90,
+      "percentage": 79,
+      "pteScaleEquivalent": 71,
+      "subscores": {
+        "content": 3,
+        "pronunciation": 67,
+        "fluency": 59
+      },
+      "feedback": "[Mock Test 44B Official Result: 71/90]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 71/90]"
+    },
+    "durationSec": 6,
+    "createdAt": "2026-10-22T11:24:29.760+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_rs_1441",
+    "itemId": "ape_rs_1441",
+    "taskType": "RS",
+    "section": "speaking",
+    "isMock44BBaseline": true,
+    "userAudioUrl": "/apeuni_media/recordings_mock_44b/RS1441_2026-10-22_11_25_43-186d.wav",
+    "userResponse": {
+      "text": null,
+      "transcript": "[Mock Test 44B Audio Recording — 5s]",
+      "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/300/345/886/original/RS1441_2026-10-22_11_25_43-186d.wav?1792639544"
+    },
+    "scores": {
+      "taskType": "RS",
+      "section": "speaking",
+      "rawPoints": 52,
+      "maxPoints": 90,
+      "percentage": 58,
+      "pteScaleEquivalent": 52,
+      "subscores": {
+        "content": 2,
+        "pronunciation": 71,
+        "fluency": 67
+      },
+      "feedback": "[Mock Test 44B Official Result: 52/90]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 52/90]"
+    },
+    "durationSec": 5,
+    "createdAt": "2026-10-22T11:24:41.633+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_rs_1495",
+    "itemId": "ape_rs_1495",
+    "taskType": "RS",
+    "section": "speaking",
+    "isMock44BBaseline": true,
+    "userAudioUrl": "/apeuni_media/recordings_mock_44b/RS1495_2026-10-22_11_25_57-186d.wav",
+    "userResponse": {
+      "text": null,
+      "transcript": "[Mock Test 44B Audio Recording — 6s]",
+      "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/300/346/205/original/RS1495_2026-10-22_11_25_57-186d.wav?1792639557"
+    },
+    "scores": {
+      "taskType": "RS",
+      "section": "speaking",
+      "rawPoints": 69,
+      "maxPoints": 90,
+      "percentage": 77,
+      "pteScaleEquivalent": 69,
+      "subscores": {
+        "content": 3,
+        "pronunciation": 65,
+        "fluency": 55
+      },
+      "feedback": "[Mock Test 44B Official Result: 69/90]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 69/90]"
+    },
+    "durationSec": 6,
+    "createdAt": "2026-10-22T11:24:56.013+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_rs_1502",
+    "itemId": "ape_rs_1502",
+    "taskType": "RS",
+    "section": "speaking",
+    "isMock44BBaseline": true,
+    "userAudioUrl": "/apeuni_media/recordings_mock_44b/RS1502_2026-10-22_11_26_12-186d.wav",
+    "userResponse": {
+      "text": null,
+      "transcript": "[Mock Test 44B Audio Recording — 5s]",
+      "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/300/346/490/original/RS1502_2026-10-22_11_26_12-186d.wav?1792639572"
+    },
+    "scores": {
+      "taskType": "RS",
+      "section": "speaking",
+      "rawPoints": 60,
+      "maxPoints": 90,
+      "percentage": 67,
+      "pteScaleEquivalent": 60,
+      "subscores": {
+        "content": 2.4,
+        "pronunciation": 67,
+        "fluency": 69
+      },
+      "feedback": "[Mock Test 44B Official Result: 60/90]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 60/90]"
+    },
+    "durationSec": 5,
+    "createdAt": "2026-10-22T11:25:08.268+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_rs_2325",
+    "itemId": "ape_rs_2325",
+    "taskType": "RS",
+    "section": "speaking",
+    "isMock44BBaseline": true,
+    "userAudioUrl": "/apeuni_media/recordings_mock_44b/RS2325_2026-10-22_11_26_26-186d.wav",
+    "userResponse": {
+      "text": null,
+      "transcript": "[Mock Test 44B Audio Recording — 5s]",
+      "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/300/346/784/original/RS2325_2026-10-22_11_26_26-186d.wav?1792639586"
+    },
+    "scores": {
+      "taskType": "RS",
+      "section": "speaking",
+      "rawPoints": 44,
+      "maxPoints": 90,
+      "percentage": 49,
+      "pteScaleEquivalent": 44,
+      "subscores": {
+        "content": 2.3,
+        "pronunciation": 57,
+        "fluency": 45
+      },
+      "feedback": "[Mock Test 44B Official Result: 44/90]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 44/90]"
+    },
+    "durationSec": 5,
+    "createdAt": "2026-10-22T11:25:22.507+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_rs_1261",
+    "itemId": "ape_rs_1261",
+    "taskType": "RS",
+    "section": "speaking",
+    "isMock44BBaseline": true,
+    "userAudioUrl": "/apeuni_media/recordings_mock_44b/RS1261_2026-10-22_11_26_38-186d.wav",
+    "userResponse": {
+      "text": null,
+      "transcript": "[Mock Test 44B Audio Recording — 6s]",
+      "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/300/347/065/original/RS1261_2026-10-22_11_26_38-186d.wav?1792639598"
+    },
+    "scores": {
+      "taskType": "RS",
+      "section": "speaking",
+      "rawPoints": 58,
+      "maxPoints": 90,
+      "percentage": 64,
+      "pteScaleEquivalent": 58,
+      "subscores": {
+        "content": 2.6,
+        "pronunciation": 55,
+        "fluency": 61
+      },
+      "feedback": "[Mock Test 44B Official Result: 58/90]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 58/90]"
+    },
+    "durationSec": 6,
+    "createdAt": "2026-10-22T11:25:36.943+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_rs_2836",
+    "itemId": "ape_rs_2836",
+    "taskType": "RS",
+    "section": "speaking",
+    "isMock44BBaseline": true,
+    "userAudioUrl": "/apeuni_media/recordings_mock_44b/RS2836_2026-10-22_11_27_02-186d.wav",
+    "userResponse": {
+      "text": null,
+      "transcript": "[Mock Test 44B Audio Recording — 8s]",
+      "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/300/347/453/original/RS2836_2026-10-22_11_27_02-186d.wav?1792639622"
+    },
+    "scores": {
+      "taskType": "RS",
+      "section": "speaking",
+      "rawPoints": 39,
+      "maxPoints": 90,
+      "percentage": 43,
+      "pteScaleEquivalent": 39,
+      "subscores": {
+        "content": 2,
+        "pronunciation": 57,
+        "fluency": 45
+      },
+      "feedback": "[Mock Test 44B Official Result: 39/90]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 39/90]"
+    },
+    "durationSec": 8,
+    "createdAt": "2026-10-22T11:25:54.860+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_rs_2834",
+    "itemId": "ape_rs_2834",
+    "taskType": "RS",
+    "section": "speaking",
+    "isMock44BBaseline": true,
+    "userAudioUrl": "/apeuni_media/recordings_mock_44b/RS2834_2026-10-22_11_27_17-186d.wav",
+    "userResponse": {
+      "text": null,
+      "transcript": "[Mock Test 44B Audio Recording — 8s]",
+      "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/300/347/862/original/RS2834_2026-10-22_11_27_17-186d.wav?1792639637"
+    },
+    "scores": {
+      "taskType": "RS",
+      "section": "speaking",
+      "rawPoints": 31,
+      "maxPoints": 90,
+      "percentage": 34,
+      "pteScaleEquivalent": 31,
+      "subscores": {
+        "content": 1.7,
+        "pronunciation": 48,
+        "fluency": 50
+      },
+      "feedback": "[Mock Test 44B Official Result: 31/90]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 31/90]"
+    },
+    "durationSec": 8,
+    "createdAt": "2026-10-22T11:26:13.340+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_rs_2831",
+    "itemId": "ape_rs_2831",
+    "taskType": "RS",
+    "section": "speaking",
+    "isMock44BBaseline": true,
+    "userAudioUrl": "/apeuni_media/recordings_mock_44b/RS2831_2026-10-22_11_27_30-186d.wav",
+    "userResponse": {
+      "text": null,
+      "transcript": "[Mock Test 44B Audio Recording — 7s]",
+      "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/300/348/211/original/RS2831_2026-10-22_11_27_30-186d.wav?1792639650"
+    },
+    "scores": {
+      "taskType": "RS",
+      "section": "speaking",
+      "rawPoints": 54,
+      "maxPoints": 90,
+      "percentage": 60,
+      "pteScaleEquivalent": 54,
+      "subscores": {
+        "content": 2.5,
+        "pronunciation": 57,
+        "fluency": 57
+      },
+      "feedback": "[Mock Test 44B Official Result: 54/90]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 54/90]"
+    },
+    "durationSec": 7,
+    "createdAt": "2026-10-22T11:26:30.299+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_di_1190",
+    "itemId": "ape_di_1190",
+    "taskType": "DI",
+    "section": "speaking",
+    "isMock44BBaseline": true,
+    "userAudioUrl": "/apeuni_media/recordings_mock_44b/DI1190_2026-10-22_11_28_34-186d.wav",
+    "userResponse": {
+      "text": null,
+      "transcript": "[Mock Test 44B Audio Recording — 36s]",
+      "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/300/349/509/original/DI1190_2026-10-22_11_28_34-186d.wav?1792639714"
+    },
+    "scores": {
+      "taskType": "DI",
+      "section": "speaking",
+      "rawPoints": 65,
+      "maxPoints": 90,
+      "percentage": 72,
+      "pteScaleEquivalent": 65,
+      "subscores": {
+        "content": 6,
+        "pronunciation": 63,
+        "fluency": 59
+      },
+      "feedback": "[Mock Test 44B Official Result: 65/90]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 65/90]"
+    },
+    "durationSec": 36,
+    "createdAt": "2026-10-22T11:27:33.177+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_di_1108",
+    "itemId": "ape_di_1108",
+    "taskType": "DI",
+    "section": "speaking",
+    "isMock44BBaseline": true,
+    "userAudioUrl": "/apeuni_media/recordings_mock_44b/DI1108_2026-10-22_11_29_37-186d.wav",
+    "userResponse": {
+      "text": null,
+      "transcript": "[Mock Test 44B Audio Recording — 40s]",
+      "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/300/350/880/original/DI1108_2026-10-22_11_29_37-186d.wav?1792639777"
+    },
+    "scores": {
+      "taskType": "DI",
+      "section": "speaking",
+      "rawPoints": 69,
+      "maxPoints": 90,
+      "percentage": 77,
+      "pteScaleEquivalent": 69,
+      "subscores": {
+        "content": 5.2,
+        "pronunciation": 77,
+        "fluency": 71
+      },
+      "feedback": "[Mock Test 44B Official Result: 69/90]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 69/90]"
+    },
+    "durationSec": 40,
+    "createdAt": "2026-10-22T11:28:36.688+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_di_1101",
+    "itemId": "ape_di_1101",
+    "taskType": "DI",
+    "section": "speaking",
+    "isMock44BBaseline": true,
+    "userAudioUrl": "/apeuni_media/recordings_mock_44b/DI1101_2026-10-22_11_31_17-186d.wav",
+    "userResponse": {
+      "text": null,
+      "transcript": "[Mock Test 44B Audio Recording — 40s]",
+      "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/300/353/077/original/DI1101_2026-10-22_11_31_17-186d.wav?1792639877"
+    },
+    "scores": {
+      "taskType": "DI",
+      "section": "speaking",
+      "rawPoints": 49,
+      "maxPoints": 90,
+      "percentage": 54,
+      "pteScaleEquivalent": 49,
+      "subscores": {
+        "content": 3.4,
+        "pronunciation": 52,
+        "fluency": 42
+      },
+      "feedback": "[Mock Test 44B Official Result: 49/90]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 49/90]"
+    },
+    "durationSec": 40,
+    "createdAt": "2026-10-22T11:30:17.036+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_di_1136",
+    "itemId": "ape_di_1136",
+    "taskType": "DI",
+    "section": "speaking",
+    "isMock44BBaseline": true,
+    "userAudioUrl": "/apeuni_media/recordings_mock_44b/DI1136_2026-10-22_11_32_09-186d.wav",
+    "userResponse": {
+      "text": null,
+      "transcript": "[Mock Test 44B Audio Recording — 39s]",
+      "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/300/354/177/original/DI1136_2026-10-22_11_32_09-186d.wav?1792639929"
+    },
+    "scores": {
+      "taskType": "DI",
+      "section": "speaking",
+      "rawPoints": 70,
+      "maxPoints": 90,
+      "percentage": 78,
+      "pteScaleEquivalent": 70,
+      "subscores": {
+        "content": 4.9,
+        "pronunciation": 88,
+        "fluency": 68
+      },
+      "feedback": "[Mock Test 44B Official Result: 70/90]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 70/90]"
+    },
+    "durationSec": 39,
+    "createdAt": "2026-10-22T11:31:08.503+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_di_1063",
+    "itemId": "ape_di_1063",
+    "taskType": "DI",
+    "section": "speaking",
+    "isMock44BBaseline": true,
+    "userAudioUrl": "/apeuni_media/recordings_mock_44b/DI1063_2026-10-22_11_33_10-186d.wav",
+    "userResponse": {
+      "text": null,
+      "transcript": "[Mock Test 44B Audio Recording — 40s]",
+      "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/300/355/368/original/DI1063_2026-10-22_11_33_10-186d.wav?1792639990"
+    },
+    "scores": {
+      "taskType": "DI",
+      "section": "speaking",
+      "rawPoints": 67,
+      "maxPoints": 90,
+      "percentage": 74,
+      "pteScaleEquivalent": 67,
+      "subscores": {
+        "content": 5.1,
+        "pronunciation": 76,
+        "fluency": 66
+      },
+      "feedback": "[Mock Test 44B Official Result: 67/90]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 67/90]"
+    },
+    "durationSec": 40,
+    "createdAt": "2026-10-22T11:32:07.803+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_rl_645",
+    "itemId": "ape_rl_645",
+    "taskType": "RL",
+    "section": "speaking",
+    "isMock44BBaseline": true,
+    "userAudioUrl": "/apeuni_media/recordings_mock_44b/RL645_2026-10-22_11_35_37-186d.wav",
+    "userResponse": {
+      "text": null,
+      "transcript": "[Mock Test 44B Audio Recording — 40s]",
+      "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/300/358/378/original/RL645_2026-10-22_11_35_37-186d.wav?1792640137"
+    },
+    "scores": {
+      "taskType": "RL",
+      "section": "speaking",
+      "rawPoints": 59,
+      "maxPoints": 90,
+      "percentage": 66,
+      "pteScaleEquivalent": 59,
+      "subscores": {
+        "content": 4.2,
+        "pronunciation": 64,
+        "fluency": 52
+      },
+      "feedback": "[Mock Test 44B Official Result: 59/90]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 59/90]"
+    },
+    "durationSec": 40,
+    "createdAt": "2026-10-22T11:34:29.244+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_rl_560",
+    "itemId": "ape_rl_560",
+    "taskType": "RL",
+    "section": "speaking",
+    "isMock44BBaseline": true,
+    "userAudioUrl": "/apeuni_media/recordings_mock_44b/RL560_2026-10-22_11_37_52-186d.wav",
+    "userResponse": {
+      "text": null,
+      "transcript": "[Mock Test 44B Audio Recording — 40s]",
+      "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/300/361/376/original/RL560_2026-10-22_11_37_52-186d.wav?1792640272"
+    },
+    "scores": {
+      "taskType": "RL",
+      "section": "speaking",
+      "rawPoints": 62,
+      "maxPoints": 90,
+      "percentage": 69,
+      "pteScaleEquivalent": 62,
+      "subscores": {
+        "content": 6,
+        "pronunciation": 54,
+        "fluency": 48
+      },
+      "feedback": "[Mock Test 44B Official Result: 62/90]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 62/90]"
+    },
+    "durationSec": 40,
+    "createdAt": "2026-10-22T11:36:50.375+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_asq_990",
+    "itemId": "ape_asq_990",
+    "taskType": "ASQ",
+    "section": "speaking",
+    "isMock44BBaseline": true,
+    "userAudioUrl": "/apeuni_media/recordings_mock_44b/ASQ990_2026-10-22_11_38_09-186d.wav",
+    "userResponse": {
+      "text": null,
+      "transcript": "[Mock Test 44B Audio Recording — 3s]",
+      "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/300/361/589/original/ASQ990_2026-10-22_11_38_09-186d.wav?1792640289"
+    },
+    "scores": {
+      "taskType": "ASQ",
+      "section": "speaking",
+      "rawPoints": 1,
+      "maxPoints": 1,
+      "percentage": 100,
+      "pteScaleEquivalent": 1,
+      "subscores": {
+        "content": 1
+      },
+      "feedback": "[Mock Test 44B Official Result: 1/1]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 1/1]"
+    },
+    "durationSec": 3,
+    "createdAt": "2026-10-22T11:37:01.010+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_asq_996",
+    "itemId": "ape_asq_996",
+    "taskType": "ASQ",
+    "section": "speaking",
+    "isMock44BBaseline": true,
+    "userAudioUrl": "/apeuni_media/recordings_mock_44b/ASQ996_2026-10-22_11_38_15-186d.wav",
+    "userResponse": {
+      "text": null,
+      "transcript": "[Mock Test 44B Audio Recording — 3s]",
+      "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/300/361/801/original/ASQ996_2026-10-22_11_38_15-186d.wav?1792640295"
+    },
+    "scores": {
+      "taskType": "ASQ",
+      "section": "speaking",
+      "rawPoints": 1,
+      "maxPoints": 1,
+      "percentage": 100,
+      "pteScaleEquivalent": 1,
+      "subscores": {
+        "content": 1
+      },
+      "feedback": "[Mock Test 44B Official Result: 1/1]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 1/1]"
+    },
+    "durationSec": 3,
+    "createdAt": "2026-10-22T11:37:10.688+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_asq_997",
+    "itemId": "ape_asq_997",
+    "taskType": "ASQ",
+    "section": "speaking",
+    "isMock44BBaseline": true,
+    "userAudioUrl": "/apeuni_media/recordings_mock_44b/ASQ997_2026-10-22_11_38_22-186d.wav",
+    "userResponse": {
+      "text": null,
+      "transcript": "[Mock Test 44B Audio Recording — 4s]",
+      "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/300/362/042/original/ASQ997_2026-10-22_11_38_22-186d.wav?1792640302"
+    },
+    "scores": {
+      "taskType": "ASQ",
+      "section": "speaking",
+      "rawPoints": 0,
+      "maxPoints": 1,
+      "percentage": 0,
+      "pteScaleEquivalent": 0,
+      "subscores": {
+        "content": 0
+      },
+      "feedback": "[Mock Test 44B Official Result: 0/1]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 0/1]"
+    },
+    "durationSec": 4,
+    "createdAt": "2026-10-22T11:37:21.844+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_asq_1555",
+    "itemId": "ape_asq_1555",
+    "taskType": "ASQ",
+    "section": "speaking",
+    "isMock44BBaseline": true,
+    "userAudioUrl": "/apeuni_media/recordings_mock_44b/ASQ1555_2026-10-22_11_38_36-186d.wav",
+    "userResponse": {
+      "text": null,
+      "transcript": "[Mock Test 44B Audio Recording — 2s]",
+      "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/300/362/260/original/ASQ1555_2026-10-22_11_38_36-186d.wav?1792640316"
+    },
+    "scores": {
+      "taskType": "ASQ",
+      "section": "speaking",
+      "rawPoints": 1,
+      "maxPoints": 1,
+      "percentage": 100,
+      "pteScaleEquivalent": 1,
+      "subscores": {
+        "content": 1
+      },
+      "feedback": "[Mock Test 44B Official Result: 1/1]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 1/1]"
+    },
+    "durationSec": 2,
+    "createdAt": "2026-10-22T11:37:32.658+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_asq_1004",
+    "itemId": "ape_asq_1004",
+    "taskType": "ASQ",
+    "section": "speaking",
+    "isMock44BBaseline": true,
+    "userAudioUrl": "/apeuni_media/recordings_mock_44b/ASQ1004_2026-10-22_11_38_51-186d.wav",
+    "userResponse": {
+      "text": null,
+      "transcript": "[Mock Test 44B Audio Recording — 4s]",
+      "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/300/362/612/original/ASQ1004_2026-10-22_11_38_51-186d.wav?1792640331"
+    },
+    "scores": {
+      "taskType": "ASQ",
+      "section": "speaking",
+      "rawPoints": 0,
+      "maxPoints": 1,
+      "percentage": 0,
+      "pteScaleEquivalent": 0,
+      "subscores": {
+        "content": 0
+      },
+      "feedback": "[Mock Test 44B Official Result: 0/1]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 0/1]"
+    },
+    "durationSec": 4,
+    "createdAt": "2026-10-22T11:37:49.887+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_sgd_76",
+    "itemId": "ape_sgd_76",
+    "taskType": "SGD",
+    "section": "speaking",
+    "isMock44BBaseline": true,
+    "userAudioUrl": "/apeuni_media/recordings_mock_44b/SGD76_2026-10-22_11_43_00-186d.wav",
+    "userResponse": {
+      "text": null,
+      "transcript": "[Mock Test 44B Audio Recording — 62s]",
+      "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/300/367/940/original/SGD76_2026-10-22_11_43_00-186d.wav?1792640580"
+    },
+    "scores": {
+      "taskType": "SGD",
+      "section": "speaking",
+      "rawPoints": 73,
+      "maxPoints": 90,
+      "percentage": 81,
+      "pteScaleEquivalent": 73,
+      "subscores": {
+        "content": 3.5,
+        "pronunciation": 64,
+        "fluency": 76
+      },
+      "feedback": "[Mock Test 44B Official Result: 73/90]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 73/90]"
+    },
+    "durationSec": 62,
+    "createdAt": "2026-10-22T11:41:59.321+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_sgd_77",
+    "itemId": "ape_sgd_77",
+    "taskType": "SGD",
+    "section": "speaking",
+    "isMock44BBaseline": true,
+    "userAudioUrl": "/apeuni_media/recordings_mock_44b/SGD77_2026-10-22_11_47_28-186d.wav",
+    "userResponse": {
+      "text": null,
+      "transcript": "[Mock Test 44B Audio Recording — 73s]",
+      "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/300/373/963/original/SGD77_2026-10-22_11_47_28-186d.wav?1792640848"
+    },
+    "scores": {
+      "taskType": "SGD",
+      "section": "speaking",
+      "rawPoints": 74,
+      "maxPoints": 90,
+      "percentage": 82,
+      "pteScaleEquivalent": 74,
+      "subscores": {
+        "content": 4.2,
+        "pronunciation": 68,
+        "fluency": 69
+      },
+      "feedback": "[Mock Test 44B Official Result: 74/90]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 74/90]"
+    },
+    "durationSec": 73,
+    "createdAt": "2026-10-22T11:46:26.675+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_rts_112",
+    "itemId": "ape_rts_112",
+    "taskType": "RTS",
+    "section": "speaking",
+    "isMock44BBaseline": true,
+    "userAudioUrl": "/apeuni_media/recordings_mock_44b/RTS112_2026-10-22_11_48_37-186d.wav",
+    "userResponse": {
+      "text": null,
+      "transcript": "[Mock Test 44B Audio Recording — 28s]",
+      "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/300/375/617/original/RTS112_2026-10-22_11_48_37-186d.wav?1792640917"
+    },
+    "scores": {
+      "taskType": "RTS",
+      "section": "speaking",
+      "rawPoints": 59,
+      "maxPoints": 90,
+      "percentage": 66,
+      "pteScaleEquivalent": 59,
+      "subscores": {
+        "content": 3.8,
+        "pronunciation": 70,
+        "fluency": 67
+      },
+      "feedback": "[Mock Test 44B Official Result: 59/90]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 59/90]"
+    },
+    "durationSec": 28,
+    "createdAt": "2026-10-22T11:47:35.534+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_rts_107",
+    "itemId": "ape_rts_107",
+    "taskType": "RTS",
+    "section": "speaking",
+    "isMock44BBaseline": true,
+    "userAudioUrl": "/apeuni_media/recordings_mock_44b/RTS107_2026-10-22_11_49_40-186d.wav",
+    "userResponse": {
+      "text": null,
+      "transcript": "[Mock Test 44B Audio Recording — 28s]",
+      "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/300/377/098/original/RTS107_2026-10-22_11_49_40-186d.wav?1792640980"
+    },
+    "scores": {
+      "taskType": "RTS",
+      "section": "speaking",
+      "rawPoints": 62,
+      "maxPoints": 90,
+      "percentage": 69,
+      "pteScaleEquivalent": 62,
+      "subscores": {
+        "content": 3.4,
+        "pronunciation": 67,
+        "fluency": 67
+      },
+      "feedback": "[Mock Test 44B Official Result: 62/90]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 62/90]"
+    },
+    "durationSec": 28,
+    "createdAt": "2026-10-22T11:48:39.314+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_swt_240",
+    "itemId": "ape_swt_240",
+    "taskType": "SWT",
+    "section": "writing",
+    "isMock44BBaseline": true,
+    "userAudioUrl": null,
+    "userResponse": {
+      "text": "Even though boredom could be seen as something bad, being bored can spark your creativity and help you come up with some of your best ideas, so if you feel bored now it can help you to coming up with creative ideas later.",
+      "transcript": "Even though boredom could be seen as something bad, being bored can spark your creativity and help you come up with some of your best ideas, so if you feel bored now it can help you to coming up with creative ideas later.",
+      "audioRecordingUrl": null
+    },
+    "scores": {
+      "taskType": "SWT",
+      "section": "writing",
+      "rawPoints": 7,
+      "maxPoints": 9,
+      "percentage": 78,
+      "pteScaleEquivalent": 7,
+      "subscores": {
+        "content": 4,
+        "form": 1,
+        "grammar": 1,
+        "vocab": 1
+      },
+      "feedback": "[Mock Test 44B Official Result: 7/9]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 7/9]"
+    },
+    "durationSec": 60,
+    "createdAt": "2026-10-22T11:53:02.130+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_swt_246",
+    "itemId": "ape_swt_246",
+    "taskType": "SWT",
+    "section": "writing",
+    "isMock44BBaseline": true,
+    "userAudioUrl": null,
+    "userResponse": {
+      "text": "Even though most of the employees withheld their ideas, if you have a great idea that will help your company in any way as money or productivity, you should focus on two factors for a successful pitch, these are having the confidence and knowing how to frame it, as the majority of the managers are open to hear them.",
+      "transcript": "Even though most of the employees withheld their ideas, if you have a great idea that will help your company in any way as money or productivity, you should focus on two factors for a successful pitch, these are having the confidence and knowing how to frame it, as the majority of the managers are open to hear them.",
+      "audioRecordingUrl": null
+    },
+    "scores": {
+      "taskType": "SWT",
+      "section": "writing",
+      "rawPoints": 6,
+      "maxPoints": 9,
+      "percentage": 67,
+      "pteScaleEquivalent": 6,
+      "subscores": {
+        "content": 4,
+        "form": 1,
+        "grammar": 0.5,
+        "vocab": 0.5
+      },
+      "feedback": "[Mock Test 44B Official Result: 6/9]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 6/9]"
+    },
+    "durationSec": 60,
+    "createdAt": "2026-10-22T12:01:01.504+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_we_459",
+    "itemId": "ape_we_459",
+    "taskType": "WE",
+    "section": "writing",
+    "isMock44BBaseline": true,
+    "userAudioUrl": null,
+    "userResponse": {
+      "text": "Lately, the majority of humanity is reading or watching the news through social networks, like Facebook, Twitter or Youtube. As all these social networks allow anyone to post, even in anonymous mode, we are facing problems with fake news and missleading information. So we have to bring up a question: should the social networks regulate the fake news more strictly?\n\nOn one hand, it could be beneficial if the social networks start to regulate what the users post in their platforms, right now, with the raising of the artificial inteligence this could be an easier process, as the AI can do it automatically, in contrast, of the hard manually job that is for a person.\n\nOn the other hand, if we allow private companies decide which information is fake or false and which one is true they could manipulate the world. Private companies have their own interests and we should not give them too much power and control over what the people is consuming.\n\nIn conclusion, we can not allow private companies decide what is fake or what is true, they should open tools for the community to decide if some information is valid. For example, the social network Twitter created a tool in which the community can write down the original post if it has some missleading information. This tool implemented in every social network could be a good solution to avoid fake news.",
+      "transcript": "Lately, the majority of humanity is reading or watching the news through social networks, like Facebook, Twitter or Youtube. As all these social networks allow anyone to post, even in anonymous mode, we are facing problems with fake news and missleading information. So we have to bring up a question: should the social networks regulate the fake news more strictly?\n\nOn one hand, it could be beneficial if the social networks start to regulate what the users post in their platforms, right now, with the raising of the artificial inteligence this could be an easier process, as the AI can do it automatically, in contrast, of the hard manually job that is for a person.\n\nOn the other hand, if we allow private companies decide which information is fake or false and which one is true they could manipulate the world. Private companies have their own interests and we should not give them too much power and control over what the people is consuming.\n\nIn conclusion, we can not allow private companies decide what is fake or what is true, they should open tools for the community to decide if some information is valid. For example, the social network Twitter created a tool in which the community can write down the original post if it has some missleading information. This tool implemented in every social network could be a good solution to avoid fake news.",
+      "audioRecordingUrl": null
+    },
+    "scores": {
+      "taskType": "WE",
+      "section": "writing",
+      "rawPoints": 77,
+      "maxPoints": 90,
+      "percentage": 86,
+      "pteScaleEquivalent": 77,
+      "subscores": {
+        "final_score": 77
+      },
+      "feedback": "[Mock Test 44B Official Result: 77/90]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 77/90]"
+    },
+    "durationSec": 60,
+    "createdAt": "2026-10-22T12:16:57.240+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_rwfib_1057",
+    "itemId": "ape_rwfib_1057",
+    "taskType": "RWFIB",
+    "section": "reading",
+    "isMock44BBaseline": true,
+    "userAudioUrl": null,
+    "userResponse": {
+      "text": "immerses, vast, core, approaches",
+      "transcript": "immerses, vast, core, approaches",
+      "audioRecordingUrl": null
+    },
+    "scores": {
+      "taskType": "RWFIB",
+      "section": "reading",
+      "rawPoints": 3,
+      "maxPoints": 4,
+      "percentage": 75,
+      "pteScaleEquivalent": 3,
+      "subscores": {
+        "choice": 3
+      },
+      "feedback": "[Mock Test 44B Official Result: 3/4]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 3/4]"
+    },
+    "durationSec": 60,
+    "createdAt": "2026-10-22T12:18:05.954+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_rwfib_1065",
+    "itemId": "ape_rwfib_1065",
+    "taskType": "RWFIB",
+    "section": "reading",
+    "isMock44BBaseline": true,
+    "userAudioUrl": null,
+    "userResponse": {
+      "text": "associated, may sound, seemingly, nature",
+      "transcript": "associated, may sound, seemingly, nature",
+      "audioRecordingUrl": null
+    },
+    "scores": {
+      "taskType": "RWFIB",
+      "section": "reading",
+      "rawPoints": 3,
+      "maxPoints": 4,
+      "percentage": 75,
+      "pteScaleEquivalent": 3,
+      "subscores": {
+        "choice": 3
+      },
+      "feedback": "[Mock Test 44B Official Result: 3/4]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 3/4]"
+    },
+    "durationSec": 60,
+    "createdAt": "2026-10-22T12:19:24.195+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_rwfib_1070",
+    "itemId": "ape_rwfib_1070",
+    "taskType": "RWFIB",
+    "section": "reading",
+    "isMock44BBaseline": true,
+    "userAudioUrl": null,
+    "userResponse": {
+      "text": "catch, extends, as if, unfolds",
+      "transcript": "catch, extends, as if, unfolds",
+      "audioRecordingUrl": null
+    },
+    "scores": {
+      "taskType": "RWFIB",
+      "section": "reading",
+      "rawPoints": 4,
+      "maxPoints": 4,
+      "percentage": 100,
+      "pteScaleEquivalent": 4,
+      "subscores": {
+        "choice": 4
+      },
+      "feedback": "[Mock Test 44B Official Result: 4/4]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 4/4]"
+    },
+    "durationSec": 60,
+    "createdAt": "2026-10-22T12:20:40.266+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_rwfib_1071",
+    "itemId": "ape_rwfib_1071",
+    "taskType": "RWFIB",
+    "section": "reading",
+    "isMock44BBaseline": true,
+    "userAudioUrl": null,
+    "userResponse": {
+      "text": "management, access, inequalities, who helped, wished",
+      "transcript": "management, access, inequalities, who helped, wished",
+      "audioRecordingUrl": null
+    },
+    "scores": {
+      "taskType": "RWFIB",
+      "section": "reading",
+      "rawPoints": 5,
+      "maxPoints": 5,
+      "percentage": 100,
+      "pteScaleEquivalent": 5,
+      "subscores": {
+        "choice": 5
+      },
+      "feedback": "[Mock Test 44B Official Result: 5/5]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 5/5]"
+    },
+    "durationSec": 60,
+    "createdAt": "2026-10-22T12:21:51.753+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_rwfib_1087",
+    "itemId": "ape_rwfib_1087",
+    "taskType": "RWFIB",
+    "section": "reading",
+    "isMock44BBaseline": true,
+    "userAudioUrl": null,
+    "userResponse": {
+      "text": "perpetuated, results in, detecting, wide, shades",
+      "transcript": "perpetuated, results in, detecting, wide, shades",
+      "audioRecordingUrl": null
+    },
+    "scores": {
+      "taskType": "RWFIB",
+      "section": "reading",
+      "rawPoints": 4,
+      "maxPoints": 5,
+      "percentage": 80,
+      "pteScaleEquivalent": 4,
+      "subscores": {
+        "choice": 4
+      },
+      "feedback": "[Mock Test 44B Official Result: 4/5]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 4/5]"
+    },
+    "durationSec": 60,
+    "createdAt": "2026-10-22T12:23:07.800+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_mcma_r_2",
+    "itemId": "ape_mcma_r_2",
+    "taskType": "MCMA_R",
+    "section": "reading",
+    "isMock44BBaseline": true,
+    "userAudioUrl": null,
+    "userResponse": {
+      "text": "A, D",
+      "transcript": "A, D",
+      "audioRecordingUrl": null
+    },
+    "scores": {
+      "taskType": "MCMA_R",
+      "section": "reading",
+      "rawPoints": 2,
+      "maxPoints": 2,
+      "percentage": 100,
+      "pteScaleEquivalent": 2,
+      "subscores": {
+        "choice": 2
+      },
+      "feedback": "[Mock Test 44B Official Result: 2/2]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 2/2]"
+    },
+    "durationSec": 60,
+    "createdAt": "2026-10-22T12:26:11.052+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_mcma_r_5",
+    "itemId": "ape_mcma_r_5",
+    "taskType": "MCMA_R",
+    "section": "reading",
+    "isMock44BBaseline": true,
+    "userAudioUrl": null,
+    "userResponse": {
+      "text": "A, C",
+      "transcript": "A, C",
+      "audioRecordingUrl": null
+    },
+    "scores": {
+      "taskType": "MCMA_R",
+      "section": "reading",
+      "rawPoints": 2,
+      "maxPoints": 2,
+      "percentage": 100,
+      "pteScaleEquivalent": 2,
+      "subscores": {
+        "choice": 2
+      },
+      "feedback": "[Mock Test 44B Official Result: 2/2]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 2/2]"
+    },
+    "durationSec": 60,
+    "createdAt": "2026-10-22T12:28:21.457+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_rop_759",
+    "itemId": "ape_rop_759",
+    "taskType": "ROP",
+    "section": "reading",
+    "isMock44BBaseline": true,
+    "userAudioUrl": null,
+    "userResponse": {
+      "text": "1, 2, 3, 4",
+      "transcript": "1, 2, 3, 4",
+      "audioRecordingUrl": null
+    },
+    "scores": {
+      "taskType": "ROP",
+      "section": "reading",
+      "rawPoints": 3,
+      "maxPoints": 3,
+      "percentage": 100,
+      "pteScaleEquivalent": 3,
+      "subscores": {
+        "pair": 3
+      },
+      "feedback": "[Mock Test 44B Official Result: 3/3]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 3/3]"
+    },
+    "durationSec": 60,
+    "createdAt": "2026-10-22T12:29:23.921+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_rop_745",
+    "itemId": "ape_rop_745",
+    "taskType": "ROP",
+    "section": "reading",
+    "isMock44BBaseline": true,
+    "userAudioUrl": null,
+    "userResponse": {
+      "text": "4, 3, 1, 2",
+      "transcript": "4, 3, 1, 2",
+      "audioRecordingUrl": null
+    },
+    "scores": {
+      "taskType": "ROP",
+      "section": "reading",
+      "rawPoints": 3,
+      "maxPoints": 3,
+      "percentage": 100,
+      "pteScaleEquivalent": 3,
+      "subscores": {
+        "pair": 3
+      },
+      "feedback": "[Mock Test 44B Official Result: 3/3]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 3/3]"
+    },
+    "durationSec": 60,
+    "createdAt": "2026-10-22T12:29:47.827+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_rfib_979",
+    "itemId": "ape_rfib_979",
+    "taskType": "RFIB",
+    "section": "reading",
+    "isMock44BBaseline": true,
+    "userAudioUrl": null,
+    "userResponse": {
+      "text": "historic, numerous, eager",
+      "transcript": "historic, numerous, eager",
+      "audioRecordingUrl": null
+    },
+    "scores": {
+      "taskType": "RFIB",
+      "section": "reading",
+      "rawPoints": 3,
+      "maxPoints": 3,
+      "percentage": 100,
+      "pteScaleEquivalent": 3,
+      "subscores": {
+        "choice": 3
+      },
+      "feedback": "[Mock Test 44B Official Result: 3/3]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 3/3]"
+    },
+    "durationSec": 60,
+    "createdAt": "2026-10-22T12:30:22.767+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_rfib_974",
+    "itemId": "ape_rfib_974",
+    "taskType": "RFIB",
+    "section": "reading",
+    "isMock44BBaseline": true,
+    "userAudioUrl": null,
+    "userResponse": {
+      "text": "charges, In contrast, convinces, perceives",
+      "transcript": "charges, In contrast, convinces, perceives",
+      "audioRecordingUrl": null
+    },
+    "scores": {
+      "taskType": "RFIB",
+      "section": "reading",
+      "rawPoints": 1,
+      "maxPoints": 4,
+      "percentage": 25,
+      "pteScaleEquivalent": 1,
+      "subscores": {
+        "choice": 1
+      },
+      "feedback": "[Mock Test 44B Official Result: 1/4]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 1/4]"
+    },
+    "durationSec": 60,
+    "createdAt": "2026-10-22T12:31:28.496+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_rfib_975",
+    "itemId": "ape_rfib_975",
+    "taskType": "RFIB",
+    "section": "reading",
+    "isMock44BBaseline": true,
+    "userAudioUrl": null,
+    "userResponse": {
+      "text": "installed, cost, zone, growth",
+      "transcript": "installed, cost, zone, growth",
+      "audioRecordingUrl": null
+    },
+    "scores": {
+      "taskType": "RFIB",
+      "section": "reading",
+      "rawPoints": 3,
+      "maxPoints": 4,
+      "percentage": 75,
+      "pteScaleEquivalent": 3,
+      "subscores": {
+        "choice": 3
+      },
+      "feedback": "[Mock Test 44B Official Result: 3/4]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 3/4]"
+    },
+    "durationSec": 60,
+    "createdAt": "2026-10-22T12:32:08.398+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_rfib_977",
+    "itemId": "ape_rfib_977",
+    "taskType": "RFIB",
+    "section": "reading",
+    "isMock44BBaseline": true,
+    "userAudioUrl": null,
+    "userResponse": {
+      "text": "marked, embarked, forging, convened",
+      "transcript": "marked, embarked, forging, convened",
+      "audioRecordingUrl": null
+    },
+    "scores": {
+      "taskType": "RFIB",
+      "section": "reading",
+      "rawPoints": 3,
+      "maxPoints": 4,
+      "percentage": 75,
+      "pteScaleEquivalent": 3,
+      "subscores": {
+        "choice": 3
+      },
+      "feedback": "[Mock Test 44B Official Result: 3/4]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 3/4]"
+    },
+    "durationSec": 60,
+    "createdAt": "2026-10-22T12:33:12.128+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_mcsa_r_132",
+    "itemId": "ape_mcsa_r_132",
+    "taskType": "MCSA_R",
+    "section": "reading",
+    "isMock44BBaseline": true,
+    "userAudioUrl": null,
+    "userResponse": {
+      "text": "B",
+      "transcript": "B",
+      "audioRecordingUrl": null
+    },
+    "scores": {
+      "taskType": "MCSA_R",
+      "section": "reading",
+      "rawPoints": 1,
+      "maxPoints": 1,
+      "percentage": 100,
+      "pteScaleEquivalent": 1,
+      "subscores": {
+        "choice": 1
+      },
+      "feedback": "[Mock Test 44B Official Result: 1/1]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 1/1]"
+    },
+    "durationSec": 60,
+    "createdAt": "2026-10-22T12:35:10.557+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_mcsa_r_131",
+    "itemId": "ape_mcsa_r_131",
+    "taskType": "MCSA_R",
+    "section": "reading",
+    "isMock44BBaseline": true,
+    "userAudioUrl": null,
+    "userResponse": {
+      "text": "C",
+      "transcript": "C",
+      "audioRecordingUrl": null
+    },
+    "scores": {
+      "taskType": "MCSA_R",
+      "section": "reading",
+      "rawPoints": 0,
+      "maxPoints": 1,
+      "percentage": 0,
+      "pteScaleEquivalent": 0,
+      "subscores": {
+        "choice": 0
+      },
+      "feedback": "[Mock Test 44B Official Result: 0/1]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 0/1]"
+    },
+    "durationSec": 60,
+    "createdAt": "2026-10-22T12:36:47.189+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_sst_723",
+    "itemId": "ape_sst_723",
+    "taskType": "SST",
+    "section": "listening",
+    "isMock44BBaseline": true,
+    "userAudioUrl": null,
+    "userResponse": {
+      "text": "This short report talks about the influence old empires, as Egypt, Roman or Greek, have in today's world.\n\nFor example, we can see the influence in our political system, architecture or philosophy. Roman democracy the idea of poblation participating in politics and laws created the bases of today's system. Plato also continues influencing. In conclusion, old civilizations are still influencing today's world.",
+      "transcript": "This short report talks about the influence old empires, as Egypt, Roman or Greek, have in today's world.\n\nFor example, we can see the influence in our political system, architecture or philosophy. Roman democracy the idea of poblation participating in politics and laws created the bases of today's system. Plato also continues influencing. In conclusion, old civilizations are still influencing today's world.",
+      "audioRecordingUrl": null
+    },
+    "scores": {
+      "taskType": "SST",
+      "section": "listening",
+      "rawPoints": 8.5,
+      "maxPoints": 12,
+      "percentage": 71,
+      "pteScaleEquivalent": 8.5,
+      "subscores": {
+        "content": 4,
+        "form": 1,
+        "grammar": 0.5,
+        "spelling": 1,
+        "vocab": 2
+      },
+      "feedback": "[Mock Test 44B Official Result: 8.5/12]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 8.5/12]"
+    },
+    "durationSec": 60,
+    "createdAt": "2026-10-22T12:43:42.330+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_mcma_l_18",
+    "itemId": "ape_mcma_l_18",
+    "taskType": "MCMA_L",
+    "section": "listening",
+    "isMock44BBaseline": true,
+    "userAudioUrl": null,
+    "userResponse": {
+      "text": "B, C, E",
+      "transcript": "B, C, E",
+      "audioRecordingUrl": null
+    },
+    "scores": {
+      "taskType": "MCMA_L",
+      "section": "listening",
+      "rawPoints": 1,
+      "maxPoints": 2,
+      "percentage": 50,
+      "pteScaleEquivalent": 1,
+      "subscores": {
+        "choice": 1
+      },
+      "feedback": "[Mock Test 44B Official Result: 1/2]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 1/2]"
+    },
+    "durationSec": 60,
+    "createdAt": "2026-10-22T12:45:09.115+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_mcma_l_5",
+    "itemId": "ape_mcma_l_5",
+    "taskType": "MCMA_L",
+    "section": "listening",
+    "isMock44BBaseline": true,
+    "userAudioUrl": null,
+    "userResponse": {
+      "text": "B, C",
+      "transcript": "B, C",
+      "audioRecordingUrl": null
+    },
+    "scores": {
+      "taskType": "MCMA_L",
+      "section": "listening",
+      "rawPoints": 2,
+      "maxPoints": 2,
+      "percentage": 100,
+      "pteScaleEquivalent": 2,
+      "subscores": {
+        "choice": 2
+      },
+      "feedback": "[Mock Test 44B Official Result: 2/2]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 2/2]"
+    },
+    "durationSec": 60,
+    "createdAt": "2026-10-22T12:46:24.966+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_lfib_1",
+    "itemId": "ape_lfib_1",
+    "taskType": "LFIB",
+    "section": "listening",
+    "isMock44BBaseline": true,
+    "userAudioUrl": null,
+    "userResponse": {
+      "text": "mammels, adaptable, urban, native",
+      "transcript": "mammels, adaptable, urban, native",
+      "audioRecordingUrl": null
+    },
+    "scores": {
+      "taskType": "LFIB",
+      "section": "listening",
+      "rawPoints": 3,
+      "maxPoints": 4,
+      "percentage": 75,
+      "pteScaleEquivalent": 3,
+      "subscores": {
+        "choice": 3
+      },
+      "feedback": "[Mock Test 44B Official Result: 3/4]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 3/4]"
+    },
+    "durationSec": 60,
+    "createdAt": "2026-10-22T12:47:24.676+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_lfib_2",
+    "itemId": "ape_lfib_2",
+    "taskType": "LFIB",
+    "section": "listening",
+    "isMock44BBaseline": true,
+    "userAudioUrl": null,
+    "userResponse": {
+      "text": "searched, hostile, object, farms, tourist",
+      "transcript": "searched, hostile, object, farms, tourist",
+      "audioRecordingUrl": null
+    },
+    "scores": {
+      "taskType": "LFIB",
+      "section": "listening",
+      "rawPoints": 5,
+      "maxPoints": 5,
+      "percentage": 100,
+      "pteScaleEquivalent": 5,
+      "subscores": {
+        "choice": 5
+      },
+      "feedback": "[Mock Test 44B Official Result: 5/5]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 5/5]"
+    },
+    "durationSec": 60,
+    "createdAt": "2026-10-22T12:48:35.255+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_hcs_30",
+    "itemId": "ape_hcs_30",
+    "taskType": "HCS",
+    "section": "listening",
+    "isMock44BBaseline": true,
+    "userAudioUrl": null,
+    "userResponse": {
+      "text": "D",
+      "transcript": "D",
+      "audioRecordingUrl": null
+    },
+    "scores": {
+      "taskType": "HCS",
+      "section": "listening",
+      "rawPoints": 1,
+      "maxPoints": 1,
+      "percentage": 100,
+      "pteScaleEquivalent": 1,
+      "subscores": {
+        "choice": 1
+      },
+      "feedback": "[Mock Test 44B Official Result: 1/1]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 1/1]"
+    },
+    "durationSec": 60,
+    "createdAt": "2026-10-22T12:51:05.377+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_hcs_83",
+    "itemId": "ape_hcs_83",
+    "taskType": "HCS",
+    "section": "listening",
+    "isMock44BBaseline": true,
+    "userAudioUrl": null,
+    "userResponse": {
+      "text": "B",
+      "transcript": "B",
+      "audioRecordingUrl": null
+    },
+    "scores": {
+      "taskType": "HCS",
+      "section": "listening",
+      "rawPoints": 1,
+      "maxPoints": 1,
+      "percentage": 100,
+      "pteScaleEquivalent": 1,
+      "subscores": {
+        "choice": 1
+      },
+      "feedback": "[Mock Test 44B Official Result: 1/1]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 1/1]"
+    },
+    "durationSec": 60,
+    "createdAt": "2026-10-22T12:52:39.436+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_mcsa_l_18",
+    "itemId": "ape_mcsa_l_18",
+    "taskType": "MCSA_L",
+    "section": "listening",
+    "isMock44BBaseline": true,
+    "userAudioUrl": null,
+    "userResponse": {
+      "text": "B",
+      "transcript": "B",
+      "audioRecordingUrl": null
+    },
+    "scores": {
+      "taskType": "MCSA_L",
+      "section": "listening",
+      "rawPoints": 0,
+      "maxPoints": 1,
+      "percentage": 0,
+      "pteScaleEquivalent": 0,
+      "subscores": {
+        "choice": 0
+      },
+      "feedback": "[Mock Test 44B Official Result: 0/1]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 0/1]"
+    },
+    "durationSec": 60,
+    "createdAt": "2026-10-22T12:53:29.964+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_mcsa_l_16",
+    "itemId": "ape_mcsa_l_16",
+    "taskType": "MCSA_L",
+    "section": "listening",
+    "isMock44BBaseline": true,
+    "userAudioUrl": null,
+    "userResponse": {
+      "text": "B",
+      "transcript": "B",
+      "audioRecordingUrl": null
+    },
+    "scores": {
+      "taskType": "MCSA_L",
+      "section": "listening",
+      "rawPoints": 1,
+      "maxPoints": 1,
+      "percentage": 100,
+      "pteScaleEquivalent": 1,
+      "subscores": {
+        "choice": 1
+      },
+      "feedback": "[Mock Test 44B Official Result: 1/1]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 1/1]"
+    },
+    "durationSec": 60,
+    "createdAt": "2026-10-22T12:54:14.128+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_smw_50",
+    "itemId": "ape_smw_50",
+    "taskType": "SMW",
+    "section": "listening",
+    "isMock44BBaseline": true,
+    "userAudioUrl": null,
+    "userResponse": {
+      "text": "B",
+      "transcript": "B",
+      "audioRecordingUrl": null
+    },
+    "scores": {
+      "taskType": "SMW",
+      "section": "listening",
+      "rawPoints": 1,
+      "maxPoints": 1,
+      "percentage": 100,
+      "pteScaleEquivalent": 1,
+      "subscores": {
+        "choice": 1
+      },
+      "feedback": "[Mock Test 44B Official Result: 1/1]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 1/1]"
+    },
+    "durationSec": 60,
+    "createdAt": "2026-10-22T12:55:00.646+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_hiw_83",
+    "itemId": "ape_hiw_83",
+    "taskType": "HIW",
+    "section": "listening",
+    "isMock44BBaseline": true,
+    "userAudioUrl": null,
+    "userResponse": {
+      "text": "boogers, clad, freshened, centennial, visceral",
+      "transcript": "boogers, clad, freshened, centennial, visceral",
+      "audioRecordingUrl": null
+    },
+    "scores": {
+      "taskType": "HIW",
+      "section": "listening",
+      "rawPoints": 5,
+      "maxPoints": 5,
+      "percentage": 100,
+      "pteScaleEquivalent": 5,
+      "subscores": {
+        "choice": 5
+      },
+      "feedback": "[Mock Test 44B Official Result: 5/5]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 5/5]"
+    },
+    "durationSec": 60,
+    "createdAt": "2026-10-22T12:56:12.462+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_hiw_241",
+    "itemId": "ape_hiw_241",
+    "taskType": "HIW",
+    "section": "listening",
+    "isMock44BBaseline": true,
+    "userAudioUrl": null,
+    "userResponse": {
+      "text": "dating, lingerer, bait, jugglers, leisurely",
+      "transcript": "dating, lingerer, bait, jugglers, leisurely",
+      "audioRecordingUrl": null
+    },
+    "scores": {
+      "taskType": "HIW",
+      "section": "listening",
+      "rawPoints": 5,
+      "maxPoints": 5,
+      "percentage": 100,
+      "pteScaleEquivalent": 5,
+      "subscores": {
+        "choice": 5
+      },
+      "feedback": "[Mock Test 44B Official Result: 5/5]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 5/5]"
+    },
+    "durationSec": 60,
+    "createdAt": "2026-10-22T12:57:26.728+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_wfd_1549",
+    "itemId": "ape_wfd_1549",
+    "taskType": "WFD",
+    "section": "listening",
+    "isMock44BBaseline": true,
+    "userAudioUrl": null,
+    "userResponse": {
+      "text": "the university provides free acommodation for all the students.  (2 Incorrect: accommodation, its)",
+      "transcript": "the university provides free acommodation for all the students.  (2 Incorrect: accommodation, its)",
+      "audioRecordingUrl": null
+    },
+    "scores": {
+      "taskType": "WFD",
+      "section": "listening",
+      "rawPoints": 6,
+      "maxPoints": 8,
+      "percentage": 75,
+      "pteScaleEquivalent": 6,
+      "subscores": {
+        "choice": 6
+      },
+      "feedback": "[Mock Test 44B Official Result: 6/8]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 6/8]"
+    },
+    "durationSec": 60,
+    "createdAt": "2026-10-22T12:57:51.405+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_wfd_1932",
+    "itemId": "ape_wfd_1932",
+    "taskType": "WFD",
+    "section": "listening",
+    "isMock44BBaseline": true,
+    "userAudioUrl": null,
+    "userResponse": {
+      "text": "his lecture tends to range over a number of topics.  (2 Incorrect: lectures, tend)",
+      "transcript": "his lecture tends to range over a number of topics.  (2 Incorrect: lectures, tend)",
+      "audioRecordingUrl": null
+    },
+    "scores": {
+      "taskType": "WFD",
+      "section": "listening",
+      "rawPoints": 8,
+      "maxPoints": 10,
+      "percentage": 80,
+      "pteScaleEquivalent": 8,
+      "subscores": {
+        "choice": 8
+      },
+      "feedback": "[Mock Test 44B Official Result: 8/10]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 8/10]"
+    },
+    "durationSec": 60,
+    "createdAt": "2026-10-22T12:58:15.316+08:00"
+  },
+  {
+    "id": "att_mock44b_ape_wfd_2046",
+    "itemId": "ape_wfd_2046",
+    "taskType": "WFD",
+    "section": "listening",
+    "isMock44BBaseline": true,
+    "userAudioUrl": null,
+    "userResponse": {
+      "text": "application should be into the informal applicant.  (7 Incorrect: Applications, in, form, of, a, signed, document)",
+      "transcript": "application should be into the informal applicant.  (7 Incorrect: Applications, in, form, of, a, signed, document)",
+      "audioRecordingUrl": null
+    },
+    "scores": {
+      "taskType": "WFD",
+      "section": "listening",
+      "rawPoints": 3,
+      "maxPoints": 10,
+      "percentage": 30,
+      "pteScaleEquivalent": 3,
+      "subscores": {
+        "choice": 3
+      },
+      "feedback": "[Mock Test 44B Official Result: 3/10]"
+    },
+    "feedback": {
+      "text": "[Mock Test 44B Official Result: 3/10]"
+    },
+    "durationSec": 60,
+    "createdAt": "2026-10-22T12:58:39.327+08:00"
   }
 ];
 
@@ -29625,5 +31715,870 @@ export const APEUNI_SCRAPED_QUESTIONS = [
     "sharedLink": "https://www.apeuni.com/practice/listening?model=wfds&num=76&menu=all",
     "promptText": "Type the exact sentence you hear.",
     "audioScript": "Building trust is not something that can be achieved overnight."
+  },
+  {
+    "id": "ape_ra_672",
+    "apeuniNum": 672,
+    "taskType": "RA",
+    "section": "speaking",
+    "title": "#672 Breaking Habits",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": null,
+    "imageUrl": null,
+    "sharedLink": "https://www.apeuni.com/practice/speaking?model=read_alouds&num=672&menu=all",
+    "promptText": "Breaking habits is very difficult. The easiest way is to control your environment so that you do not encounter the cue which triggers your habit. It is difficult to break any habit even when you are motivated to do so. If you are ambivalent about breaking it, then you will be less likely to succeed.",
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_ra_911",
+    "apeuniNum": 911,
+    "taskType": "RA",
+    "section": "speaking",
+    "title": "#911 Internet",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": null,
+    "imageUrl": null,
+    "sharedLink": "https://www.apeuni.com/practice/speaking?model=read_alouds&num=911&menu=all",
+    "promptText": "The internet has grown in importance by many folds, over the process of decade. Its importance in the education world can now never be undermined. Despite the chances of fraud and drawbacks, the use of the internet is like a blessing for students. Today, the internet is something that is present in almost everything we use.",
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_ra_1224",
+    "apeuniNum": 1224,
+    "taskType": "RA",
+    "section": "speaking",
+    "title": "#1224 Earth’s Composition",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": null,
+    "imageUrl": null,
+    "sharedLink": "https://www.apeuni.com/practice/speaking?model=read_alouds&num=1224&menu=all",
+    "promptText": "Our planet consists of several earth’s layers, each playing a vital role in Earth’s overall structure and function. From the core, nestled deep within Earth’s center, to the mantle and the crust that forms the surface we live on, understanding these layers provides valuable information about the geological processes that have shaped our planet.",
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_ra_1222",
+    "apeuniNum": 1222,
+    "taskType": "RA",
+    "section": "speaking",
+    "title": "#1222 Bubbles",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": null,
+    "imageUrl": null,
+    "sharedLink": "https://www.apeuni.com/practice/speaking?model=read_alouds&num=1222&menu=all",
+    "promptText": "People love bubbles, they love to blow them, pop them and fit inside them. Bubbles aren't just for entertainment; they are the crisp effervescence in our sodas and sparkling water, and some doctors are even using microscopic bubbles to deliver medicine more effectively. Whether for entertainment or scientific study, scientists have been turning their attention to why bubbles pop.",
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_ra_916",
+    "apeuniNum": 916,
+    "taskType": "RA",
+    "section": "speaking",
+    "title": "#916 Archaic Names",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": null,
+    "imageUrl": null,
+    "sharedLink": "https://www.apeuni.com/practice/speaking?model=read_alouds&num=916&menu=all",
+    "promptText": "An archaic name is an older name for a chemical that predates the modern naming conventions. It's helpful to know archaic names of chemicals because older texts may refer to chemicals by these names. Some chemicals are sold under archaic names or may be found in storage labeled with the older names.",
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_rs_1220",
+    "apeuniNum": 1220,
+    "taskType": "RS",
+    "section": "speaking",
+    "title": "#1220 RS",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": "/apeuni_media/1220_volume.mp3",
+    "imageUrl": null,
+    "sharedLink": "https://www.apeuni.com/practice/speaking?model=repeat_sentences&num=1220&menu=all",
+    "sentence": "You can return items in person or by post.",
+    "transcript": "You can return items in person or by post.",
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_rs_1384",
+    "apeuniNum": 1384,
+    "taskType": "RS",
+    "section": "speaking",
+    "title": "#1384 RS",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": "/apeuni_media/1384_volume.mp3",
+    "imageUrl": null,
+    "sharedLink": "https://www.apeuni.com/practice/speaking?model=repeat_sentences&num=1384&menu=all",
+    "sentence": "Most teenagers start taking drugs because of boredom.",
+    "transcript": "Most teenagers start taking drugs because of boredom.",
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_rs_1441",
+    "apeuniNum": 1441,
+    "taskType": "RS",
+    "section": "speaking",
+    "title": "#1441 RS",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": "/apeuni_media/1441_volume.mp3",
+    "imageUrl": null,
+    "sharedLink": "https://www.apeuni.com/practice/speaking?model=repeat_sentences&num=1441&menu=all",
+    "sentence": "The government patented the device to the freshman.",
+    "transcript": "The government patented the device to the freshman.",
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_rs_1495",
+    "apeuniNum": 1495,
+    "taskType": "RS",
+    "section": "speaking",
+    "title": "#1495 RS",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": "/apeuni_media/1495_volume.mp3",
+    "imageUrl": null,
+    "sharedLink": "https://www.apeuni.com/practice/speaking?model=repeat_sentences&num=1495&menu=all",
+    "sentence": "Newspapers today are entirely free from government control.",
+    "transcript": "Newspapers today are entirely free from government control.",
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_rs_1502",
+    "apeuniNum": 1502,
+    "taskType": "RS",
+    "section": "speaking",
+    "title": "#1502 RS",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": "/apeuni_media/1502_volume.mp3",
+    "imageUrl": null,
+    "sharedLink": "https://www.apeuni.com/practice/speaking?model=repeat_sentences&num=1502&menu=all",
+    "sentence": "His understanding of the language is very rudimentary.",
+    "transcript": "His understanding of the language is very rudimentary.",
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_rs_2325",
+    "apeuniNum": 2325,
+    "taskType": "RS",
+    "section": "speaking",
+    "title": "#2325 RS",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": "/apeuni_media/2325_volume.mp3",
+    "imageUrl": null,
+    "sharedLink": "https://www.apeuni.com/practice/speaking?model=repeat_sentences&num=2325&menu=all",
+    "sentence": "The business school offers internships and networking opportunities.",
+    "transcript": "The business school offers internships and networking opportunities.",
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_rs_1261",
+    "apeuniNum": 1261,
+    "taskType": "RS",
+    "section": "speaking",
+    "title": "#1261 RS",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": "/apeuni_media/1261_volume.mp3",
+    "imageUrl": null,
+    "sharedLink": "https://www.apeuni.com/practice/speaking?model=repeat_sentences&num=1261&menu=all",
+    "sentence": "Rain, snow and hail are collectively known as precipitation.",
+    "transcript": "Rain, snow and hail are collectively known as precipitation.",
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_di_1190",
+    "apeuniNum": 1190,
+    "taskType": "DI",
+    "section": "speaking",
+    "title": "#1190 Library Visits",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": null,
+    "imageUrl": "/apeuni_media/visit.png",
+    "sharedLink": "https://www.apeuni.com/practice/speaking?model=describe_images&num=1190&menu=all",
+    "imageType": "chart",
+    "promptText": "This line chart gives information about annual library visits. \nFrom the picture we can see in 2017 the value is 5.3. \nIn 2018 the value is higher, which is 5.4. \nThe highest number is in 2020, and it is 5.6. \nAnd the lowest one is in 2015, just 5 \nTo sum up, the line chart tells about annual library visits.",
+    "targetDescription": "This line chart gives information about annual library visits. \nFrom the picture we can see in 2017 the value is 5.3. \nIn 2018 the value is higher, which is 5.4. \nThe highest number is in 2020, and it is 5.6. \nAnd the lowest one is in 2015, just 5 \nTo sum up, the line chart tells about annual library visits.",
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_di_1108",
+    "apeuniNum": 1108,
+    "taskType": "DI",
+    "section": "speaking",
+    "title": "#1108 Tourists in Countries",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": null,
+    "imageUrl": "/apeuni_media/tourist.jpg",
+    "sharedLink": "https://www.apeuni.com/practice/speaking?model=describe_images&num=1108&menu=all",
+    "imageType": "chart",
+    "promptText": "This bar chart gives information about annual tourist numbers for countries. \nFrom the picture we can see the value of for USA in 2017 is 0.42. \nIn 2016 the number for USA is higher, which is 0.7. \nThe highest amount for France is in 2010, around 1. \nAnd the lowest one for Japan is in 2015, just 0.2. \nThere are also many other years, from 2010 to 2020. \nTo sum up, the graph tells about annual tourist numbers.",
+    "targetDescription": "This bar chart gives information about annual tourist numbers for countries. \nFrom the picture we can see the value of for USA in 2017 is 0.42. \nIn 2016 the number for USA is higher, which is 0.7. \nThe highest amount for France is in 2010, around 1. \nAnd the lowest one for Japan is in 2015, just 0.2. \nThere are also many other years, from 2010 to 2020. \nTo sum up, the graph tells about annual tourist numbers.",
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_di_1101",
+    "apeuniNum": 1101,
+    "taskType": "DI",
+    "section": "speaking",
+    "title": "#1101 Personal Monthly Expense",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": null,
+    "imageUrl": "/apeuni_media/expense.png",
+    "sharedLink": "https://www.apeuni.com/practice/speaking?model=describe_images&num=1101&menu=all",
+    "imageType": "chart",
+    "promptText": "This pie chart gives information about personal monthly expense. \nFrom the picture we can see the share of entertainment is 10 percent. \nFor healthcare the proportion is higher, which is 14.4 percent. \nThe highest percentage is for other, around 25.1 percent. \nAnd the lowest one is for groceries, just 4 percent. \nThere are also many other age groups, such as rent, transportation and utilities. \nTo sum up, the graph tells about personal monthly expense.",
+    "targetDescription": "This pie chart gives information about personal monthly expense. \nFrom the picture we can see the share of entertainment is 10 percent. \nFor healthcare the proportion is higher, which is 14.4 percent. \nThe highest percentage is for other, around 25.1 percent. \nAnd the lowest one is for groceries, just 4 percent. \nThere are also many other age groups, such as rent, transportation and utilities. \nTo sum up, the graph tells about personal monthly expense.",
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_di_1136",
+    "apeuniNum": 1136,
+    "taskType": "DI",
+    "section": "speaking",
+    "title": "#1136 Africa",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": null,
+    "imageUrl": "/apeuni_media/africa.jpg",
+    "sharedLink": "https://www.apeuni.com/practice/speaking?model=describe_images&num=1136&menu=all",
+    "imageType": "chart",
+    "promptText": "This picture gives information about Africa. \nFrom the picture we can see there are many countries in the North Africa, such as Algeria, Libya and Egypt. \nBelow them are Mali, Niger, Chad and Sudan. \nIn the East Africa it is a country called Ethiopia. \nAt the very center of the continent is Democratic Public of the Congo. \nSouth Africa is at the southmost end of the continent, and Madagascar is the island in the Southeast. \nTo sum up, the graph tells about Africa.",
+    "targetDescription": "This picture gives information about Africa. \nFrom the picture we can see there are many countries in the North Africa, such as Algeria, Libya and Egypt. \nBelow them are Mali, Niger, Chad and Sudan. \nIn the East Africa it is a country called Ethiopia. \nAt the very center of the continent is Democratic Public of the Congo. \nSouth Africa is at the southmost end of the continent, and Madagascar is the island in the Southeast. \nTo sum up, the graph tells about Africa.",
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_di_1063",
+    "apeuniNum": 1063,
+    "taskType": "DI",
+    "section": "speaking",
+    "title": "#1063 Thesis Writing",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": null,
+    "imageUrl": "/apeuni_media/thesis.jpg",
+    "sharedLink": "https://www.apeuni.com/practice/speaking?model=describe_images&num=1063&menu=all",
+    "imageType": "chart",
+    "promptText": "The following graph gives information about writing a thesis. \nAccording to the picture, I can see the first step is topic selection and preliminary research. \nFrom the picture, the second step is outline and structure development. \nMoreover, the next step is extensive literature review. \nLastly, the final step is data collection. \nTo sum up, the graph tells about writing a thesis.",
+    "targetDescription": "The following graph gives information about writing a thesis. \nAccording to the picture, I can see the first step is topic selection and preliminary research. \nFrom the picture, the second step is outline and structure development. \nMoreover, the next step is extensive literature review. \nLastly, the final step is data collection. \nTo sum up, the graph tells about writing a thesis.",
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_rl_560",
+    "apeuniNum": 560,
+    "taskType": "RL",
+    "section": "speaking",
+    "title": "#560 Emissions-Free Cities",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": "/apeuni_media/20221214-RL-1.mp3",
+    "imageUrl": null,
+    "sharedLink": "https://www.apeuni.com/practice/speaking?model=retell_lectures&num=560&menu=all",
+    "lectureTopic": "Emissions-Free Cities",
+    "lectureTranscript": "For too long, discussions about climate change have been about sacrifice. I am here to tell you that climate solutions actually make a better city and a better quality of life for everyone. This is only the first of five lessons we have learned on our journey to become an emission-free city. And I think these lessons can be applied almost anywhere. So I like to share them. So lesson number one, confronting climate change is about creating better cities and better quality of life for everyone, including those kids in the kindergarten, that don’t have to share their days with noisy excavators. The second lesson is about being ambitious. In 2015, the city council set a target of reducing greenhouse gas emissions by 95 percent by 2030 without purchasing any carbon offsets. So aiming for real reductions. Commitment to this goal changed our mindset. If we were going to reach this target, every department had to get active, figure out measures and finding out how to implement them. So second lesson, be ambitious. A target measured in years, not decades, provides no excuse for inaction.",
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_asq_990",
+    "apeuniNum": 990,
+    "taskType": "ASQ",
+    "section": "speaking",
+    "title": "#990 ASQ",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": "/apeuni_media/1639535065-asq_990-en-US-Wavenet-C.mp3",
+    "imageUrl": null,
+    "sharedLink": "https://www.apeuni.com/practice/speaking?model=answer_questions&num=990&menu=all",
+    "question": "Which city is the American capital？ \nAnswer: Washington D.C",
+    "expectedAnswer": "",
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_asq_996",
+    "apeuniNum": 996,
+    "taskType": "ASQ",
+    "section": "speaking",
+    "title": "#996 ASQ",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": "/apeuni_media/1639535489-asq_996-en-US-Wavenet-C.mp3",
+    "imageUrl": null,
+    "sharedLink": "https://www.apeuni.com/practice/speaking?model=answer_questions&num=996&menu=all",
+    "question": "How often are the Olympic Games held? \nAnswer: Every four years",
+    "expectedAnswer": "",
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_asq_997",
+    "apeuniNum": 997,
+    "taskType": "ASQ",
+    "section": "speaking",
+    "title": "#997 ASQ",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": "/apeuni_media/1639535522-asq_997-en-US-Wavenet-C.mp3",
+    "imageUrl": null,
+    "sharedLink": "https://www.apeuni.com/practice/speaking?model=answer_questions&num=997&menu=all",
+    "question": "What animal is the national treasure in China? \nAnswer: Panda",
+    "expectedAnswer": "",
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_asq_1555",
+    "apeuniNum": 1555,
+    "taskType": "ASQ",
+    "section": "speaking",
+    "title": "#1555 ASQ",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": "/apeuni_media/1673588365-asq_1555-en-US-Wavenet-C.mp3",
+    "imageUrl": null,
+    "sharedLink": "https://www.apeuni.com/practice/speaking?model=answer_questions&num=1555&menu=all",
+    "question": "What do we call the rate of death in a particular situation or period of time? \nAnswer: Mortality",
+    "expectedAnswer": "",
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_asq_1004",
+    "apeuniNum": 1004,
+    "taskType": "ASQ",
+    "section": "speaking",
+    "title": "#1004 ASQ",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": "/apeuni_media/1639535816-asq_1004-en-US-Wavenet-C.mp3",
+    "imageUrl": null,
+    "sharedLink": "https://www.apeuni.com/practice/speaking?model=answer_questions&num=1004&menu=all",
+    "question": "How many lines are there in a sonnet? \nAnswer: Fourteen",
+    "expectedAnswer": "",
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_sgd_76",
+    "apeuniNum": 76,
+    "taskType": "SGD",
+    "section": "speaking",
+    "title": "#76 Extended Library Opening Hours",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": "/apeuni_media/dlg_Default_73febce165cf.mp3",
+    "imageUrl": null,
+    "sharedLink": "https://www.apeuni.com/practice/speaking?model=summarize_group_discussions&num=76&menu=all",
+    "discussionScenario": "Extended Library Opening Hours",
+    "transcript": "Narration: Three students are discussing whether to extend library opening hours.\nSpeaker1: Hey guys, did you hear the student union wants the library open until midnight? I’m all for it! Last week, my group had to rush out at 10 PM for a project—we finished in my noisy dorm. Late hours mean more quiet study time, especially during exams. I saw lots of people still working when it closed last night.\nSpeaker2: Totally agree! My biology lab reports take hours—I never finish by 10 PM on weekdays. Late hours mean no squeezing work into weekends or studying with roommates watching TV. Plus, walking back from the library at midnight is safer than from off-campus cafés, which is what I do now.\nSpeaker3: Wait, is that necessary? I worry about staff—they’re already tired closing at 10 PM. Would there be enough security? More late students might mean mess or lost laptops. And I finish work by 9 PM—I never feel rushed. Last month, a student left their laptop in the library after hours, and it took three days to get it back because staff only came in the next morning.\nSpeaker1: Good point, but the school could hire part-time evening staff (7 PM to midnight) like my cousin’s university. For security, add more cameras or a guard. Lots of people—like my night owl roommate—work best after 10 PM.\nSpeaker2: Exactly! The library already has cameras—one more isn’t hard. For mess, staff can tidy hourly like they do during the day. Most classmates I asked said they’d use late hours, especially midterms. It’s about helping more people. My friend even said she’d stop pulling all-nighters in her dorm if the library stayed open later, since she’d get more done there.\nSpeaker3: Hiring staff and security sounds doable. I didn’t think about night owls—my neighbor studies until 1 AM. But would the school pay for it? If they can, it’s a good idea. I know the school cut some activity budgets last semester, so I’m worried they might not have extra money for new staff.\nSpeaker1: The student union’s talking to the school about funding—maybe using activity fees. We could write a suggestion list and ask Professor Lee to back us up; she supports study time. She even told our class last week that she wishes the library was open later for students who need more study space.\nSpeaker2: Great! I’ll ask the librarian about part-time staff. My sister’s school used student volunteers for tidying to save money. Let’s share what we find. Those volunteers got service hours for their resumes too, so it was a win-win for everyone involved.\nSpeaker3: Thanks—this feels real now. I’ll ask my neighbor how often she’d use it. Let’s meet next week to make the suggestion list! If we can show the school there’s real demand and a cheap way to do it, they’ll be more likely to say yes.\n",
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_sgd_77",
+    "apeuniNum": 77,
+    "taskType": "SGD",
+    "section": "speaking",
+    "title": "#77 Cancel Weekend Homework",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": "/apeuni_media/dlg_Default_d9dfe7befbcf.mp3",
+    "imageUrl": null,
+    "sharedLink": "https://www.apeuni.com/practice/speaking?model=summarize_group_discussions&num=77&menu=all",
+    "discussionScenario": "Cancel Weekend Homework",
+    "transcript": "Narration: Three classmates are chatting in the school cafeteria about whether schools should cancel weekend homework.\nSpeaker1: Hey, did you hear Ms. Lee mention the class survey about weekend homework yesterday? I totally think we should cancel it! Weekends are supposed to be time to rest—after a whole week of early mornings and classes, I just want to sleep in a little or hang out with my family. Having homework makes me feel like I can’t even fully relax, and I end up rushing through it just to finish.\nSpeaker2: I get where you’re coming from, but I actually disagree. For me, weekend homework helps me review what we learned that week. Remember last month when we had that math unit on equations? I was confused at first, but working on the weekend worksheets helped me practice until I got it.\nSpeaker3: Wait, really? My weekends are already packed with extracurriculars—like the art club and my piano lessons—and adding homework just makes everything chaotic. Last Saturday, I had to skip my friend’s birthday party because I was stuck finishing a history essay.\nSpeaker1: Exactly! And it’s not like we’re wasting time without homework. I use weekends to read books I like or help my mom garden—stuff that makes me happy and less stressed. When I’m less stressed, I actually focus better in class on Mondays.\nSpeaker2: But what about students who need extra practice? Not everyone picks up new topics as fast. My little sister is in middle school, and she needs weekend homework to keep up with her English vocabulary. If schools cancel it, teachers might have to add more work during the week, which would make weekdays even harder.\nSpeaker3: Hmm, but the problem is that “short” homework often adds up. Last weekend, I had math worksheets, a science lab report, and a literature response—all together, that took me over three hours. And if teachers just add more work during the week, we’ll end up staying up late doing homework on weekdays instead.\nSpeaker1: Yeah, that’s true. Maybe the solution isn’t just “cancel all” or “keep all”—but why not start by canceling it? We could try it for a month and see how it goes. If students start falling behind, teachers can adjust. For example, they could assign optional review exercises for those who feel they need the extra practice, rather than making it mandatory for everyone.\nSpeaker2: I guess that’s a fair point. I still worry about forgetting what we learn, but maybe there are other ways to review—like doing quick in-class activities on Mondays instead of homework. Maybe teachers could also share a list of online learning resources so students who want to study more over the weekend can do so independently.\nSpeaker3: That sounds good! Let’s all fill out the survey with our thoughts this afternoon. It’s nice to hear different views—now I understand why some people like weekend homework, even if I still don’t want it. At least we’re all trying to make school better for everyone.\n",
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_rts_112",
+    "apeuniNum": 112,
+    "taskType": "RTS",
+    "section": "speaking",
+    "title": "#112 RTS",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": "/apeuni_media/15.RTAS_Prompt_15_volume.mp3",
+    "imageUrl": null,
+    "sharedLink": "https://www.apeuni.com/practice/speaking?model=ptea_respond_situations&num=112&menu=all",
+    "situationPrompt": "You are studying for an important exam in a quiet section of the library. A group of students nearby is speaking loudly, making it hard for you to concentrate. You notice a librarian at the help desk a few steps away. What would you say to the librarian?",
+    "promptText": "You are studying for an important exam in a quiet section of the library. A group of students nearby is speaking loudly, making it hard for you to concentrate. You notice a librarian at the help desk a few steps away. What would you say to the librarian?",
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_rts_107",
+    "apeuniNum": 107,
+    "taskType": "RTS",
+    "section": "speaking",
+    "title": "#107 RTS",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": "/apeuni_media/10.RTAS_Prompt_10_volume.mp3",
+    "imageUrl": null,
+    "sharedLink": "https://www.apeuni.com/practice/speaking?model=ptea_respond_situations&num=107&menu=all",
+    "situationPrompt": "You are a student and you keep getting locked out of your university account. You've reset your password multiple times, but the problem persists. You call IT support to explain the situation and ask for a more permanent solution. What would you say?",
+    "promptText": "You are a student and you keep getting locked out of your university account. You've reset your password multiple times, but the problem persists. You call IT support to explain the situation and ask for a more permanent solution. What would you say?",
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_swt_240",
+    "apeuniNum": 240,
+    "taskType": "SWT",
+    "section": "writing",
+    "title": "#240 Boredom",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": null,
+    "imageUrl": null,
+    "sharedLink": "https://www.apeuni.com/practice/writing?model=swts&num=240&menu=all",
+    "passageText": "",
+    "wordLimit": {
+      "min": 5,
+      "max": 75
+    },
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_swt_246",
+    "apeuniNum": 246,
+    "taskType": "SWT",
+    "section": "writing",
+    "title": "#246 Making Suggestions",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": null,
+    "imageUrl": null,
+    "sharedLink": "https://www.apeuni.com/practice/writing?model=swts&num=246&menu=all",
+    "passageText": "",
+    "wordLimit": {
+      "min": 5,
+      "max": 75
+    },
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_rwfib_1057",
+    "apeuniNum": 1057,
+    "taskType": "RWFIB",
+    "section": "reading",
+    "title": "#1057 VR",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": null,
+    "imageUrl": null,
+    "sharedLink": "https://www.apeuni.com/practice/reading?model=fib_wr&num=1057&menu=all",
+    "rawTextWithGaps": "Virtual reality (VR), once a futuristic concept, has cascaded into our daily lives with a vibrant splash, revolutionizing the way we experience digital content. This technological marvel, now accessible through headsets like Oculus Rift and HTC Vive, {{1}} users in a completely artificial world. Its allure lies not just in its novelty but in its {{2}} potential. From gaming to education, VR transcends traditional boundaries, offering an unprecedented level of interaction and engagement. The technology, at its {{3}} , manipulates our sensory perception, creating a convincing illusion of reality. As described in a recent interview with a VR developer, this medium is not just about visual spectacle; it's about 'crafting experiences that resonate on a human level'. This statement {{4}} the idea that VR's power lies in its ability to connect with users beyond the visual, tapping into a deeper, emotional response.",
+    "blanks": [],
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_rwfib_1065",
+    "apeuniNum": 1065,
+    "taskType": "RWFIB",
+    "section": "reading",
+    "title": "#1065 Unlucky Numbers",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": null,
+    "imageUrl": null,
+    "sharedLink": "https://www.apeuni.com/practice/reading?model=fib_wr&num=1065&menu=all",
+    "rawTextWithGaps": "While in the West, Friday the 13th might give some people pause, other cultures have their own numerological apprehensions. Take the number 4 in East Asia, often {{1}} with death due to its pronunciation {{2}} similar to the word for \"die\" in several languages. Buildings frequently skip the fourth floor, much like the 13th in the West. Then there's Italy, where 17 is the unlucky number, based on its Roman numeral representation, XVII, which can be rearranged to spell 'VIXI', translated as \"I have lived,\" an implication of death. These superstitions, while {{3}} arbitrary, hold a fascinating glimpse into cultural psychologies and histories. They influence architecture, business, and daily life in subtle but pervasive ways. It's a curious aspect of human {{4}} how numbers can carry such weight in our collective imaginations.",
+    "blanks": [],
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_rwfib_1070",
+    "apeuniNum": 1070,
+    "taskType": "RWFIB",
+    "section": "reading",
+    "title": "#1070 Anticipation",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": null,
+    "imageUrl": null,
+    "sharedLink": "https://www.apeuni.com/practice/reading?model=fib_wr&num=1070&menu=all",
+    "rawTextWithGaps": "The brain's knack for anticipation is a marvel, similar to a chess player thinking several moves ahead. This ability isn't just about reflexes or instincts but involves complex planning and prediction. For instance, before you even decide to {{1}} a ball, your brain has already mapped out the trajectory, your hand position, and the force needed. This foresight {{2}} beyond physical actions to emotional and cognitive realms, preparing you for conversations, problem-solving, and even bracing for potential stressors. It's {{3}} the brain is perpetually drafting blueprints for multiple futures, selecting the most relevant one as the situation {{4}} . This foresight closely reflects the brain's complexity, not just reacting to the present but continuously shaping the future.",
+    "blanks": [],
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_rwfib_1071",
+    "apeuniNum": 1071,
+    "taskType": "RWFIB",
+    "section": "reading",
+    "title": "#1071 Treating Obesity",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": null,
+    "imageUrl": null,
+    "sharedLink": "https://www.apeuni.com/practice/reading?model=fib_wr&num=1071&menu=all",
+    "rawTextWithGaps": "There are ways to prevent and treat obesity, such as lifestyle interventions, where families learn about and participate in healthy habits together. These interventions can help families improve their nutrition, physical activity, sleep, and stress {{1}} . However, many families do not have {{2}} to these interventions, due to various barriers, such as cost, availability, transportation, time, and stigma. These barriers are often unfair and reflect the social and economic {{3}} in our society. They prevent many families from getting the help they need and deserve. One example of this is the story of a pediatrician {{4}} a mother find healthy activities for her 10-year-old daughter who had pre-diabetes. The pediatrician faced many challenges and frustrations in finding suitable options for the family, and realized that the system was not working for them. She {{5}} that there were more resources and opportunities for families like them to learn about health as a family, to play, and to thrive.",
+    "blanks": [],
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_rwfib_1087",
+    "apeuniNum": 1087,
+    "taskType": "RWFIB",
+    "section": "reading",
+    "title": "#1087 Dogs' Vision",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": null,
+    "imageUrl": null,
+    "sharedLink": "https://www.apeuni.com/practice/reading?model=fib_wr&num=1087&menu=all",
+    "rawTextWithGaps": "The belief that dogs are colorblind, especially that they can only see in black and white, is a common misconception that has been {{1}} for many years. This misunderstanding likely {{2}} early scientific studies and the way the information was subsequently communicated to the public. Early studies on canine vision suggested that dogs could not perceive colors in the same way humans do. This was because dogs, unlike humans, have fewer cone cells in their eyes. Cone cells are responsible for {{3}} color. Humans typically have three types of cone cells, allowing them to see a {{4}} spectrum of colors (trichromatic vision). Initial research suggested that dogs might lack this complexity in their visual system, leading to the conclusion that they could only perceive the world in {{5}} of gray. Modern research, however, has shown that dogs do see colors, but their color vision is limited compared to humans.",
+    "blanks": [],
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_mcma_r_2",
+    "apeuniNum": 2,
+    "taskType": "MCMA_R",
+    "section": "reading",
+    "title": "#2 MCM-R",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": null,
+    "imageUrl": null,
+    "sharedLink": "https://www.apeuni.com/practice/reading?model=r_mcm&num=2&menu=all",
+    "promptText": "It is possible to study the curriculum of an educational institution from a number of different perspectives. In the first instance, we can look at curriculum planning, that is at decision-making, in relation to identifying learners' needs and purposes; establishing goals and objectives; selecting and grading content; organising appropriate learning arrangements and learner groupings; selecting, adapting or developing appropriate materials, learning tasks and assessment and evaluation tools. \nAlternatively, we can study the curriculum 'in action', as it were. This second perspective takes us into the classroom itself. Here, we can observe the teaching/learning process and study the ways in which the intentions of the curriculum planners, which were developed during the planning phase, are put into action. \nYet another perspective relates to assessment and evaluation. From this perspective we would try and find out what students had learned and what they had failed to learn, in relation to what had been planned. In addition we might want to find out if they had learned anything which had not been planned.",
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_mcma_r_5",
+    "apeuniNum": 5,
+    "taskType": "MCMA_R",
+    "section": "reading",
+    "title": "#5 Flax",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": null,
+    "imageUrl": null,
+    "sharedLink": "https://www.apeuni.com/practice/reading?model=r_mcm&num=5&menu=all",
+    "promptText": "When the Maori people first came to New Zealand. they brought the mulberry plant from which they made bark cloth. However. the mulberry did not flourish in the new climate so they found a substitute in the native flax. They used this for baskets, mats, and fishing nets and to make intricate fibre ceremonial cloaks. Maori identified almost 60 types of flax, and propagated flax nurseries and plantations to supply the integral material. They chopped the leaves near the base of the flax plant using a sharp mussel shell or shaped rocks. The flesh of the leaf was stripped off right down to the fibre which went through several processes of washing, bleaching, softening, dyeing and drying. Flax ropes and cords had such great strength that they were used to bind together sections of hollowed-out logs to create huge ocean-going canoes, and to provide rigging, sails and lengthy anchor warps for them. It was also used for roofs for housing. The ends of the flax leaves were fanned out to make torches to provide light at night.",
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_rop_759",
+    "apeuniNum": 759,
+    "taskType": "ROP",
+    "section": "reading",
+    "title": "#759 General Practitioners",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": null,
+    "imageUrl": null,
+    "sharedLink": "https://www.apeuni.com/practice/reading?model=ro&num=759&menu=all",
+    "correctOrder": "正确顺序 (Correct Order):\nGeneral practitioners, often the first point of contact in healthcare, provide comprehensive care.\nThey treat a wide range of conditions and refer patients to specialists when necessary.\nAdditionally, they play a key role in preventative care and health education.\nHowever, their broad scope of practice means they must constantly update their knowledge across a wide range of medical fields.",
+    "segments": [],
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_rop_745",
+    "apeuniNum": 745,
+    "taskType": "ROP",
+    "section": "reading",
+    "title": "#745 Pigeons",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": null,
+    "imageUrl": null,
+    "sharedLink": "https://www.apeuni.com/practice/reading?model=ro&num=745&menu=all",
+    "correctOrder": "正确顺序 (Correct Order):\nPigeons have a remarkable ability to find their way home.\nThey can navigate over extremely long distances, a skill that made them invaluable as messengers in the past.\nThis skill is still not fully understood, but it is believed to involve the Earth's magnetic fields and visual landmarks.\nHowever, in urban environments, this ability can lead them to become dependent on humans for food.",
+    "segments": [],
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_rfib_979",
+    "apeuniNum": 979,
+    "taskType": "RFIB",
+    "section": "reading",
+    "title": "#979 Restoration Efforts",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": null,
+    "imageUrl": null,
+    "sharedLink": "https://www.apeuni.com/practice/reading?model=fib_rd&num=979&menu=all",
+    "rawTextWithGaps": "The Old Town Restoration has successfully preserved the architectural heritage of the city's most {{1}} district. Through meticulous restoration work, conservationists have saved {{2}} buildings from decay. These efforts have not only revitalized the area but also attracted tourists {{3}} to experience its timeless charm.",
+    "blanks": [],
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_rfib_974",
+    "apeuniNum": 974,
+    "taskType": "RFIB",
+    "section": "reading",
+    "title": "#974 Film Soundtracks",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": null,
+    "imageUrl": null,
+    "sharedLink": "https://www.apeuni.com/practice/reading?model=fib_rd&num=974&menu=all",
+    "rawTextWithGaps": "For each groundbreaking film produced in Hollywood, a unique soundtrack is composed. This {{1}} from the idea that films are narratives, and music is crucial for conveying their emotions and messages. {{2}} , music {{3}} the film's story by establishing a relationship between the sound and the image and influencing how the audience {{4}} the film.",
+    "blanks": [],
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_rfib_975",
+    "apeuniNum": 975,
+    "taskType": "RFIB",
+    "section": "reading",
+    "title": "#975 Solar Farms",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": null,
+    "imageUrl": null,
+    "sharedLink": "https://www.apeuni.com/practice/reading?model=fib_rd&num=975&menu=all",
+    "rawTextWithGaps": "With over a billion panels {{1}} globally, solar energy has become the world's harnessing power. This dominance, however, comes at a {{2}} . There are now fewer landscapes {{3}} by solar farms compared with several decades ago. Who's ready to invest in solar stocks? Better hurry, as the market's burgeoning {{4}} shows no signs of waning.",
+    "blanks": [],
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_rfib_977",
+    "apeuniNum": 977,
+    "taskType": "RFIB",
+    "section": "reading",
+    "title": "#977 Age of Exploration",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": null,
+    "imageUrl": null,
+    "sharedLink": "https://www.apeuni.com/practice/reading?model=fib_rd&num=977&menu=all",
+    "rawTextWithGaps": "The Age of Exploration was a pivotal period in human history, {{1}} by seafaring voyages that expanded global trade routes and cultural exchanges. Navigators like Columbus and Magellan {{2}} on perilous journeys, reshaping the world's geographical understanding and {{3}} new connections between distant lands. Therefore, the Age of Exploration is considered a major {{4}} point in world history, as it opened up new horizons, opportunities, and challenges for humanity.",
+    "blanks": [],
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_mcsa_r_132",
+    "apeuniNum": 132,
+    "taskType": "MCSA_R",
+    "section": "reading",
+    "title": "#132 Death of Salesman",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": null,
+    "imageUrl": null,
+    "sharedLink": "https://www.apeuni.com/practice/reading?model=r_mcs&num=132&menu=all",
+    "promptText": "Death of a Salesman is the masterpiece of Arthur Miller written in 1948 and produced in 1949. The popularity and success of the play demonstrate the strength of its story. The play was adapted for various tableaus, films, and course books across the globe, securing a Pulitzer Prize for Miller. The story of the play revolves around an unfortunate middle-class man who ruins his life, chasing the idea of the American Dream. This unattainable hunt costs him dearly; he seems stuck between fantasy and reality with a resultant loss of his own life. In one of his interviews, Miller mentions that the inspiration for the play is seeing his father struggle during the Depression.",
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_mcsa_r_131",
+    "apeuniNum": 131,
+    "taskType": "MCSA_R",
+    "section": "reading",
+    "title": "#131 Farewell to Arms",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": null,
+    "imageUrl": null,
+    "sharedLink": "https://www.apeuni.com/practice/reading?model=r_mcs&num=131&menu=all",
+    "promptText": "A Farewell to Arms was published in 1929, and one of the best literary works of Ernest Hemingway. The novel describes the Italian campaign during the First World War. Written in the first-person point of view, the story shows Frederic Henry, a lieutenant working as an ambulance driver in the Italian forces is involved in a love affair with a nurse, Catherine Barkley. Apart from the love story, the novel exclusively talks about the absurdity of war and his flight from duty to Switzerland where he loses his love during childbirth. The novel was also adapted to screen, television, and stage several times. The novel presents the personal experience of Hemingway as an ambulance driver.",
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_mcma_l_18",
+    "apeuniNum": 18,
+    "taskType": "MCMA_L",
+    "section": "listening",
+    "title": "#18 Shark",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": "/apeuni_media/MCM_108.mp3",
+    "imageUrl": null,
+    "sharedLink": "https://www.apeuni.com/practice/listening?model=l_mcm&num=18&menu=all",
+    "promptText": "A further example of endangered species is the shark. \nAround 40 million sharks are killed each year. That's quite a lot. Consequently the number of sharks is decreasing. So let's take a closer look at the causes of this. \nFirstly, in recent decades sharks have become important. This is largely due to the growing popularity in some parts of the world for the consumption of shark - it has become a very valuable food source. \nOK, so maybe you're thinking 'Well, lots of other fish like cod, salmon or tuna are caught for human consumption and they aren't disappearing at the same rate as sharks.'Well, that's true. But the difference here is sharks are not able to repopulate or reproduce themselves quickly like the other types of fish that are commonly fished as a food source. Why? Because sharks are slow breeders. Sharks mature slowly and it takes them years to reach the age for egg production and then they produce only a few eggs so that means just a few new sharks. Humans have a nine month pregnancy or gestation period whereas some shark species are thought to have extremely long gestation periods, as long as three years. This makes them much more vulnerable and in danger of dying out than many other fish species.",
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_mcma_l_5",
+    "apeuniNum": 5,
+    "taskType": "MCMA_L",
+    "section": "listening",
+    "title": "#5 Contemporary Writers",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": "/apeuni_media/2.36_volume.mp3",
+    "imageUrl": null,
+    "sharedLink": "https://www.apeuni.com/practice/listening?model=l_mcm&num=5&menu=all",
+    "promptText": "The earliest writers on politics - and I'm thinking of Plato and Aristotle here - felt free to draw insights from all areas of human knowledge, unlike modern academic writers who tend to put things into smaller and smaller compartments, or focus more closely on one area of enquiry. For example, Plato would examine a whole political system and the philosophy that underlies it, whereas modern writers on politics might concentrate on one particular institution in that system - the House of Lords in England - or on voting patterns within a country. With this focus the bigger questions that the ancients dealt with - \"What is the best form of government?\" or \"What is justice?\" -tend to get left behind. Many writers on politics these days are university-based and so have to have specialized interests, and while they may make new and interesting discoveries in their special field, it is at the loss of a broader perspective - not to mention the loss of a general audience or readership. In the 19th century, there were still writers who used the same freedom of enquiry as the ancients, and are all the more readable - and relevant - because of it.",
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_lfib_1",
+    "apeuniNum": 1,
+    "taskType": "LFIB",
+    "section": "listening",
+    "title": "#1 Barred Owls",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": "/apeuni_media/FIB_69.mp3",
+    "imageUrl": null,
+    "sharedLink": "https://www.apeuni.com/practice/listening?model=l_fib&num=1&menu=all",
+    "passageWithBlanks": "Barred owls can be found in dense forests right across North America. They feed on small {{0}} ,fish, birds and small reptiles - pretty much anything that comes their way. The barred owl grows up to half a metre tall and has emerged as a very {{1}} nocturnal predator. Whereas they have been long-thought to live in old-growth forests, they are now building up quite an {{2}} population. In Charlotce, North Carolina, barred owls tend to nest in the cavities of the numerous willow oak trees that line the city's streets. Far from being endangered, the owls have expanded their range; and now, in some places, conservationists are worried about the effects they might have on other {{3}} species .",
+    "answers": [],
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_lfib_2",
+    "apeuniNum": 2,
+    "taskType": "LFIB",
+    "section": "listening",
+    "title": "#2 Pearl Oysters",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": "/apeuni_media/FIB_70.mp3",
+    "imageUrl": null,
+    "sharedLink": "https://www.apeuni.com/practice/listening?model=l_fib&num=2&menu=all",
+    "passageWithBlanks": "Before the beginning of the 1900s, the only way to obtain pearls was by collecting very large numbers of pearl oysters from the ocean floor by hand. The oysters - or sometimes mussels - were brought to the surface, opened, and {{0}} . More than a ton of these had to be checked in order to find just three or four quality pearls. Divers often descended to depths of over 100 feet on just one single breath. Now, of course this exposed them to {{1}} creatures and dangerous waves, not to mention drowning. In some areas, divers put grease on their bodies to conserve heat and they held a large {{2}} like a rock, to descend so they didn't have to exert effort going down. Today, pearl diving has pretty much been supplanted by cultured pearl {{3}} . \nParticles are implanted in the oyster to encourage the formation of pearls, and this allows for more predictable production. The divers who still work, do so mainly for the {{4}} industry.",
+    "answers": [],
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_hcs_30",
+    "apeuniNum": 30,
+    "taskType": "HCS",
+    "section": "listening",
+    "title": "#30 Washington",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": "/apeuni_media/hcs14.mp3",
+    "imageUrl": null,
+    "sharedLink": "https://www.apeuni.com/practice/listening?model=l_hcs&num=30&menu=all",
+    "promptText": "We all know that the capital of the united states is washington, DC. However, when america first became a country, washington didn't even exist. Back then, philadelphia was the logical choice as the new country's capital. Why philadelphia? Why not boston, new york, or even a charleston for several reasons? First, philadelphia had a roughly central location in the u s at that time, also, it had been a focal point of the american revolution. The continental congress had met there before the war, and several major events took place there. So, uh, why is washington the capital and not philadelphia, mostly because of a riot in philadelphia in seventeen eighty three, congress was meeting there when some soldiers disrupted them. The soldiers demanded payment for their service. During the war. The congress had no money. It asked the government of pennsylvania to protect it, but the government refused. Congress promptly left philadelphia so that um, ruled out. Philadelphia congress realized it couldn't rely on the states to defend it. Thus the members of congress decided to create an entirely new area called the district of columbia. Several states competed for the right to host the district, but ultimately, congress decided on a stretch of land between virginia and maryland. Like philadelphia, it was near the geographical center of the country. The necessary land was given to the federal government. Construction on the new capital then began, and that's how washington dc became our capital. Let's look at its design now.",
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_hcs_83",
+    "apeuniNum": 83,
+    "taskType": "HCS",
+    "section": "listening",
+    "title": "#83 Welfare Programs",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": "/apeuni_media/20220121-HCS-1.mp3_volume.mp3",
+    "imageUrl": null,
+    "sharedLink": "https://www.apeuni.com/practice/listening?model=l_hcs&num=83&menu=all",
+    "promptText": "Most societies throughout history employed some strategies to help people in poverty meet basic needs. Before the 20th century, religious groups and private charities often led such initiatives. Today, these are called welfare programs, and they usually take the form of government-provided subsidies for housing, food, energy, and healthcare. Typically, these programs are means-tested, meaning that only people who fall below a certain income level are eligible for benefits. This policy is designed to ensure aid goes to those who need it most. But it also means people lose access as soon as they earn more than the qualification threshold, regardless of whether or not they’re financially stable enough to stay there. This vicious cycle is harmful to both those in poverty and those outside of it. Mainstream economic models assume people are rational actors who weigh the cost and benefits of their options and choose the most advantageous path forward. If those in poverty know they’ll gain no net benefit from working, they’re incentivized to remain in government assistance. Of course, people work for many reasons, including societal norms and personal values. But income is a major incentive to pursuing employment. And when less people take on new jobs, the economy slows down, keeping people in poverty and potentially pushing people on the cusp of poverty over the edge.",
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_mcsa_l_18",
+    "apeuniNum": 18,
+    "taskType": "MCSA_L",
+    "section": "listening",
+    "title": "#18 Malaria",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": "/apeuni_media/MCS_34_volume.mp3",
+    "imageUrl": null,
+    "sharedLink": "https://www.apeuni.com/practice/listening?model=l_mcs&num=18&menu=all",
+    "promptText": "A：Actually, the word 'malaria' means 'bad air' in Italian and centuries ago that's what people thought caused this very infectious disease. \nB：And who can blame them really? Who can blame them for making that, hmm, false connection? Who'd have thought that a tiny insect, like a mosquito, could cause so much sickness? \nA：Mmm, Yes. More surprising perhaps is the fact that it's taken scientists so much time since then to come up with a cure. \nB：Ahah. Well that's what we're going to talk about now. Because it does seem that this is now becoming a real possibility.",
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_mcsa_l_16",
+    "apeuniNum": 16,
+    "taskType": "MCSA_L",
+    "section": "listening",
+    "title": "#16 Presentation",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": "/apeuni_media/MCS_154.mp3",
+    "imageUrl": null,
+    "sharedLink": "https://www.apeuni.com/practice/listening?model=l_mcs&num=16&menu=all",
+    "promptText": "So next Wednesday you're all going to be doing your presentations. We'll have to be very strict about timing. Fifteen minutes each — not a minute more. It might make sense to do a practice run-through at home but that's up to you. I'm going to ask you to put an abstract of your presentation on our course website but I'd like you to do that after you've given your talk. Come with your slides on a memory stick — that's the most straightforward way of dealing with things, I think. Oh, and don't forget to bring handouts for everyone. There won't be time to do photocopying that morning. So, any questions!",
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_smw_50",
+    "apeuniNum": 50,
+    "taskType": "SMW",
+    "section": "listening",
+    "title": "#50 SMW",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": "/apeuni_media/129SMW37_volume.mp3",
+    "imageUrl": null,
+    "sharedLink": "https://www.apeuni.com/practice/listening?model=l_smw&num=50&menu=all",
+    "promptText": "In some ways, mental development is related to social development. In school age, children between the ages of six and twelve children move from being able to think only on a concrete level. That is about real objects they can touch to being capable of abstract thought in their social development. Children gradually acquire interpersonal reasoning skills. They learn to understand the feelings of other people, and also learned that a person's actions or words don't always reflect their.",
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_hiw_83",
+    "apeuniNum": 83,
+    "taskType": "HIW",
+    "section": "listening",
+    "title": "#83 Oil Reuse",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": "/apeuni_media/hiw_83.mp3",
+    "imageUrl": null,
+    "sharedLink": "https://www.apeuni.com/practice/listening?model=hiws&num=83&menu=all",
+    "passageText": "To keep your car purring, you have to change the oil. Such maintenance {{1}} eight billion gallons of used motor oil annually. Some waste oil does get re-refined to produce oil for lubrication or heating. And some just gets dumped. So it would be more environmentally friendly and provide fresh fuel if we could convert the old motor oil to something really valuable: new gasoline. And that's what a {{2}} team thinks they've done. They {{3}} their work at the annual meeting of the American Chemical Society. \nTheir approach involves pyrolysis, decomposing organic {{4}} with heat in the absence of oxygen. Pyrolysis can break down waste oil into gases, liquids, a little bit of solids. The gases and liquids can be converted into gas or diesel. But {{5}} pyrolysis methods don't do a great job with motor oil. \nThe new technique mixes the oil with a material really good at absorbing microwave radiation. Tests showed that heating this mixture with microwaves was about 90 percent efficient at creating precursors to fuel—which beats tossing the oil down the drain.",
+    "wrongWords": [],
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_hiw_241",
+    "apeuniNum": 241,
+    "taskType": "HIW",
+    "section": "listening",
+    "title": "#241 Particle Beams",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": "/apeuni_media/hiw_241_volume.mp3",
+    "imageUrl": null,
+    "sharedLink": "https://www.apeuni.com/practice/listening?model=hiws&num=241&menu=all",
+    "passageText": "Physicists at the Brookhaven National Laboratory have been able to send information ahead of particle beams {{1}} at nearly the speed of light. And the message to the beams is: Get in line. This technique has been developed at other labs but never used before with particle beams traveling in discrete bunches. These bunches are important in recreating that {{2}} moment, the Big Bang. \nIn these experiments, there are two different sets of ions, electrically charged particles, zooming towards each other around a 2.4 mile track. They collide into one another to {{3}} conditions that provide info about the Big Bang. But the ions spread out as they move. And this means that there are fewer collisions. \nIn a technique called stochastic cooling, scientists first measure fluctuations in the beams of ions. Then they send signals even faster than these {{4}} to devices up ahead that can kick those particles back into shape. Researchers say this technique allows them to create these collisions much more {{5}} and cheaply than other methods. And so they can get more and better data about what our universe might have been like just after it came into existence.",
+    "wrongWords": [],
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_wfd_1549",
+    "apeuniNum": 1549,
+    "taskType": "WFD",
+    "section": "listening",
+    "title": "#1549 WFD",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": "/apeuni_media/1549_volume.mp3",
+    "imageUrl": null,
+    "sharedLink": "https://www.apeuni.com/practice/listening?model=wfds&num=1549&menu=all",
+    "sentence": "The university provides free accommodation for its students.",
+    "transcript": "The university provides free accommodation for its students.",
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_wfd_1932",
+    "apeuniNum": 1932,
+    "taskType": "WFD",
+    "section": "listening",
+    "title": "#1932 WFD",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": "/apeuni_media/1932_volume.mp3",
+    "imageUrl": null,
+    "sharedLink": "https://www.apeuni.com/practice/listening?model=wfds&num=1932&menu=all",
+    "sentence": "His lectures tend to range over a number of topics.",
+    "transcript": "His lectures tend to range over a number of topics.",
+    "mockExamBadge": "Mock 44B"
+  },
+  {
+    "id": "ape_wfd_2046",
+    "apeuniNum": 2046,
+    "taskType": "WFD",
+    "section": "listening",
+    "title": "#2046 WFD",
+    "difficulty": "C1",
+    "source": "mock_44b",
+    "audioUrl": "/apeuni_media/2046_volume.mp3",
+    "imageUrl": null,
+    "sharedLink": "https://www.apeuni.com/practice/listening?model=wfds&num=2046&menu=all",
+    "sentence": "Applications should be in the form of a signed document.",
+    "transcript": "Applications should be in the form of a signed document.",
+    "mockExamBadge": "Mock 44B"
   }
 ];

@@ -6,11 +6,19 @@
 import {
   APEUNI_SCRAPED_QUESTIONS,
   APEUNI_MOCK_45C_IDS,
+  APEUNI_MOCK_44B_IDS,
   APEUNI_MOCK_A_IDS,
   APEUNI_MOCK_45C_ATTEMPTS,
+  APEUNI_MOCK_44B_ATTEMPTS,
 } from './apeuniScrapedBank'
 
-export { APEUNI_MOCK_45C_IDS, APEUNI_MOCK_A_IDS, APEUNI_MOCK_45C_ATTEMPTS }
+export {
+  APEUNI_MOCK_45C_IDS,
+  APEUNI_MOCK_44B_IDS,
+  APEUNI_MOCK_A_IDS,
+  APEUNI_MOCK_45C_ATTEMPTS,
+  APEUNI_MOCK_44B_ATTEMPTS,
+}
 
 const BUILT_IN_PTE_QUESTIONS = [
   // ==================== SPEAKING ====================
@@ -469,6 +477,35 @@ export const MOCK_TEST_BLUEPRINTS = [
     description:
       'All 65 real decrypted questions from your APEUni Mock Test 45C (32 Speaking, 3 Writing, 15 Reading, 15 Listening) with real APEUni MP3 audio, images, and your baseline score (58/90) pre-loaded.',
     itemIds: APEUNI_MOCK_45C_IDS,
+  },
+  {
+    id: 'mock_apeuni_44b_full',
+    title: '【VIP Full Test】PTE Mock Test 44B — Full 65-Question Official Exam (Score: 71/90)',
+    mode: 'full',
+    durationMinutes: 120,
+    description:
+      'All 65 real decrypted questions from your APEUni Mock Test 44B (Reading: 78, Listening: 70, Writing: 69, Speaking: 66) with 100% offline audio, images, and pre-loaded recordings.',
+    itemIds: APEUNI_MOCK_44B_IDS,
+  },
+  {
+    id: 'mock_apeuni_44b_superior_drill',
+    title: 'PTE 79+ Superior Recovery Drill (WFD, RS, SST #723 & FIBD&D #974)',
+    mode: 'booster',
+    durationMinutes: 30,
+    description:
+      'Targeted booster addressing the key bottleneck questions from Mock 44B needed to reach 79+ Superior English: Write From Dictation (#1549, #1932, #2046), Repeat Sentences (#2836, #2834, #2325), SST #723 Ancient Civilizations, and FIBD&D #974.',
+    itemIds: [
+      'ape_wfd_1549',
+      'ape_wfd_1932',
+      'ape_wfd_2046',
+      'ape_rs_2836',
+      'ape_rs_2834',
+      'ape_rs_2325',
+      'ape_sst_723',
+      'ape_swt_246',
+      'ape_rfib_974',
+      'ape_rfib_975',
+    ],
   },
   {
     id: 'mock_apeuni_free_a',
