@@ -2,8 +2,9 @@
  * Curated Australian English YouTube Listening Lab Bank
  * Featured Channels:
  * - Josh's Farming Moments (@JoshsFarmingMoments — Australian Dairy Farming)
- * - The Once A Day Farmer (@theonceadayfarmer — Down Under Dairy & Pastoral Farming)
+ * - The Once A Day Farmer (@theonceadayfarmer — New Zealand Pastoral & Dairy Farming, Trans-Tasman Dialect Contrast)
  * Authentic Regional & Broad/General Australian English (Dairy Farming, Irrigation, Pastures & Rural Economics)
+ * plus Trans-Tasman Dialect Contrast (NZ English vowel shifts: kit /ɪ/ -> [ə], dress /e/ -> [ɪ], trap /æ/ -> [ɛ])
  * Plus Australian News, Science & Phonetics (ABC News, CSIRO, NEO English).
  * All video IDs are verified playableInEmbed=true on YouTube.
  */
@@ -414,7 +415,7 @@ export const INITIAL_AUSSIE_VIDEOS = [
     youtubeId: 'HRDVHGuEgbA',
     title: 'Farms Are Selling Like Crazy! Is It Time? || The Once A Day Farmer',
     channel: 'The Once A Day Farmer',
-    accentRegion: 'Broad / Regional Australasian (Rural Down Under Pasture Dialect)',
+    accentRegion: 'Regional New Zealand English (Pastoral Dialect Contrast)',
     topic: 'Rural Land Values, Heifer Insemination (AB), Cattle Weighing & Farmgate Economics',
     difficulty: 'C1/C2',
     segments: [
@@ -538,7 +539,7 @@ export const INITIAL_AUSSIE_VIDEOS = [
     youtubeId: '7JTgFz2wVwo',
     title: "I'm Going Back To OAD Milking || Once-A-Day vs Twice-A-Day & Herd Testing",
     channel: 'The Once A Day Farmer',
-    accentRegion: 'Broad / Regional Australasian (Rural Down Under)',
+    accentRegion: 'Regional New Zealand English (Pastoral Dialect Contrast)',
     topic: 'Once-A-Day (OAD) Milking Strategy, Somatic Cell Counts (SCC) & Farm Labor Efficiency',
     difficulty: 'C1',
     segments: [
@@ -612,7 +613,7 @@ export const INITIAL_AUSSIE_VIDEOS = [
     youtubeId: 'b_ebsN8r7J8',
     title: 'The Irish Are Here! Spring Silage In New Zealand || Pasture Surplus & Baling',
     channel: 'The Once A Day Farmer',
-    accentRegion: 'Broad / Regional Australasian (Rural Down Under)',
+    accentRegion: 'Regional New Zealand English (Pastoral Dialect Contrast)',
     topic: 'Spring Pasture Flush, Silage Conservation, Machinery Contractors & Seasonal Labor',
     difficulty: 'C1',
     segments: [
@@ -686,7 +687,7 @@ export const INITIAL_AUSSIE_VIDEOS = [
     youtubeId: 'dKju_-DyhqA',
     title: 'Dad Gets To Use The New AI Race For The First Time || Sexed Semen & Cattle Handling',
     channel: 'The Once A Day Farmer',
-    accentRegion: 'Broad / Regional Australasian (Rural Down Under)',
+    accentRegion: 'Regional New Zealand English (Pastoral Dialect Contrast)',
     topic: 'Livestock Facilities, Artificial Insemination Race, Sexed Semen Economics & Herd Genetics',
     difficulty: 'C1',
     segments: [
@@ -760,7 +761,7 @@ export const INITIAL_AUSSIE_VIDEOS = [
     youtubeId: 'uKjOtVv_t-4',
     title: 'First Time Using Cling Film On My Maize Stack...Has It Worked?? || Forage Preservation',
     channel: 'The Once A Day Farmer',
-    accentRegion: 'Broad / Regional Australasian (Rural Down Under)',
+    accentRegion: 'Regional New Zealand English (Pastoral Dialect Contrast)',
     topic: 'Maize Silage Bunker Management, Oxygen Barrier Film & Feed Storage Preservation',
     difficulty: 'C1',
     segments: [
