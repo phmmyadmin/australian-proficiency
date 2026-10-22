@@ -1,9 +1,17 @@
 /**
  * Official-Spec Original PTE Academic Question Bank & Mock Exam Blueprints
- * Covers all 20 PTE Academic task types across Speaking, Writing, Reading, and Listening.
+ * Covers all 20 PTE Academic task types across Speaking, Writing, Reading, and Listening,
+ * plus 1,056 real scraped APEUni questions (including all 65 items from 【VIP Full Test】PTE Mock Test 45C).
  */
+import {
+  APEUNI_SCRAPED_QUESTIONS,
+  APEUNI_MOCK_45C_IDS,
+  APEUNI_MOCK_45C_ATTEMPTS,
+} from './apeuniScrapedBank'
 
-export const INITIAL_PTE_QUESTIONS = [
+export { APEUNI_MOCK_45C_IDS, APEUNI_MOCK_45C_ATTEMPTS }
+
+const BUILT_IN_PTE_QUESTIONS = [
   // ==================== SPEAKING ====================
   {
     id: 'ra_01',
@@ -446,7 +454,46 @@ export const INITIAL_PTE_QUESTIONS = [
   },
 ]
 
+export const INITIAL_PTE_QUESTIONS = [
+  ...BUILT_IN_PTE_QUESTIONS,
+  ...APEUNI_SCRAPED_QUESTIONS,
+]
+
 export const MOCK_TEST_BLUEPRINTS = [
+  {
+    id: 'mock_apeuni_45c_full',
+    title: '【VIP Full Test】PTE Mock Test 45C — Full 65-Question Official Exam',
+    mode: 'full',
+    durationMinutes: 120,
+    description:
+      'All 65 real decrypted questions from your APEUni Mock Test 45C (32 Speaking, 3 Writing, 15 Reading, 15 Listening) with real APEUni MP3 audio, images, and your baseline score (58/90) pre-loaded.',
+    itemIds: APEUNI_MOCK_45C_IDS,
+  },
+  {
+    id: 'mock_apeuni_45c_recovery',
+    title: 'Mock Test 45C Error Recovery Drill (SWT, RS, SST, WFD & FIB)',
+    mode: 'booster',
+    durationMinutes: 35,
+    description:
+      'Targeted drill of the exact 15 questions from Mock Test 45C where points were lost: the 2 SWTs (0/9 due to 2 sentences), the 4 hardest Repeat Sentences, SST #211 Brand Image, WFD #1986 & #1059, and missed FIBs.',
+    itemIds: [
+      'ape_swt_10',
+      'ape_swt_174',
+      'ape_we_102',
+      'ape_rs_1233',
+      'ape_rs_1351',
+      'ape_rs_1866',
+      'ape_rs_1837',
+      'ape_sst_211',
+      'ape_wfd_1986',
+      'ape_wfd_1059',
+      'ape_rwfib_1331',
+      'ape_rwfib_1077',
+      'ape_rfib_1015',
+      'ape_lfib_205',
+      'ape_lfib_204',
+    ],
+  },
   {
     id: 'mock_full_01',
     title: 'PTE Academic Full Scored Mock Exam #1 (2-Hour Format)',

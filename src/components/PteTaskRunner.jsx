@@ -34,7 +34,7 @@ export default function PteTaskRunner({
   const meta = PTE_TASK_META[item.taskType] || PTE_TASK_META.RA
   const isSpeaking = meta.section === 'speaking'
   const isWriting = meta.section === 'writing'
-  const hasAudioPrompt = Boolean(item.audioScript)
+  const hasAudioPrompt = Boolean(item.audioScript || item.audioUrl)
 
   const [transcript, setTranscript] = useState('')
   const [textAnswer, setTextAnswer] = useState('')
@@ -324,7 +324,20 @@ export default function PteTaskRunner({
 
       {/* Audio Prompt Player for Listening & Oral Tasks */}
       {hasAudioPrompt && (
-        <div className="pte-audio-player-bar">
+        <div className="pte-audio-player-bar" style={{ flexWrap: 'wrap', gap: '0.6rem' }}>
+          {item.audioUrl && (
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', width: '100%' }}>
+              <span className="pte-code-pill" style={{ background: '#0F766E', color: '#FFFFFF' }}>
+                Original Exam Audio
+              </span>
+              <audio
+                controls
+                preload="none"
+                src={item.audioUrl}
+                style={{ height: '36px', flex: '1', maxWidth: '460px' }}
+              />
+            </div>
+          )}
           <button
             type="button"
             className="btn-aussie-audio"
@@ -347,7 +360,7 @@ export default function PteTaskRunner({
             <Volume2 size={15} />
             <span>Play Slow & Clear (0.85x)</span>
           </button>
-          {!examMode && (
+          {!examMode && item.audioScript && (
             <button
               type="button"
               className="btn-secondary-small"
@@ -357,18 +370,45 @@ export default function PteTaskRunner({
             </button>
           )}
           <span className="audio-hint">
-            Powered by Gemini Neural TTS (24kHz Natural Voice)
+            {item.audioUrl
+              ? 'Official APEUni MP3 + Gemini Neural TTS (24kHz)'
+              : 'Powered by Gemini Neural TTS (24kHz Natural Voice)'}
           </span>
-          {showScriptHint && !examMode && (
+          {showScriptHint && !examMode && item.audioScript && (
             <div style={{ width: '100%', marginTop: '0.45rem', padding: '0.65rem 0.85rem', background: '#FFFFFF', borderRadius: '8px', border: '1px solid #E5E5E0', fontSize: '0.9rem' }}>
               <strong>Audio Transcript:</strong> {item.audioScript}
+              {item.referenceAnswer && (
+                <div style={{ marginTop: '0.45rem', color: '#0F766E' }}>
+                  <strong>Model Answer / Key Points:</strong> {item.referenceAnswer}
+                </div>
+              )}
             </div>
           )}
         </div>
       )}
 
+      {/* Real APEUni Image Renderer for Describe Image (DI) & Retell Lecture (RL) */}
+      {item.imageUrl && (
+        <div
+          className="pte-chart-box"
+          style={{ textAlign: 'center', padding: '1rem', background: '#FFFFFF' }}
+        >
+          <img
+            src={item.imageUrl}
+            alt={item.title || 'PTE Task Visual'}
+            style={{
+              maxWidth: '100%',
+              maxHeight: '380px',
+              objectFit: 'contain',
+              borderRadius: '8px',
+              border: '1px solid #E5E5E0',
+            }}
+          />
+        </div>
+      )}
+
       {/* Describe Image SVG Chart Renderer */}
-      {item.taskType === 'DI' && item.chartData && (
+      {item.taskType === 'DI' && item.chartData && !item.imageUrl && (
         <div className="pte-chart-box">
           <h4 className="chart-title">{item.chartData.title}</h4>
           <div className="chart-bars">
@@ -822,6 +862,18 @@ export default function PteTaskRunner({
               )}
             </div>
           )}
+
+          {item.referenceAnswer && (
+            <div
+              className="fluency-pause-summary-box"
+              style={{ marginTop: '0.75rem', background: '#F0FDF4', borderColor: '#BBF7D0' }}
+            >
+              <strong>Official APEUni Reference / Model Answer:</strong>
+              <p style={{ marginTop: '0.35rem', whiteSpace: 'pre-line', fontSize: '0.9rem' }}>
+                {item.referenceAnswer}
+              </p>
+            </div>
+          )}
         </div>
       )}
 
@@ -882,7 +934,11 @@ export default function PteTaskRunner({
                   <div key={att.id || idx} className="activity-history-card">
                     <div className="history-card-top">
                       <div className="history-meta-left">
-                        <span className="history-attempt-badge">Attempt #{attemptNum}</span>
+                        <span className="history-attempt-badge">
+                          {String(att.id || '').startsWith('att_mock45c_')
+                            ? 'Mock Test 45C'
+                            : `Attempt #${attemptNum}`}
+                        </span>
                         <span className="history-date-label">{dateLabel}</span>
                         <span className="history-raw-score">
                           Score: <strong>{sc.rawPoints ?? 0}/{sc.maxPoints ?? 10}</strong> ({sc.percentage ?? 0}%)
@@ -930,6 +986,28 @@ export default function PteTaskRunner({
                             ⏸ EXTRA PAUSES: <strong>{sc.pauseLocations.length}</strong>
                           </span>
                         )}
+                      </div>
+                    )}
+
+                    {/* Saved User Audio Recording (e.g. from APEUni Mock Test 45C) */}
+                    {att.userAudioUrl && (
+                      <div
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '0.6rem',
+                          marginTop: '0.45rem',
+                        }}
+                      >
+                        <span style={{ fontSize: '0.8rem', fontWeight: 600, color: '#0F766E' }}>
+                          Your Recorded Voice:
+                        </span>
+                        <audio
+                          controls
+                          preload="none"
+                          src={att.userAudioUrl}
+                          style={{ height: '32px', maxWidth: '360px' }}
+                        />
                       </div>
                     )}
 

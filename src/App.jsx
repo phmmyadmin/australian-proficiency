@@ -8,7 +8,7 @@ import {
   Settings,
   Sparkles,
 } from 'lucide-react'
-import { INITIAL_PTE_QUESTIONS } from './data/pteQuestionBank'
+import { INITIAL_PTE_QUESTIONS, APEUNI_MOCK_45C_ATTEMPTS } from './data/pteQuestionBank'
 import { INITIAL_AUSSIE_VIDEOS } from './data/aussieYoutubeBank'
 import { DEFAULT_VOCAB_DECK } from './data/defaultVocabDeck'
 import {
@@ -37,7 +37,7 @@ export default function App() {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false)
 
   const [questions, setQuestions] = useState(INITIAL_PTE_QUESTIONS)
-  const [attempts, setAttempts] = useState([])
+  const [attempts, setAttempts] = useState(APEUNI_MOCK_45C_ATTEMPTS)
   const [mockSessions, setMockSessions] = useState([])
   const [youtubeVideos, setYoutubeVideos] = useState(INITIAL_AUSSIE_VIDEOS)
   const [vocabCards, setVocabCards] = useState(DEFAULT_VOCAB_DECK)
@@ -60,7 +60,11 @@ export default function App() {
         const uniqueCustom = customItems.filter(c => !existingIds.has(c.id))
         setQuestions([...uniqueCustom, ...INITIAL_PTE_QUESTIONS])
       }
-      if (savedAttempts.length > 0) setAttempts(savedAttempts)
+      if (savedAttempts.length > 0) {
+        const savedIds = new Set(savedAttempts.map(a => a.id))
+        const extraMock45c = APEUNI_MOCK_45C_ATTEMPTS.filter(a => !savedIds.has(a.id))
+        setAttempts([...savedAttempts, ...extraMock45c])
+      }
       if (savedMocks.length > 0) setMockSessions(savedMocks)
       if (customVideos.length > 0) {
         const baseIds = new Set(INITIAL_AUSSIE_VIDEOS.map(v => v.id))

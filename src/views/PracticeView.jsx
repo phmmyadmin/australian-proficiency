@@ -20,6 +20,9 @@ export default function PracticeView({
 }) {
   const [selectedSection, setSelectedSection] = useState('all')
   const [selectedTaskType, setSelectedTaskType] = useState('ALL')
+  const [selectedSource, setSelectedSource] = useState('all')
+  const [searchQuery, setSearchQuery] = useState('')
+  const [visibleLimit, setVisibleLimit] = useState(80)
   const [activeItemId, setActiveItemId] = useState(questions[0]?.id || 'ra_01')
 
   const [showAiGenerator, setShowAiGenerator] = useState(false)
@@ -47,12 +50,24 @@ export default function PracticeView({
   }, [selectedSection])
 
   const filteredQuestions = useMemo(() => {
+    const qLower = searchQuery.trim().toLowerCase()
     return questions.filter(q => {
       if (selectedSection !== 'all' && q.section !== selectedSection) return false
       if (selectedTaskType !== 'ALL' && q.taskType !== selectedTaskType) return false
+      if (selectedSource === 'mock45c' && q.source !== 'apeuni_mock_45c') return false
+      if (selectedSource === 'apeuni_bank' && !String(q.source || '').startsWith('apeuni')) return false
+      if (qLower) {
+        const titleMatch = String(q.title || '').toLowerCase().includes(qLower)
+        const idMatch = String(q.id || '').toLowerCase().includes(qLower)
+        if (!titleMatch && !idMatch) return false
+      }
       return true
     })
-  }, [questions, selectedSection, selectedTaskType])
+  }, [questions, selectedSection, selectedTaskType, selectedSource, searchQuery])
+
+  const visibleQuestions = useMemo(() => {
+    return filteredQuestions.slice(0, visibleLimit)
+  }, [filteredQuestions, visibleLimit])
 
   const activeItem = useMemo(() => {
     return (
@@ -100,6 +115,7 @@ export default function PracticeView({
               onClick={() => {
                 setSelectedSection(sec.id)
                 setSelectedTaskType('ALL')
+                setVisibleLimit(80)
               }}
             >
               {sec.label}
@@ -107,14 +123,46 @@ export default function PracticeView({
           ))}
         </div>
 
-        <button
-          type="button"
-          className="btn-ai-generate"
-          onClick={() => setShowAiGenerator(v => !v)}
-        >
-          <Sparkles size={16} />
-          <span>Generate New PTE Question with AI</span>
-        </button>
+        <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', alignItems: 'center' }}>
+          <button
+            type="button"
+            className={`task-type-chip ${selectedSource === 'all' ? 'active' : ''}`}
+            onClick={() => {
+              setSelectedSource('all')
+              setVisibleLimit(80)
+            }}
+          >
+            All Sources ({questions.length})
+          </button>
+          <button
+            type="button"
+            className={`task-type-chip ${selectedSource === 'mock45c' ? 'active' : ''}`}
+            onClick={() => {
+              setSelectedSource('mock45c')
+              setVisibleLimit(80)
+            }}
+          >
+            🔥 Mock Test 45C (65)
+          </button>
+          <button
+            type="button"
+            className={`task-type-chip ${selectedSource === 'apeuni_bank' ? 'active' : ''}`}
+            onClick={() => {
+              setSelectedSource('apeuni_bank')
+              setVisibleLimit(80)
+            }}
+          >
+            📚 Full APEUni Bank (1,056)
+          </button>
+          <button
+            type="button"
+            className="btn-ai-generate"
+            onClick={() => setShowAiGenerator(v => !v)}
+          >
+            <Sparkles size={16} />
+            <span>Generate New PTE Question with AI</span>
+          </button>
+        </div>
       </div>
 
       {/* Task Type Pills */}
@@ -122,7 +170,10 @@ export default function PracticeView({
         <button
           type="button"
           className={`task-type-chip ${selectedTaskType === 'ALL' ? 'active' : ''}`}
-          onClick={() => setSelectedTaskType('ALL')}
+          onClick={() => {
+            setSelectedTaskType('ALL')
+            setVisibleLimit(80)
+          }}
         >
           <Filter size={13} /> All ({filteredQuestions.length})
         </button>
@@ -131,7 +182,10 @@ export default function PracticeView({
             key={meta.code}
             type="button"
             className={`task-type-chip ${selectedTaskType === meta.code ? 'active' : ''}`}
-            onClick={() => setSelectedTaskType(meta.code)}
+            onClick={() => {
+              setSelectedTaskType(meta.code)
+              setVisibleLimit(80)
+            }}
           >
             <strong>{meta.code}</strong> — {meta.name}
           </button>
@@ -183,11 +237,28 @@ export default function PracticeView({
       {/* Main Split Layout: Question Selector Sidebar + Active Task Runner */}
       <div className="practice-workspace-grid">
         <aside className="question-selector-sidebar">
-          <div className="sidebar-header">
+          <div className="sidebar-header" style={{ display: 'flex', flexDirection: 'column', gap: '0.45rem' }}>
             <span>Questions ({filteredQuestions.length})</span>
+            <input
+              type="search"
+              placeholder="Search #num or title..."
+              value={searchQuery}
+              onChange={e => {
+                setSearchQuery(e.target.value)
+                setVisibleLimit(80)
+              }}
+              style={{
+                width: '100%',
+                padding: '0.38rem 0.6rem',
+                fontSize: '0.82rem',
+                borderRadius: '6px',
+                border: '1px solid #D6D3CD',
+                background: '#FFFFFF',
+              }}
+            />
           </div>
           <div className="question-list-scroll">
-            {filteredQuestions.map(q => {
+            {visibleQuestions.map(q => {
               const qAttempts = attemptsByItem.get(q.id) || []
               const bestScore =
                 qAttempts.length > 0
@@ -207,6 +278,11 @@ export default function PracticeView({
                   <div className="q-item-top">
                     <span className="q-code-badge">{q.taskType}</span>
                     <span className="q-diff-badge">{q.difficulty || 'C1'}</span>
+                    {q.source === 'apeuni_mock_45c' && (
+                      <span className="q-ai-badge" style={{ background: '#FEF3C7', color: '#B45309' }}>
+                        45C
+                      </span>
+                    )}
                     {q.source === 'ai_generated' && (
                       <span className="q-ai-badge">AI</span>
                     )}
@@ -220,6 +296,16 @@ export default function PracticeView({
                 </button>
               )
             })}
+            {filteredQuestions.length > visibleLimit && (
+              <button
+                type="button"
+                className="btn-secondary-small"
+                style={{ width: '100%', marginTop: '0.5rem', justifyContent: 'center' }}
+                onClick={() => setVisibleLimit(prev => prev + 100)}
+              >
+                Show More ({filteredQuestions.length - visibleLimit} remaining)
+              </button>
+            )}
           </div>
         </aside>
 

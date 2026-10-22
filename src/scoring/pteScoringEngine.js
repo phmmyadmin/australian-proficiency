@@ -660,6 +660,87 @@ export function scoreHighlightIncorrectWords(incorrectWordIndices = [], selected
   }
 }
 
+/**
+ * Exact APEUni Cross-Section Division Weights extracted from APEUni Mock Test 45C JSON (`division_scores`)
+ */
+export const APEUNI_DIVISION_WEIGHTS = {
+  RA: { speaking: 0.251, reading: 0.228 },
+  RS: { speaking: 0.257, listening: 0.219 },
+  DI: { speaking: 0.207 },
+  RL: { speaking: 0.097, listening: 0.088 },
+  SGD: { speaking: 0.132, listening: 0.123 },
+  RTS: { speaking: 0.058 },
+  ASQ: { speaking: 0.0, listening: 0.056 },
+  SWT: { writing: 0.111, reading: 0.114 },
+  WE: { writing: 0.241 },
+  RWFIB: { reading: 0.303, writing: 0.218 },
+  MCMA_R: { reading: 0.05 },
+  ROP: { reading: 0.075 },
+  RFIB: { reading: 0.193 },
+  MCSA_R: { reading: 0.025 },
+  SST: { listening: 0.085, writing: 0.089 },
+  MCMA_L: { listening: 0.045 },
+  LFIB: { listening: 0.101, writing: 0.107 },
+  HCS: { listening: 0.022, reading: 0.012 },
+  MCSA_L: { listening: 0.022 },
+  SMW: { listening: 0.022 },
+  HIW: { listening: 0.112, reading: 0.0 },
+  WFD: { listening: 0.224, writing: 0.234 },
+}
+
+/**
+ * Deterministic Grammar & Collocation Checker modeled on APEUni's `-0.5` penalty rule per mistake
+ */
+export function detectGrammarIssues(text = '') {
+  const issues = []
+  const raw = String(text || '').trim()
+  if (!raw) return issues
+
+  const rules = [
+    {
+      pattern: /\bsuggest\s+to\s+([a-z]+)\b/gi,
+      message: m => `Change "${m[0]}" to "suggest ${m[1]}ing" (verb pattern error).`,
+    },
+    {
+      pattern: /\bthis\s+(highlight|demonstrate|illustrate|show|indicate|suggest)\b/gi,
+      message: m => `Subject-verb agreement: change "${m[0]}" to "this ${m[1]}s".`,
+    },
+    {
+      pattern: /\bin\s+the\s+other\s+hand\b/gi,
+      message: () => 'Collocation error: use "on the other hand" instead of "in the other hand".',
+    },
+    {
+      pattern: /\b(a)\s+([aeiou][a-z]{2,})\b/gi,
+      exclude: /^a\s+(uni|use|usa|euro|one)/i,
+      message: m => `Article error: use "an ${m[2]}" instead of "${m[0]}".`,
+    },
+    {
+      pattern: /\b(despite|although)\b[^.?!]+?\b(but|however)\b/gi,
+      message: m => `Double conjunction error ("${m[1]} ... ${m[2]}"): do not combine "${m[1]}" with "${m[2]}" in the same sentence.`,
+    },
+    {
+      pattern: /\b,\s*and\s+that\s+is\b/gi,
+      message: () => 'Clause connector error: replace ", and that is" with "which is" or "and it is".',
+    },
+    {
+      pattern: /\b,\s*(they|it|this|these|he|she|we)\s+(is|are|was|were|have|has|can|will)\b/gi,
+      message: m => `Comma splice detected before "${m[1]} ${m[2]}": use a conjunction (", and ${m[1]}...") or semicolon.`,
+    },
+  ]
+
+  for (const r of rules) {
+    let match
+    while ((match = r.pattern.exec(raw)) !== null) {
+      if (r.exclude && r.exclude.test(match[0])) continue
+      issues.push({
+        excerpt: match[0],
+        suggestion: r.message(match),
+      })
+    }
+  }
+  return issues
+}
+
 export function scoreSummarizeWrittenText(item, userText = '', aiEvaluation = null) {
   const words = tokenizeWords(userText)
   const wordCount = words.length
@@ -682,6 +763,7 @@ export function scoreSummarizeWrittenText(item, userText = '', aiEvaluation = nu
       percentage: 0,
       wordCount,
       sentenceCount,
+      grammarIssues: [],
       subscores: {
         content: { score: 0, max: 2 },
         form: { score: 0, max: 1 },
@@ -697,10 +779,19 @@ export function scoreSummarizeWrittenText(item, userText = '', aiEvaluation = nu
   const matchedKeywords = keywords.filter(k => lowerText.includes(k.toLowerCase()))
   const kwRatio = keywords.length > 0 ? matchedKeywords.length / keywords.length : 0.7
 
+  const grammarIssues = detectGrammarIssues(userText)
+  const grammarPenalty = grammarIssues.length * 0.5
+
   const content = aiEvaluation?.content ?? (kwRatio >= 0.5 ? 2 : kwRatio >= 0.25 ? 1 : 1)
-  const grammar = aiEvaluation?.grammar ?? (wordCount >= 18 ? 2 : 1.5)
+  const baseGrammar = aiEvaluation?.grammar ?? (wordCount >= 18 ? 2 : 1.5)
+  const grammar = Math.max(0, Number((baseGrammar - grammarPenalty).toFixed(1)))
   const vocabulary = aiEvaluation?.vocabulary ?? (kwRatio >= 0.4 ? 2 : 1.5)
   const rawPoints = Number((content + formScore + grammar + vocabulary).toFixed(1))
+
+  const grammarNote =
+    grammarIssues.length > 0
+      ? ` APEUni Grammar Penalty (-${grammarPenalty.toFixed(1)}): ${grammarIssues.map(g => g.suggestion).join(' ')}`
+      : ''
 
   return {
     rawPoints,
@@ -708,6 +799,7 @@ export function scoreSummarizeWrittenText(item, userText = '', aiEvaluation = nu
     percentage: Math.round((rawPoints / 7) * 100),
     wordCount,
     sentenceCount,
+    grammarIssues,
     subscores: {
       content: { score: content, max: 2 },
       form: { score: formScore, max: 1 },
@@ -715,8 +807,9 @@ export function scoreSummarizeWrittenText(item, userText = '', aiEvaluation = nu
       vocabulary: { score: vocabulary, max: 2 },
     },
     feedback:
-      aiEvaluation?.feedback ||
-      `Valid single-sentence summary (${wordCount} words). Covered ${matchedKeywords.length}/${keywords.length} key concepts.`,
+      (aiEvaluation?.feedback ||
+        `Valid single-sentence summary (${wordCount} words). Covered ${matchedKeywords.length}/${keywords.length} key concepts.`) +
+      grammarNote,
   }
 }
 
@@ -735,6 +828,7 @@ export function scoreWriteEssay(item, userText = '', aiEvaluation = null) {
       maxPoints: 15,
       percentage: 0,
       wordCount,
+      grammarIssues: [],
       subscores: {
         content: { score: 0, max: 3 },
         form: { score: 0, max: 2 },
@@ -757,9 +851,13 @@ export function scoreWriteEssay(item, userText = '', aiEvaluation = null) {
   const uniqueWords = new Set(words.map(w => w.toLowerCase())).size
   const lexicalDiversity = uniqueWords / Math.max(1, wordCount)
 
+  const grammarIssues = detectGrammarIssues(userText)
+  const grammarPenalty = grammarIssues.length * 0.5
+
   const content = aiEvaluation?.content ?? (kwRatio >= 0.5 ? 3 : kwRatio >= 0.25 ? 2 : 1.5)
   const development = aiEvaluation?.development ?? (paragraphs >= 3 ? 2 : 1)
-  const grammar = aiEvaluation?.grammar ?? 1.8
+  const baseGrammar = aiEvaluation?.grammar ?? 1.8
+  const grammar = Math.max(0, Number((baseGrammar - grammarPenalty).toFixed(1)))
   const linguisticRange = aiEvaluation?.linguisticRange ?? (lexicalDiversity >= 0.45 ? 2 : 1.5)
   const vocabulary = aiEvaluation?.vocabulary ?? (lexicalDiversity >= 0.42 ? 2 : 1.5)
   const spelling = aiEvaluation?.spelling ?? 2
@@ -768,11 +866,17 @@ export function scoreWriteEssay(item, userText = '', aiEvaluation = null) {
     (content + formScore + development + grammar + linguisticRange + vocabulary + spelling).toFixed(1)
   )
 
+  const grammarNote =
+    grammarIssues.length > 0
+      ? ` APEUni Grammar Penalty (-${grammarPenalty.toFixed(1)}): ${grammarIssues.map(g => g.suggestion).join(' ')}`
+      : ''
+
   return {
     rawPoints,
     maxPoints: 15,
     percentage: Math.round((rawPoints / 15) * 100),
     wordCount,
+    grammarIssues,
     subscores: {
       content: { score: content, max: 3 },
       form: { score: formScore, max: 2 },
@@ -783,10 +887,10 @@ export function scoreWriteEssay(item, userText = '', aiEvaluation = null) {
       spelling: { score: spelling, max: 2 },
     },
     feedback:
-      aiEvaluation?.feedback ||
-      `Essay scored ${rawPoints}/15 (${wordCount} words, ${paragraphs} paragraphs). ${
-        formScore === 2 ? 'Full Form credit (200–300 words).' : 'Partial Form penalty applied (aim for 200–300 words).'
-      }`,
+      (aiEvaluation?.feedback ||
+        `Essay scored ${rawPoints}/15 (${wordCount} words, ${paragraphs} paragraphs). ${
+          formScore === 2 ? 'Full Form credit (200–300 words).' : 'Partial Form penalty applied (aim for 200–300 words).'
+        }`) + grammarNote,
   }
 }
 
@@ -805,6 +909,7 @@ export function scoreSummarizeSpokenText(item, userText = '', aiEvaluation = nul
       maxPoints: 10,
       percentage: 0,
       wordCount,
+      grammarIssues: [],
       subscores: {
         content: { score: 0, max: 2 },
         form: { score: 0, max: 2 },
@@ -821,18 +926,28 @@ export function scoreSummarizeSpokenText(item, userText = '', aiEvaluation = nul
   const matched = keywords.filter(k => lower.includes(k.toLowerCase()))
   const kwRatio = keywords.length > 0 ? matched.length / keywords.length : 0.65
 
+  const grammarIssues = detectGrammarIssues(userText)
+  const grammarPenalty = grammarIssues.length * 0.5
+
   const content = aiEvaluation?.content ?? (kwRatio >= 0.5 ? 2 : 1.5)
-  const grammar = aiEvaluation?.grammar ?? 1.8
+  const baseGrammar = aiEvaluation?.grammar ?? 2.0
+  const grammar = Math.max(0, Number((baseGrammar - grammarPenalty).toFixed(1)))
   const vocabulary = aiEvaluation?.vocabulary ?? 1.8
   const spelling = aiEvaluation?.spelling ?? 2
 
   const rawPoints = Number((content + formScore + grammar + vocabulary + spelling).toFixed(1))
+
+  const grammarNote =
+    grammarIssues.length > 0
+      ? ` APEUni Grammar Penalty (-${grammarPenalty.toFixed(1)}): ${grammarIssues.map(g => g.suggestion).join(' ')}`
+      : ''
 
   return {
     rawPoints,
     maxPoints: 10,
     percentage: Math.round((rawPoints / 10) * 100),
     wordCount,
+    grammarIssues,
     subscores: {
       content: { score: content, max: 2 },
       form: { score: formScore, max: 2 },
@@ -841,10 +956,10 @@ export function scoreSummarizeSpokenText(item, userText = '', aiEvaluation = nul
       spelling: { score: spelling, max: 2 },
     },
     feedback:
-      aiEvaluation?.feedback ||
-      `SST Summary scored ${rawPoints}/10 (${wordCount} words). ${
-        formScore === 2 ? 'Ideal 50–70 word length achieved.' : 'Keep length strictly between 50 and 70 words for 2/2 Form.'
-      }`,
+      (aiEvaluation?.feedback ||
+        `SST Summary scored ${rawPoints}/10 (${wordCount} words). ${
+          formScore === 2 ? 'Ideal 50–70 word length achieved.' : 'Keep length strictly between 50 and 70 words for 2/2 Form.'
+        }`) + grammarNote,
   }
 }
 

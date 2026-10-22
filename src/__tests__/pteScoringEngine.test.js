@@ -169,4 +169,24 @@ describe('Reverse-Engineered PTE Academic Scoring Engine', () => {
     const submitToken = hesitant.diff.find(t => t.word === 'submit')
     expect(submitToken.pauseBeforeSec).toBe(1.45)
   })
+
+  it('applies APEUni -0.5 grammar penalty per mistake (suggest to, subject-verb agreement, double conjunction)', () => {
+    const swtItem = {
+      taskType: 'SWT',
+      promptText: 'Researchers suggest adopting renewable grids to stabilize electricity pricing.',
+      keywords: ['renewable', 'grids', 'electricity'],
+    }
+    const cleanText =
+      'Researchers suggest adopting renewable grids because this highlights how clean electricity stabilizes modern energy markets.'
+    const flawedText =
+      'Although researchers suggest to adopt renewable grids, but this highlight how clean electricity stabilizes modern energy markets.'
+
+    const cleanRes = scoreSummarizeWrittenText(swtItem, cleanText)
+    const flawedRes = scoreSummarizeWrittenText(swtItem, flawedText)
+
+    expect(flawedRes.grammarIssues.length).toBeGreaterThanOrEqual(2)
+    expect(flawedRes.subscores.grammar.score).toBeLessThan(cleanRes.subscores.grammar.score)
+    expect(flawedRes.feedback).toContain('APEUni Grammar Penalty')
+  })
 })
+
