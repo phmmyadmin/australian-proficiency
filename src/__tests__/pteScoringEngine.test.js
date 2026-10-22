@@ -188,5 +188,35 @@ describe('Reverse-Engineered PTE Academic Scoring Engine', () => {
     expect(flawedRes.subscores.grammar.score).toBeLessThan(cleanRes.subscores.grammar.score)
     expect(flawedRes.feedback).toContain('APEUni Grammar Penalty')
   })
+
+  it('calculates explicit cross-module score impact for SWT, WFD, RS and WE', () => {
+    const swtItem = {
+      taskType: 'SWT',
+      promptText: 'Researchers suggest adopting renewable grids to stabilize electricity pricing.',
+      keywords: ['renewable', 'grids', 'electricity'],
+    }
+    const evaluated = evaluatePteTask(swtItem, {
+      textAnswer: 'Researchers suggest adopting renewable grids because clean electricity stabilizes modern energy markets.',
+    })
+
+    expect(Array.isArray(evaluated.crossModuleImpact)).toBe(true)
+    const writingImpact = evaluated.crossModuleImpact.find(c => c.skill === 'Writing')
+    const readingImpact = evaluated.crossModuleImpact.find(c => c.skill === 'Reading')
+    expect(writingImpact.points).toBeGreaterThan(1.5)
+    expect(readingImpact.points).toBeGreaterThan(1.0)
+
+    // WFD transfers +1.0 pt per word to Writing and +0.6 pt to Listening
+    const wfdItem = {
+      taskType: 'WFD',
+      audioScript: 'The art museum is located across the street.',
+    }
+    const wfdEval = evaluatePteTask(wfdItem, {
+      textAnswer: 'The art museum is located across the street.',
+    })
+    const wfdWriting = wfdEval.crossModuleImpact.find(c => c.skill === 'Writing')
+    const wfdListening = wfdEval.crossModuleImpact.find(c => c.skill === 'Listening')
+    expect(wfdWriting.points).toBe(8)
+    expect(wfdListening.points).toBe(4.8)
+  })
 })
 

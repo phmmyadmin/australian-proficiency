@@ -221,24 +221,37 @@ export const APEUNI_MOCK_45C_ATTEMPTS = [
     "isMock45CBaseline": true,
     "userAudioUrl": "/apeuni_media/recordings/ca08ad6c81_RA795_2026-10-21_14_54_41-186d.wav",
     "userResponse": {
-      "transcript": "[Mock Test 45C Audio Recording — undefineds]",
+      "transcript": "[Mock Test 45C Audio Recording — 24s]",
       "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/298/999/977/original/RA795_2026-10-21_14_54_41-186d.wav?1792565681"
     },
     "scores": {
       "taskType": "RA",
       "section": "speaking",
-      "rawPoints": 0,
+      "rawPoints": 55,
       "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "percentage": 61,
+      "pteScaleEquivalent": 55,
+      "subscores": {
+        "content": {
+          "score": 65,
+          "max": 90
+        },
+        "pronunciation": {
+          "score": 45,
+          "max": 90
+        },
+        "fluency": {
+          "score": 59,
+          "max": 90
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 55/90] content: 65/90 • pronunciation: 45/90 • fluency: 59/90"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 55/90] content: 65/90 • pronunciation: 45/90 • fluency: 59/90"
     },
-    "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "durationSec": 24,
+    "createdAt": "2026-10-21T14:53:39.412+08:00"
   },
   {
     "id": "att_mock45c_ape_ra_794",
@@ -248,24 +261,37 @@ export const APEUNI_MOCK_45C_ATTEMPTS = [
     "isMock45CBaseline": true,
     "userAudioUrl": "/apeuni_media/recordings/08d8f87aa2_RA794_2026-10-21_14_55_36-186d.wav",
     "userResponse": {
-      "transcript": "[Mock Test 45C Audio Recording — undefineds]",
+      "transcript": "[Mock Test 45C Audio Recording — 21s]",
       "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/299/002/107/original/RA794_2026-10-21_14_55_36-186d.wav?1792565736"
     },
     "scores": {
       "taskType": "RA",
       "section": "speaking",
-      "rawPoints": 0,
+      "rawPoints": 53,
       "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "percentage": 59,
+      "pteScaleEquivalent": 53,
+      "subscores": {
+        "content": {
+          "score": 62,
+          "max": 90
+        },
+        "pronunciation": {
+          "score": 51,
+          "max": 90
+        },
+        "fluency": {
+          "score": 52,
+          "max": 90
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 53/90] content: 62/90 • pronunciation: 51/90 • fluency: 52/90"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 53/90] content: 62/90 • pronunciation: 51/90 • fluency: 52/90"
     },
-    "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "durationSec": 21,
+    "createdAt": "2026-10-21T14:54:35.440+08:00"
   },
   {
     "id": "att_mock45c_ape_ra_610",
@@ -275,24 +301,37 @@ export const APEUNI_MOCK_45C_ATTEMPTS = [
     "isMock45CBaseline": true,
     "userAudioUrl": "/apeuni_media/recordings/1bc3e48842_RA610_2026-10-21_14_56_37-186d.wav",
     "userResponse": {
-      "transcript": "[Mock Test 45C Audio Recording — undefineds]",
+      "transcript": "[Mock Test 45C Audio Recording — 24s]",
       "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/299/004/299/original/RA610_2026-10-21_14_56_37-186d.wav?1792565797"
     },
     "scores": {
       "taskType": "RA",
       "section": "speaking",
-      "rawPoints": 0,
+      "rawPoints": 44,
       "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "percentage": 49,
+      "pteScaleEquivalent": 44,
+      "subscores": {
+        "content": {
+          "score": 42,
+          "max": 90
+        },
+        "pronunciation": {
+          "score": 44,
+          "max": 90
+        },
+        "fluency": {
+          "score": 46,
+          "max": 90
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 44/90] content: 42/90 • pronunciation: 44/90 • fluency: 46/90"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 44/90] content: 42/90 • pronunciation: 44/90 • fluency: 46/90"
     },
-    "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "durationSec": 24,
+    "createdAt": "2026-10-21T14:55:35.390+08:00"
   },
   {
     "id": "att_mock45c_ape_ra_618",
@@ -302,24 +341,37 @@ export const APEUNI_MOCK_45C_ATTEMPTS = [
     "isMock45CBaseline": true,
     "userAudioUrl": "/apeuni_media/recordings/406093f1d4_RA618_2026-10-21_14_57_33-186d.wav",
     "userResponse": {
-      "transcript": "[Mock Test 45C Audio Recording — undefineds]",
+      "transcript": "[Mock Test 45C Audio Recording — 21s]",
       "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/299/006/489/original/RA618_2026-10-21_14_57_33-186d.wav?1792565853"
     },
     "scores": {
       "taskType": "RA",
       "section": "speaking",
-      "rawPoints": 0,
+      "rawPoints": 74,
       "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "percentage": 82,
+      "pteScaleEquivalent": 74,
+      "subscores": {
+        "content": {
+          "score": 82,
+          "max": 90
+        },
+        "pronunciation": {
+          "score": 68,
+          "max": 90
+        },
+        "fluency": {
+          "score": 76,
+          "max": 90
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 74/90] content: 82/90 • pronunciation: 68/90 • fluency: 76/90"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 74/90] content: 82/90 • pronunciation: 68/90 • fluency: 76/90"
     },
-    "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "durationSec": 21,
+    "createdAt": "2026-10-21T14:56:32.840+08:00"
   },
   {
     "id": "att_mock45c_ape_ra_701",
@@ -329,24 +381,37 @@ export const APEUNI_MOCK_45C_ATTEMPTS = [
     "isMock45CBaseline": true,
     "userAudioUrl": "/apeuni_media/recordings/0ab0f383b0_RA701_2026-10-21_14_58_36-186d.wav",
     "userResponse": {
-      "transcript": "[Mock Test 45C Audio Recording — undefineds]",
+      "transcript": "[Mock Test 45C Audio Recording — 24s]",
       "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/299/008/728/original/RA701_2026-10-21_14_58_36-186d.wav?1792565916"
     },
     "scores": {
       "taskType": "RA",
       "section": "speaking",
-      "rawPoints": 0,
+      "rawPoints": 67,
       "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "percentage": 74,
+      "pteScaleEquivalent": 67,
+      "subscores": {
+        "content": {
+          "score": 77,
+          "max": 90
+        },
+        "pronunciation": {
+          "score": 65,
+          "max": 90
+        },
+        "fluency": {
+          "score": 63,
+          "max": 90
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 67/90] content: 77/90 • pronunciation: 65/90 • fluency: 63/90"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 67/90] content: 77/90 • pronunciation: 65/90 • fluency: 63/90"
     },
-    "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "durationSec": 24,
+    "createdAt": "2026-10-21T14:57:33.544+08:00"
   },
   {
     "id": "att_mock45c_ape_ra_619",
@@ -356,24 +421,37 @@ export const APEUNI_MOCK_45C_ATTEMPTS = [
     "isMock45CBaseline": true,
     "userAudioUrl": "/apeuni_media/recordings/f7cdaa37a0_RA619_2026-10-21_14_59_42-186d.wav",
     "userResponse": {
-      "transcript": "[Mock Test 45C Audio Recording — undefineds]",
+      "transcript": "[Mock Test 45C Audio Recording — 25s]",
       "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/299/011/236/original/RA619_2026-10-21_14_59_42-186d.wav?1792565982"
     },
     "scores": {
       "taskType": "RA",
       "section": "speaking",
-      "rawPoints": 0,
+      "rawPoints": 62,
       "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "percentage": 69,
+      "pteScaleEquivalent": 62,
+      "subscores": {
+        "content": {
+          "score": 70,
+          "max": 90
+        },
+        "pronunciation": {
+          "score": 55,
+          "max": 90
+        },
+        "fluency": {
+          "score": 65,
+          "max": 90
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 62/90] content: 70/90 • pronunciation: 55/90 • fluency: 65/90"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 62/90] content: 70/90 • pronunciation: 55/90 • fluency: 65/90"
     },
-    "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "durationSec": 25,
+    "createdAt": "2026-10-21T14:58:41.377+08:00"
   },
   {
     "id": "att_mock45c_ape_rs_856",
@@ -383,24 +461,37 @@ export const APEUNI_MOCK_45C_ATTEMPTS = [
     "isMock45CBaseline": true,
     "userAudioUrl": "/apeuni_media/recordings/9749893d0d_RS856_2026-10-21_14_59_54-186d.wav",
     "userResponse": {
-      "transcript": "[Mock Test 45C Audio Recording — undefineds]",
+      "transcript": "[Mock Test 45C Audio Recording — 6s]",
       "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/299/011/647/original/RS856_2026-10-21_14_59_54-186d.wav?1792565994"
     },
     "scores": {
       "taskType": "RS",
       "section": "speaking",
-      "rawPoints": 0,
+      "rawPoints": 63,
       "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "percentage": 70,
+      "pteScaleEquivalent": 63,
+      "subscores": {
+        "content": {
+          "score": 2.8,
+          "max": 3
+        },
+        "pronunciation": {
+          "score": 63,
+          "max": 90
+        },
+        "fluency": {
+          "score": 57,
+          "max": 90
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 63/90] content: 2.8/3 • pronunciation: 63/90 • fluency: 57/90"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 63/90] content: 2.8/3 • pronunciation: 63/90 • fluency: 57/90"
     },
-    "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "durationSec": 6,
+    "createdAt": "2026-10-21T14:58:52.617+08:00"
   },
   {
     "id": "att_mock45c_ape_rs_912",
@@ -410,24 +501,37 @@ export const APEUNI_MOCK_45C_ATTEMPTS = [
     "isMock45CBaseline": true,
     "userAudioUrl": "/apeuni_media/recordings/f96666a42a_RS912_2026-10-21_15_00_10-186d.wav",
     "userResponse": {
-      "transcript": "[Mock Test 45C Audio Recording — undefineds]",
+      "transcript": "[Mock Test 45C Audio Recording — 6s]",
       "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/299/012/162/original/RS912_2026-10-21_15_00_10-186d.wav?1792566010"
     },
     "scores": {
       "taskType": "RS",
       "section": "speaking",
-      "rawPoints": 0,
+      "rawPoints": 61,
       "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "percentage": 68,
+      "pteScaleEquivalent": 61,
+      "subscores": {
+        "content": {
+          "score": 2.8,
+          "max": 3
+        },
+        "pronunciation": {
+          "score": 62,
+          "max": 90
+        },
+        "fluency": {
+          "score": 54,
+          "max": 90
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 61/90] content: 2.8/3 • pronunciation: 62/90 • fluency: 54/90"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 61/90] content: 2.8/3 • pronunciation: 62/90 • fluency: 54/90"
     },
-    "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "durationSec": 6,
+    "createdAt": "2026-10-21T14:59:06.892+08:00"
   },
   {
     "id": "att_mock45c_ape_rs_2177",
@@ -437,24 +541,37 @@ export const APEUNI_MOCK_45C_ATTEMPTS = [
     "isMock45CBaseline": true,
     "userAudioUrl": "/apeuni_media/recordings/d530dfe868_RS2177_2026-10-21_15_00_23-186.wav",
     "userResponse": {
-      "transcript": "[Mock Test 45C Audio Recording — undefineds]",
+      "transcript": "[Mock Test 45C Audio Recording — 6s]",
       "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/299/012/780/original/RS2177_2026-10-21_15_00_23-186d.wav?1792566024"
     },
     "scores": {
       "taskType": "RS",
       "section": "speaking",
-      "rawPoints": 0,
+      "rawPoints": 59,
       "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "percentage": 66,
+      "pteScaleEquivalent": 59,
+      "subscores": {
+        "content": {
+          "score": 2.7,
+          "max": 3
+        },
+        "pronunciation": {
+          "score": 68,
+          "max": 90
+        },
+        "fluency": {
+          "score": 50,
+          "max": 90
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 59/90] content: 2.7/3 • pronunciation: 68/90 • fluency: 50/90"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 59/90] content: 2.7/3 • pronunciation: 68/90 • fluency: 50/90"
     },
-    "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "durationSec": 6,
+    "createdAt": "2026-10-21T14:59:23.077+08:00"
   },
   {
     "id": "att_mock45c_ape_rs_1233",
@@ -464,24 +581,37 @@ export const APEUNI_MOCK_45C_ATTEMPTS = [
     "isMock45CBaseline": true,
     "userAudioUrl": "/apeuni_media/recordings/c2bdfeaa3b_RS1233_2026-10-21_15_00_39-186.wav",
     "userResponse": {
-      "transcript": "[Mock Test 45C Audio Recording — undefineds]",
+      "transcript": "[Mock Test 45C Audio Recording — 6s]",
       "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/299/013/308/original/RS1233_2026-10-21_15_00_39-186d.wav?1792566039"
     },
     "scores": {
       "taskType": "RS",
       "section": "speaking",
-      "rawPoints": 0,
+      "rawPoints": 17,
       "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "percentage": 19,
+      "pteScaleEquivalent": 17,
+      "subscores": {
+        "content": {
+          "score": 1.1,
+          "max": 3
+        },
+        "pronunciation": {
+          "score": 38,
+          "max": 90
+        },
+        "fluency": {
+          "score": 44,
+          "max": 90
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 17/90] content: 1.1/3 • pronunciation: 38/90 • fluency: 44/90"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 17/90] content: 1.1/3 • pronunciation: 38/90 • fluency: 44/90"
     },
-    "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "durationSec": 6,
+    "createdAt": "2026-10-21T14:59:37.651+08:00"
   },
   {
     "id": "att_mock45c_ape_rs_1325",
@@ -491,24 +621,37 @@ export const APEUNI_MOCK_45C_ATTEMPTS = [
     "isMock45CBaseline": true,
     "userAudioUrl": "/apeuni_media/recordings/515c9f80d9_RS1325_2026-10-21_15_00_51-186.wav",
     "userResponse": {
-      "transcript": "[Mock Test 45C Audio Recording — undefineds]",
+      "transcript": "[Mock Test 45C Audio Recording — 5s]",
       "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/299/013/774/original/RS1325_2026-10-21_15_00_51-186d.wav?1792566051"
     },
     "scores": {
       "taskType": "RS",
       "section": "speaking",
-      "rawPoints": 0,
+      "rawPoints": 46,
       "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "percentage": 51,
+      "pteScaleEquivalent": 46,
+      "subscores": {
+        "content": {
+          "score": 2.1,
+          "max": 3
+        },
+        "pronunciation": {
+          "score": 57,
+          "max": 90
+        },
+        "fluency": {
+          "score": 59,
+          "max": 90
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 46/90] content: 2.1/3 • pronunciation: 57/90 • fluency: 59/90"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 46/90] content: 2.1/3 • pronunciation: 57/90 • fluency: 59/90"
     },
-    "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "durationSec": 5,
+    "createdAt": "2026-10-21T14:59:50.984+08:00"
   },
   {
     "id": "att_mock45c_ape_rs_1337",
@@ -518,24 +661,37 @@ export const APEUNI_MOCK_45C_ATTEMPTS = [
     "isMock45CBaseline": true,
     "userAudioUrl": "/apeuni_media/recordings/2ec953f792_RS1337_2026-10-21_15_01_07-186.wav",
     "userResponse": {
-      "transcript": "[Mock Test 45C Audio Recording — undefineds]",
+      "transcript": "[Mock Test 45C Audio Recording — 6s]",
       "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/299/014/331/original/RS1337_2026-10-21_15_01_07-186d.wav?1792566067"
     },
     "scores": {
       "taskType": "RS",
       "section": "speaking",
-      "rawPoints": 0,
+      "rawPoints": 47,
       "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "percentage": 52,
+      "pteScaleEquivalent": 47,
+      "subscores": {
+        "content": {
+          "score": 2.5,
+          "max": 3
+        },
+        "pronunciation": {
+          "score": 53,
+          "max": 90
+        },
+        "fluency": {
+          "score": 45,
+          "max": 90
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 47/90] content: 2.5/3 • pronunciation: 53/90 • fluency: 45/90"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 47/90] content: 2.5/3 • pronunciation: 53/90 • fluency: 45/90"
     },
-    "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "durationSec": 6,
+    "createdAt": "2026-10-21T15:00:06.589+08:00"
   },
   {
     "id": "att_mock45c_ape_rs_1346",
@@ -545,24 +701,37 @@ export const APEUNI_MOCK_45C_ATTEMPTS = [
     "isMock45CBaseline": true,
     "userAudioUrl": "/apeuni_media/recordings/3895e8c830_RS1346_2026-10-21_15_01_25-186.wav",
     "userResponse": {
-      "transcript": "[Mock Test 45C Audio Recording — undefineds]",
+      "transcript": "[Mock Test 45C Audio Recording — 7s]",
       "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/299/014/841/original/RS1346_2026-10-21_15_01_25-186d.wav?1792566085"
     },
     "scores": {
       "taskType": "RS",
       "section": "speaking",
-      "rawPoints": 0,
+      "rawPoints": 49,
       "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "percentage": 54,
+      "pteScaleEquivalent": 49,
+      "subscores": {
+        "content": {
+          "score": 2.7,
+          "max": 3
+        },
+        "pronunciation": {
+          "score": 49,
+          "max": 90
+        },
+        "fluency": {
+          "score": 47,
+          "max": 90
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 49/90] content: 2.7/3 • pronunciation: 49/90 • fluency: 47/90"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 49/90] content: 2.7/3 • pronunciation: 49/90 • fluency: 47/90"
     },
-    "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "durationSec": 7,
+    "createdAt": "2026-10-21T15:00:22.788+08:00"
   },
   {
     "id": "att_mock45c_ape_rs_1351",
@@ -572,24 +741,37 @@ export const APEUNI_MOCK_45C_ATTEMPTS = [
     "isMock45CBaseline": true,
     "userAudioUrl": "/apeuni_media/recordings/8f8e03d3d6_RS1351_2026-10-21_15_01_34-186.wav",
     "userResponse": {
-      "transcript": "[Mock Test 45C Audio Recording — undefineds]",
+      "transcript": "[Mock Test 45C Audio Recording — 5s]",
       "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/299/015/297/original/RS1351_2026-10-21_15_01_34-186d.wav?1792566094"
     },
     "scores": {
       "taskType": "RS",
       "section": "speaking",
-      "rawPoints": 0,
+      "rawPoints": 16,
       "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "percentage": 18,
+      "pteScaleEquivalent": 16,
+      "subscores": {
+        "content": {
+          "score": 0.9,
+          "max": 3
+        },
+        "pronunciation": {
+          "score": 45,
+          "max": 90
+        },
+        "fluency": {
+          "score": 53,
+          "max": 90
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 16/90] content: 0.9/3 • pronunciation: 45/90 • fluency: 53/90"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 16/90] content: 0.9/3 • pronunciation: 45/90 • fluency: 53/90"
     },
-    "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "durationSec": 5,
+    "createdAt": "2026-10-21T15:00:34.216+08:00"
   },
   {
     "id": "att_mock45c_ape_rs_1866",
@@ -599,24 +781,37 @@ export const APEUNI_MOCK_45C_ATTEMPTS = [
     "isMock45CBaseline": true,
     "userAudioUrl": "/apeuni_media/recordings/39ef0e4d8d_RS1866_2026-10-21_15_01_56-186.wav",
     "userResponse": {
-      "transcript": "[Mock Test 45C Audio Recording — undefineds]",
+      "transcript": "[Mock Test 45C Audio Recording — 7s]",
       "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/299/015/971/original/RS1866_2026-10-21_15_01_56-186d.wav?1792566116"
     },
     "scores": {
       "taskType": "RS",
       "section": "speaking",
-      "rawPoints": 0,
+      "rawPoints": 22,
       "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "percentage": 24,
+      "pteScaleEquivalent": 22,
+      "subscores": {
+        "content": {
+          "score": 1.1,
+          "max": 3
+        },
+        "pronunciation": {
+          "score": 62,
+          "max": 90
+        },
+        "fluency": {
+          "score": 48,
+          "max": 90
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 22/90] content: 1.1/3 • pronunciation: 62/90 • fluency: 48/90"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 22/90] content: 1.1/3 • pronunciation: 62/90 • fluency: 48/90"
     },
-    "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "durationSec": 7,
+    "createdAt": "2026-10-21T15:00:53.982+08:00"
   },
   {
     "id": "att_mock45c_ape_rs_1837",
@@ -626,24 +821,37 @@ export const APEUNI_MOCK_45C_ATTEMPTS = [
     "isMock45CBaseline": true,
     "userAudioUrl": "/apeuni_media/recordings/db29ced409_RS1837_2026-10-21_15_02_14-186.wav",
     "userResponse": {
-      "transcript": "[Mock Test 45C Audio Recording — undefineds]",
+      "transcript": "[Mock Test 45C Audio Recording — 6s]",
       "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/299/016/640/original/RS1837_2026-10-21_15_02_14-186d.wav?1792566134"
     },
     "scores": {
       "taskType": "RS",
       "section": "speaking",
-      "rawPoints": 0,
+      "rawPoints": 27,
       "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "percentage": 30,
+      "pteScaleEquivalent": 27,
+      "subscores": {
+        "content": {
+          "score": 1.3,
+          "max": 3
+        },
+        "pronunciation": {
+          "score": 58,
+          "max": 90
+        },
+        "fluency": {
+          "score": 54,
+          "max": 90
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 27/90] content: 1.3/3 • pronunciation: 58/90 • fluency: 54/90"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 27/90] content: 1.3/3 • pronunciation: 58/90 • fluency: 54/90"
     },
-    "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "durationSec": 6,
+    "createdAt": "2026-10-21T15:01:13.006+08:00"
   },
   {
     "id": "att_mock45c_ape_di_573",
@@ -653,24 +861,37 @@ export const APEUNI_MOCK_45C_ATTEMPTS = [
     "isMock45CBaseline": true,
     "userAudioUrl": "/apeuni_media/recordings/55ba417f97_DI573_2026-10-21_15_03_20-186d.wav",
     "userResponse": {
-      "transcript": "[Mock Test 45C Audio Recording — undefineds]",
+      "transcript": "[Mock Test 45C Audio Recording — 40s]",
       "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/299/018/928/original/DI573_2026-10-21_15_03_20-186d.wav?1792566200"
     },
     "scores": {
       "taskType": "DI",
       "section": "speaking",
-      "rawPoints": 0,
+      "rawPoints": 61,
       "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "percentage": 68,
+      "pteScaleEquivalent": 61,
+      "subscores": {
+        "content": {
+          "score": 5.5,
+          "max": 6
+        },
+        "pronunciation": {
+          "score": 62,
+          "max": 90
+        },
+        "fluency": {
+          "score": 58,
+          "max": 90
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 61/90] content: 5.5/6 • pronunciation: 62/90 • fluency: 58/90"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 61/90] content: 5.5/6 • pronunciation: 62/90 • fluency: 58/90"
     },
-    "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "durationSec": 40,
+    "createdAt": "2026-10-21T15:02:17.748+08:00"
   },
   {
     "id": "att_mock45c_ape_di_204",
@@ -680,24 +901,37 @@ export const APEUNI_MOCK_45C_ATTEMPTS = [
     "isMock45CBaseline": true,
     "userAudioUrl": "/apeuni_media/recordings/d8d6b89afc_DI204_2026-10-21_15_04_38-186d.wav",
     "userResponse": {
-      "transcript": "[Mock Test 45C Audio Recording — undefineds]",
+      "transcript": "[Mock Test 45C Audio Recording — 40s]",
       "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/299/021/691/original/DI204_2026-10-21_15_04_38-186d.wav?1792566278"
     },
     "scores": {
       "taskType": "DI",
       "section": "speaking",
-      "rawPoints": 0,
+      "rawPoints": 56,
       "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "percentage": 62,
+      "pteScaleEquivalent": 56,
+      "subscores": {
+        "content": {
+          "score": 6,
+          "max": 6
+        },
+        "pronunciation": {
+          "score": 53,
+          "max": 90
+        },
+        "fluency": {
+          "score": 43,
+          "max": 90
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 56/90] content: 6/6 • pronunciation: 53/90 • fluency: 43/90"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 56/90] content: 6/6 • pronunciation: 53/90 • fluency: 43/90"
     },
-    "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "durationSec": 40,
+    "createdAt": "2026-10-21T15:03:35.785+08:00"
   },
   {
     "id": "att_mock45c_ape_di_1234",
@@ -707,24 +941,37 @@ export const APEUNI_MOCK_45C_ATTEMPTS = [
     "isMock45CBaseline": true,
     "userAudioUrl": "/apeuni_media/recordings/e899329ac5_DI1234_2026-10-21_15_05_44-186.wav",
     "userResponse": {
-      "transcript": "[Mock Test 45C Audio Recording — undefineds]",
+      "transcript": "[Mock Test 45C Audio Recording — 40s]",
       "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/299/024/175/original/DI1234_2026-10-21_15_05_44-186d.wav?1792566345"
     },
     "scores": {
       "taskType": "DI",
       "section": "speaking",
-      "rawPoints": 0,
+      "rawPoints": 69,
       "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "percentage": 77,
+      "pteScaleEquivalent": 69,
+      "subscores": {
+        "content": {
+          "score": 6,
+          "max": 6
+        },
+        "pronunciation": {
+          "score": 74,
+          "max": 90
+        },
+        "fluency": {
+          "score": 64,
+          "max": 90
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 69/90] content: 6/6 • pronunciation: 74/90 • fluency: 64/90"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 69/90] content: 6/6 • pronunciation: 74/90 • fluency: 64/90"
     },
-    "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "durationSec": 40,
+    "createdAt": "2026-10-21T15:04:44.445+08:00"
   },
   {
     "id": "att_mock45c_ape_di_602",
@@ -734,24 +981,37 @@ export const APEUNI_MOCK_45C_ATTEMPTS = [
     "isMock45CBaseline": true,
     "userAudioUrl": "/apeuni_media/recordings/d923a15848_DI602_2026-10-21_15_06_56-186d.wav",
     "userResponse": {
-      "transcript": "[Mock Test 45C Audio Recording — undefineds]",
+      "transcript": "[Mock Test 45C Audio Recording — 40s]",
       "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/299/026/777/original/DI602_2026-10-21_15_06_56-186d.wav?1792566416"
     },
     "scores": {
       "taskType": "DI",
       "section": "speaking",
-      "rawPoints": 0,
+      "rawPoints": 51,
       "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "percentage": 57,
+      "pteScaleEquivalent": 51,
+      "subscores": {
+        "content": {
+          "score": 3.6,
+          "max": 6
+        },
+        "pronunciation": {
+          "score": 51,
+          "max": 90
+        },
+        "fluency": {
+          "score": 47,
+          "max": 90
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 51/90] content: 3.6/6 • pronunciation: 51/90 • fluency: 47/90"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 51/90] content: 3.6/6 • pronunciation: 51/90 • fluency: 47/90"
     },
-    "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "durationSec": 40,
+    "createdAt": "2026-10-21T15:05:55.613+08:00"
   },
   {
     "id": "att_mock45c_ape_di_823",
@@ -761,24 +1021,37 @@ export const APEUNI_MOCK_45C_ATTEMPTS = [
     "isMock45CBaseline": true,
     "userAudioUrl": "/apeuni_media/recordings/19bce90eb0_DI823_2026-10-21_15_07_56-186d.wav",
     "userResponse": {
-      "transcript": "[Mock Test 45C Audio Recording — undefineds]",
+      "transcript": "[Mock Test 45C Audio Recording — 33s]",
       "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/299/028/977/original/DI823_2026-10-21_15_07_56-186d.wav?1792566476"
     },
     "scores": {
       "taskType": "DI",
       "section": "speaking",
-      "rawPoints": 0,
+      "rawPoints": 59,
       "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "percentage": 66,
+      "pteScaleEquivalent": 59,
+      "subscores": {
+        "content": {
+          "score": 6,
+          "max": 6
+        },
+        "pronunciation": {
+          "score": 58,
+          "max": 90
+        },
+        "fluency": {
+          "score": 50,
+          "max": 90
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 59/90] content: 6/6 • pronunciation: 58/90 • fluency: 50/90"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 59/90] content: 6/6 • pronunciation: 58/90 • fluency: 50/90"
     },
-    "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "durationSec": 33,
+    "createdAt": "2026-10-21T15:06:55.460+08:00"
   },
   {
     "id": "att_mock45c_ape_rl_315",
@@ -788,24 +1061,37 @@ export const APEUNI_MOCK_45C_ATTEMPTS = [
     "isMock45CBaseline": true,
     "userAudioUrl": "/apeuni_media/recordings/0f7b2dc141_RL315_2026-10-21_15_09_45-186d.wav",
     "userResponse": {
-      "transcript": "[Mock Test 45C Audio Recording — undefineds]",
+      "transcript": "[Mock Test 45C Audio Recording — 39s]",
       "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/299/032/872/original/RL315_2026-10-21_15_09_45-186d.wav?1792566585"
     },
     "scores": {
       "taskType": "RL",
       "section": "speaking",
-      "rawPoints": 0,
+      "rawPoints": 68,
       "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "percentage": 76,
+      "pteScaleEquivalent": 68,
+      "subscores": {
+        "content": {
+          "score": 6,
+          "max": 6
+        },
+        "pronunciation": {
+          "score": 70,
+          "max": 90
+        },
+        "fluency": {
+          "score": 62,
+          "max": 90
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 68/90] content: 6/6 • pronunciation: 70/90 • fluency: 62/90"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 68/90] content: 6/6 • pronunciation: 70/90 • fluency: 62/90"
     },
-    "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "durationSec": 39,
+    "createdAt": "2026-10-21T15:08:43.194+08:00"
   },
   {
     "id": "att_mock45c_ape_rl_551",
@@ -815,24 +1101,37 @@ export const APEUNI_MOCK_45C_ATTEMPTS = [
     "isMock45CBaseline": true,
     "userAudioUrl": "/apeuni_media/recordings/b1cee23ab4_RL551_2026-10-21_15_12_25-186d.wav",
     "userResponse": {
-      "transcript": "[Mock Test 45C Audio Recording — undefineds]",
+      "transcript": "[Mock Test 45C Audio Recording — 40s]",
       "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/299/038/622/original/RL551_2026-10-21_15_12_25-186d.wav?1792566745"
     },
     "scores": {
       "taskType": "RL",
       "section": "speaking",
-      "rawPoints": 0,
+      "rawPoints": 63,
       "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "percentage": 70,
+      "pteScaleEquivalent": 63,
+      "subscores": {
+        "content": {
+          "score": 6,
+          "max": 6
+        },
+        "pronunciation": {
+          "score": 51,
+          "max": 90
+        },
+        "fluency": {
+          "score": 41,
+          "max": 90
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 63/90] content: 6/6 • pronunciation: 51/90 • fluency: 41/90"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 63/90] content: 6/6 • pronunciation: 51/90 • fluency: 41/90"
     },
-    "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "durationSec": 40,
+    "createdAt": "2026-10-21T15:11:21.612+08:00"
   },
   {
     "id": "att_mock45c_ape_asq_787",
@@ -842,24 +1141,29 @@ export const APEUNI_MOCK_45C_ATTEMPTS = [
     "isMock45CBaseline": true,
     "userAudioUrl": "/apeuni_media/recordings/d1b96ae5d1_ASQ787_2026-10-21_15_12_36-186.wav",
     "userResponse": {
-      "transcript": "[Mock Test 45C Audio Recording — undefineds]",
+      "transcript": "[Mock Test 45C Audio Recording — 7s]",
       "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/299/039/115/original/ASQ787_2026-10-21_15_12_36-186d.wav?1792566756"
     },
     "scores": {
       "taskType": "ASQ",
       "section": "speaking",
       "rawPoints": 0,
-      "maxPoints": 90,
+      "maxPoints": 1,
       "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "pteScaleEquivalent": 10,
+      "subscores": {
+        "content": {
+          "score": 0,
+          "max": 1
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 0/1] content: 0/1"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 0/1] content: 0/1"
     },
-    "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "durationSec": 7,
+    "createdAt": "2026-10-21T15:11:34.822+08:00"
   },
   {
     "id": "att_mock45c_ape_asq_830",
@@ -869,24 +1173,29 @@ export const APEUNI_MOCK_45C_ATTEMPTS = [
     "isMock45CBaseline": true,
     "userAudioUrl": "/apeuni_media/recordings/b3a3221329_ASQ830_2026-10-21_15_12_52-186.wav",
     "userResponse": {
-      "transcript": "[Mock Test 45C Audio Recording — undefineds]",
+      "transcript": "[Mock Test 45C Audio Recording — 8s]",
       "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/299/039/664/original/ASQ830_2026-10-21_15_12_52-186d.wav?1792566772"
     },
     "scores": {
       "taskType": "ASQ",
       "section": "speaking",
-      "rawPoints": 0,
-      "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "rawPoints": 1,
+      "maxPoints": 1,
+      "percentage": 100,
+      "pteScaleEquivalent": 90,
+      "subscores": {
+        "content": {
+          "score": 1,
+          "max": 1
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 1/1] content: 1/1"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 1/1] content: 1/1"
     },
-    "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "durationSec": 8,
+    "createdAt": "2026-10-21T15:11:50.445+08:00"
   },
   {
     "id": "att_mock45c_ape_asq_2290",
@@ -896,24 +1205,29 @@ export const APEUNI_MOCK_45C_ATTEMPTS = [
     "isMock45CBaseline": true,
     "userAudioUrl": "/apeuni_media/recordings/6f76f3ef89_ASQ2290_2026-10-21_15_13_06-18.wav",
     "userResponse": {
-      "transcript": "[Mock Test 45C Audio Recording — undefineds]",
+      "transcript": "[Mock Test 45C Audio Recording — 3s]",
       "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/299/040/203/original/ASQ2290_2026-10-21_15_13_06-186d.wav?1792566786"
     },
     "scores": {
       "taskType": "ASQ",
       "section": "speaking",
-      "rawPoints": 0,
-      "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "rawPoints": 1,
+      "maxPoints": 1,
+      "percentage": 100,
+      "pteScaleEquivalent": 90,
+      "subscores": {
+        "content": {
+          "score": 1,
+          "max": 1
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 1/1] content: 1/1"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 1/1] content: 1/1"
     },
-    "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "durationSec": 3,
+    "createdAt": "2026-10-21T15:12:05.192+08:00"
   },
   {
     "id": "att_mock45c_ape_asq_2371",
@@ -923,24 +1237,29 @@ export const APEUNI_MOCK_45C_ATTEMPTS = [
     "isMock45CBaseline": true,
     "userAudioUrl": "/apeuni_media/recordings/1ec11f6287_ASQ2371_2026-10-21_15_13_19-18.wav",
     "userResponse": {
-      "transcript": "[Mock Test 45C Audio Recording — undefineds]",
+      "transcript": "[Mock Test 45C Audio Recording — 4s]",
       "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/299/040/582/original/ASQ2371_2026-10-21_15_13_19-186d.wav?1792566799"
     },
     "scores": {
       "taskType": "ASQ",
       "section": "speaking",
-      "rawPoints": 0,
-      "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "rawPoints": 1,
+      "maxPoints": 1,
+      "percentage": 100,
+      "pteScaleEquivalent": 90,
+      "subscores": {
+        "content": {
+          "score": 1,
+          "max": 1
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 1/1] content: 1/1"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 1/1] content: 1/1"
     },
-    "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "durationSec": 4,
+    "createdAt": "2026-10-21T15:12:16.190+08:00"
   },
   {
     "id": "att_mock45c_ape_asq_900",
@@ -950,24 +1269,29 @@ export const APEUNI_MOCK_45C_ATTEMPTS = [
     "isMock45CBaseline": true,
     "userAudioUrl": "/apeuni_media/recordings/a7e6596335_ASQ900_2026-10-21_15_13_28-186.wav",
     "userResponse": {
-      "transcript": "[Mock Test 45C Audio Recording — undefineds]",
+      "transcript": "[Mock Test 45C Audio Recording — 4s]",
       "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/299/041/016/original/ASQ900_2026-10-21_15_13_28-186d.wav?1792566808"
     },
     "scores": {
       "taskType": "ASQ",
       "section": "speaking",
       "rawPoints": 0,
-      "maxPoints": 90,
+      "maxPoints": 1,
       "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "pteScaleEquivalent": 10,
+      "subscores": {
+        "content": {
+          "score": 0,
+          "max": 1
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 0/1] content: 0/1"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 0/1] content: 0/1"
     },
-    "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "durationSec": 4,
+    "createdAt": "2026-10-21T15:12:27.252+08:00"
   },
   {
     "id": "att_mock45c_ape_sgd_2",
@@ -977,24 +1301,37 @@ export const APEUNI_MOCK_45C_ATTEMPTS = [
     "isMock45CBaseline": true,
     "userAudioUrl": "/apeuni_media/recordings/f21904abd9_SGD2_2026-10-21_15_17_29-186d.wav",
     "userResponse": {
-      "transcript": "[Mock Test 45C Audio Recording — undefineds]",
+      "transcript": "[Mock Test 45C Audio Recording — 59s]",
       "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/299/049/448/original/SGD2_2026-10-21_15_17_29-186d.wav?1792567049"
     },
     "scores": {
       "taskType": "SGD",
       "section": "speaking",
-      "rawPoints": 0,
+      "rawPoints": 69,
       "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "percentage": 77,
+      "pteScaleEquivalent": 69,
+      "subscores": {
+        "content": {
+          "score": 3.3,
+          "max": 5
+        },
+        "pronunciation": {
+          "score": 59,
+          "max": 90
+        },
+        "fluency": {
+          "score": 74,
+          "max": 90
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 69/90] content: 3.3/5 • pronunciation: 59/90 • fluency: 74/90"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 69/90] content: 3.3/5 • pronunciation: 59/90 • fluency: 74/90"
     },
-    "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "durationSec": 59,
+    "createdAt": "2026-10-21T15:16:23.143+08:00"
   },
   {
     "id": "att_mock45c_ape_sgd_42",
@@ -1004,24 +1341,37 @@ export const APEUNI_MOCK_45C_ATTEMPTS = [
     "isMock45CBaseline": true,
     "userAudioUrl": "/apeuni_media/recordings/b276e24f75_SGD42_2026-10-21_15_21_43-186d.wav",
     "userResponse": {
-      "transcript": "[Mock Test 45C Audio Recording — undefineds]",
+      "transcript": "[Mock Test 45C Audio Recording — 80s]",
       "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/299/058/742/original/SGD42_2026-10-21_15_21_43-186d.wav?1792567303"
     },
     "scores": {
       "taskType": "SGD",
       "section": "speaking",
-      "rawPoints": 0,
+      "rawPoints": 72,
       "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "percentage": 80,
+      "pteScaleEquivalent": 72,
+      "subscores": {
+        "content": {
+          "score": 3.8,
+          "max": 5
+        },
+        "pronunciation": {
+          "score": 69,
+          "max": 90
+        },
+        "fluency": {
+          "score": 72,
+          "max": 90
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 72/90] content: 3.8/5 • pronunciation: 69/90 • fluency: 72/90"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 72/90] content: 3.8/5 • pronunciation: 69/90 • fluency: 72/90"
     },
-    "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "durationSec": 80,
+    "createdAt": "2026-10-21T15:20:41.154+08:00"
   },
   {
     "id": "att_mock45c_ape_rts_179",
@@ -1031,24 +1381,37 @@ export const APEUNI_MOCK_45C_ATTEMPTS = [
     "isMock45CBaseline": true,
     "userAudioUrl": "/apeuni_media/recordings/348c431970_RTS179_2026-10-21_15_22_36-186.wav",
     "userResponse": {
-      "transcript": "[Mock Test 45C Audio Recording — undefineds]",
+      "transcript": "[Mock Test 45C Audio Recording — 24s]",
       "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/299/060/580/original/RTS179_2026-10-21_15_22_36-186d.wav?1792567356"
     },
     "scores": {
       "taskType": "RTS",
       "section": "speaking",
-      "rawPoints": 0,
+      "rawPoints": 67,
       "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "percentage": 74,
+      "pteScaleEquivalent": 67,
+      "subscores": {
+        "content": {
+          "score": 4,
+          "max": 5
+        },
+        "pronunciation": {
+          "score": 65,
+          "max": 90
+        },
+        "fluency": {
+          "score": 54,
+          "max": 90
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 67/90] content: 4/5 • pronunciation: 65/90 • fluency: 54/90"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 67/90] content: 4/5 • pronunciation: 65/90 • fluency: 54/90"
     },
-    "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "durationSec": 24,
+    "createdAt": "2026-10-21T15:21:34.187+08:00"
   },
   {
     "id": "att_mock45c_ape_rts_156",
@@ -1058,24 +1421,37 @@ export const APEUNI_MOCK_45C_ATTEMPTS = [
     "isMock45CBaseline": true,
     "userAudioUrl": "/apeuni_media/recordings/b120e3575f_RTS156_2026-10-21_15_23_30-186.wav",
     "userResponse": {
-      "transcript": "[Mock Test 45C Audio Recording — undefineds]",
+      "transcript": "[Mock Test 45C Audio Recording — 26s]",
       "audioRecordingUrl": "https://apeuni-prod-sg.oss-ap-southeast-1.aliyuncs.com/public/system/answers/audios/004/299/062/523/original/RTS156_2026-10-21_15_23_30-186d.wav?1792567410"
     },
     "scores": {
       "taskType": "RTS",
       "section": "speaking",
-      "rawPoints": 0,
+      "rawPoints": 83,
       "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "percentage": 92,
+      "pteScaleEquivalent": 83,
+      "subscores": {
+        "content": {
+          "score": 4.3,
+          "max": 5
+        },
+        "pronunciation": {
+          "score": 76,
+          "max": 90
+        },
+        "fluency": {
+          "score": 72,
+          "max": 90
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 83/90] content: 4.3/5 • pronunciation: 76/90 • fluency: 72/90"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 83/90] content: 4.3/5 • pronunciation: 76/90 • fluency: 72/90"
     },
-    "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "durationSec": 26,
+    "createdAt": "2026-10-21T15:22:28.445+08:00"
   },
   {
     "id": "att_mock45c_ape_swt_10",
@@ -1085,23 +1461,40 @@ export const APEUNI_MOCK_45C_ATTEMPTS = [
     "isMock45CBaseline": true,
     "userAudioUrl": null,
     "userResponse": {
-      "textAnswer": ""
+      "textAnswer": "Australian food culture should be based upon indigenous ingredients, even though, Australians do not eat indigenous foods in significant quantities except for the food that comes from the ocean, sea or rivers. In conclusion, indigenous food are irrelevant to Australian identity today."
     },
     "scores": {
       "taskType": "SWT",
       "section": "writing",
       "rawPoints": 0,
-      "maxPoints": 90,
+      "maxPoints": 9,
       "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "pteScaleEquivalent": 10,
+      "subscores": {
+        "content": {
+          "score": 0,
+          "max": 4
+        },
+        "form": {
+          "score": 0,
+          "max": 1
+        },
+        "grammar": {
+          "score": 0,
+          "max": 2
+        },
+        "vocab": {
+          "score": 0,
+          "max": 2
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 0/9] content: 0/4 • form: 0/1 • grammar: 0/2 • vocab: 0/2"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 0/9] content: 0/4 • form: 0/1 • grammar: 0/2 • vocab: 0/2"
     },
     "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "createdAt": "2026-10-21T15:28:31.583+08:00"
   },
   {
     "id": "att_mock45c_ape_swt_174",
@@ -1111,23 +1504,40 @@ export const APEUNI_MOCK_45C_ATTEMPTS = [
     "isMock45CBaseline": true,
     "userAudioUrl": null,
     "userResponse": {
-      "textAnswer": ""
+      "textAnswer": "Even though the negative impression of Africa and its struggles, it has more than 50 countries that are rich in natural resources and with the best investment returns in the world. In conclusion, Africa is a great opportunity for businesses to find success."
     },
     "scores": {
       "taskType": "SWT",
       "section": "writing",
       "rawPoints": 0,
-      "maxPoints": 90,
+      "maxPoints": 9,
       "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "pteScaleEquivalent": 10,
+      "subscores": {
+        "content": {
+          "score": 0,
+          "max": 4
+        },
+        "form": {
+          "score": 0,
+          "max": 1
+        },
+        "grammar": {
+          "score": 0,
+          "max": 2
+        },
+        "vocab": {
+          "score": 0,
+          "max": 2
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 0/9] content: 0/4 • form: 0/1 • grammar: 0/2 • vocab: 0/2"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 0/9] content: 0/4 • form: 0/1 • grammar: 0/2 • vocab: 0/2"
     },
     "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "createdAt": "2026-10-21T15:34:10.023+08:00"
   },
   {
     "id": "att_mock45c_ape_we_102",
@@ -1137,413 +1547,557 @@ export const APEUNI_MOCK_45C_ATTEMPTS = [
     "isMock45CBaseline": true,
     "userAudioUrl": null,
     "userResponse": {
-      "textAnswer": ""
+      "textAnswer": "If we could reborn again with all the experiences we got from our current life, some people will say they would have a better life and others will say the opposite. So, how important is in our life, experiences rather than formal education?\n\nIn one hand, having a lot of experience can lead you to avoid doing the same mistake again and again. Also, it helps you to solve a lot of situations that you've already faced in the past. Moreover, it will help you to know what to say in every moment, likely making some situations less weird.\n\nIn the other hand, formal education gives you a much deeper knowledge of the world. With only experience you can think that what it works for you it will work for everyone, however, that's not true as the personal experience could not work for other people. Furthermore, experience is not based in any science process so it can \n\nIn conclusion, experience is a great tool for your life, but, if you can add some formal education or reading books you will have a better life as you will not based all your decisions in a not science based method. Anyway, as we say in Spanish, experience is the mother of the sciences."
     },
     "scores": {
       "taskType": "WE",
       "section": "writing",
-      "rawPoints": 0,
+      "rawPoints": 76,
       "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "percentage": 84,
+      "pteScaleEquivalent": 76,
+      "subscores": {
+        "final_score": {
+          "score": 76,
+          "max": 90
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 76/90] final_score: 76/90"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 76/90] final_score: 76/90"
     },
     "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "createdAt": "2026-10-21T15:50:32.476+08:00"
   },
   {
-    "id": "att_mock45c_ape_rwfib_1336",
-    "itemId": "ape_rwfib_1336",
+    "id": "att_mock45c_ape_fib_1336",
+    "itemId": "ape_fib_1336",
     "taskType": "RWFIB",
     "section": "reading",
     "isMock45CBaseline": true,
     "userAudioUrl": null,
     "userResponse": {
-      "blanks": {}
+      "blanks": {
+        "b1": "certain",
+        "b2": "what",
+        "b3": "common",
+        "b4": "Others"
+      }
     },
     "scores": {
       "taskType": "RWFIB",
       "section": "reading",
-      "rawPoints": 0,
-      "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "rawPoints": 4,
+      "maxPoints": 4,
+      "percentage": 100,
+      "pteScaleEquivalent": 90,
+      "subscores": {
+        "choice": {
+          "score": 4,
+          "max": 4
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 4/4] choice: 4/4"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 4/4] choice: 4/4"
     },
     "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "createdAt": "2026-10-21T15:51:41.355+08:00"
   },
   {
-    "id": "att_mock45c_ape_rwfib_1331",
-    "itemId": "ape_rwfib_1331",
+    "id": "att_mock45c_ape_fib_1331",
+    "itemId": "ape_fib_1331",
     "taskType": "RWFIB",
     "section": "reading",
     "isMock45CBaseline": true,
     "userAudioUrl": null,
     "userResponse": {
-      "blanks": {}
+      "blanks": {
+        "b1": "movement",
+        "b2": "turning",
+        "b3": "regular",
+        "b4": "articles",
+        "b5": "as well as"
+      }
     },
     "scores": {
       "taskType": "RWFIB",
       "section": "reading",
-      "rawPoints": 0,
-      "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "rawPoints": 3,
+      "maxPoints": 5,
+      "percentage": 60,
+      "pteScaleEquivalent": 58,
+      "subscores": {
+        "choice": {
+          "score": 3,
+          "max": 5
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 3/5] choice: 3/5"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 3/5] choice: 3/5"
     },
     "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "createdAt": "2026-10-21T15:53:19.916+08:00"
   },
   {
-    "id": "att_mock45c_ape_rwfib_1077",
-    "itemId": "ape_rwfib_1077",
+    "id": "att_mock45c_ape_fib_1077",
+    "itemId": "ape_fib_1077",
     "taskType": "RWFIB",
     "section": "reading",
     "isMock45CBaseline": true,
     "userAudioUrl": null,
     "userResponse": {
-      "blanks": {}
+      "blanks": {
+        "b1": "from",
+        "b2": "developing",
+        "b3": "obtain",
+        "b4": "involve",
+        "b5": "dictated"
+      }
     },
     "scores": {
       "taskType": "RWFIB",
       "section": "reading",
-      "rawPoints": 0,
-      "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "rawPoints": 3,
+      "maxPoints": 5,
+      "percentage": 60,
+      "pteScaleEquivalent": 58,
+      "subscores": {
+        "choice": {
+          "score": 3,
+          "max": 5
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 3/5] choice: 3/5"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 3/5] choice: 3/5"
     },
     "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "createdAt": "2026-10-21T15:54:41.054+08:00"
   },
   {
-    "id": "att_mock45c_ape_rwfib_1068",
-    "itemId": "ape_rwfib_1068",
+    "id": "att_mock45c_ape_fib_1068",
+    "itemId": "ape_fib_1068",
     "taskType": "RWFIB",
     "section": "reading",
     "isMock45CBaseline": true,
     "userAudioUrl": null,
     "userResponse": {
-      "blanks": {}
+      "blanks": {
+        "b1": "shining",
+        "b2": "pollution",
+        "b3": "confines",
+        "b4": "while",
+        "b5": "wandering"
+      }
     },
     "scores": {
       "taskType": "RWFIB",
       "section": "reading",
-      "rawPoints": 0,
-      "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "rawPoints": 4,
+      "maxPoints": 5,
+      "percentage": 80,
+      "pteScaleEquivalent": 74,
+      "subscores": {
+        "choice": {
+          "score": 4,
+          "max": 5
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 4/5] choice: 4/5"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 4/5] choice: 4/5"
     },
     "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "createdAt": "2026-10-21T15:55:56.358+08:00"
   },
   {
-    "id": "att_mock45c_ape_rwfib_1063",
-    "itemId": "ape_rwfib_1063",
+    "id": "att_mock45c_ape_fib_1063",
+    "itemId": "ape_fib_1063",
     "taskType": "RWFIB",
     "section": "reading",
     "isMock45CBaseline": true,
     "userAudioUrl": null,
     "userResponse": {
-      "blanks": {}
+      "blanks": {
+        "b1": "akin",
+        "b2": "secured",
+        "b3": "for",
+        "b4": "framework"
+      }
     },
     "scores": {
       "taskType": "RWFIB",
       "section": "reading",
-      "rawPoints": 0,
-      "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "rawPoints": 3,
+      "maxPoints": 4,
+      "percentage": 75,
+      "pteScaleEquivalent": 70,
+      "subscores": {
+        "choice": {
+          "score": 3,
+          "max": 4
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 3/4] choice: 3/4"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 3/4] choice: 3/4"
     },
     "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "createdAt": "2026-10-21T15:57:06.596+08:00"
   },
   {
-    "id": "att_mock45c_ape_mcma_r_4",
-    "itemId": "ape_mcma_r_4",
+    "id": "att_mock45c_ape_mcmr_4",
+    "itemId": "ape_mcmr_4",
     "taskType": "MCMA_R",
     "section": "reading",
     "isMock45CBaseline": true,
     "userAudioUrl": null,
     "userResponse": {
-      "selectedOptions": []
+      "selectedOptions": [
+        "A",
+        "C",
+        "E"
+      ]
     },
     "scores": {
       "taskType": "MCMA_R",
       "section": "reading",
-      "rawPoints": 0,
-      "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "rawPoints": 1,
+      "maxPoints": 2,
+      "percentage": 50,
+      "pteScaleEquivalent": 50,
+      "subscores": {
+        "choice": {
+          "score": 1,
+          "max": 2
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 1/2] choice: 1/2"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 1/2] choice: 1/2"
     },
     "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "createdAt": "2026-10-21T15:59:20.656+08:00"
   },
   {
-    "id": "att_mock45c_ape_mcma_r_7",
-    "itemId": "ape_mcma_r_7",
+    "id": "att_mock45c_ape_mcmr_7",
+    "itemId": "ape_mcmr_7",
     "taskType": "MCMA_R",
     "section": "reading",
     "isMock45CBaseline": true,
     "userAudioUrl": null,
     "userResponse": {
-      "selectedOptions": []
+      "selectedOptions": [
+        "A",
+        "B"
+      ]
     },
     "scores": {
       "taskType": "MCMA_R",
       "section": "reading",
       "rawPoints": 0,
-      "maxPoints": 90,
+      "maxPoints": 2,
       "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "pteScaleEquivalent": 10,
+      "subscores": {
+        "choice": {
+          "score": 0,
+          "max": 2
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 0/2] choice: 0/2"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 0/2] choice: 0/2"
     },
     "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "createdAt": "2026-10-21T16:02:57.416+08:00"
   },
   {
-    "id": "att_mock45c_ape_rop_199",
-    "itemId": "ape_rop_199",
+    "id": "att_mock45c_ape_ro_199",
+    "itemId": "ape_ro_199",
     "taskType": "ROP",
     "section": "reading",
     "isMock45CBaseline": true,
     "userAudioUrl": null,
     "userResponse": {
-      "userOrder": []
+      "userOrder": [
+        "p2",
+        "p3",
+        "p1",
+        "p4"
+      ]
     },
     "scores": {
       "taskType": "ROP",
       "section": "reading",
-      "rawPoints": 0,
-      "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "rawPoints": 1,
+      "maxPoints": 3,
+      "percentage": 33,
+      "pteScaleEquivalent": 36,
+      "subscores": {
+        "pair": {
+          "score": 1,
+          "max": 3
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 1/3] pair: 1/3"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 1/3] pair: 1/3"
     },
     "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "createdAt": "2026-10-21T16:04:20.512+08:00"
   },
   {
-    "id": "att_mock45c_ape_rop_831",
-    "itemId": "ape_rop_831",
+    "id": "att_mock45c_ape_ro_831",
+    "itemId": "ape_ro_831",
     "taskType": "ROP",
     "section": "reading",
     "isMock45CBaseline": true,
     "userAudioUrl": null,
     "userResponse": {
-      "userOrder": []
+      "userOrder": [
+        "p3",
+        "p4",
+        "p1",
+        "p2"
+      ]
     },
     "scores": {
       "taskType": "ROP",
       "section": "reading",
-      "rawPoints": 0,
-      "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "rawPoints": 3,
+      "maxPoints": 3,
+      "percentage": 100,
+      "pteScaleEquivalent": 90,
+      "subscores": {
+        "pair": {
+          "score": 3,
+          "max": 3
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 3/3] pair: 3/3"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 3/3] pair: 3/3"
     },
     "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "createdAt": "2026-10-21T16:05:13.369+08:00"
   },
   {
-    "id": "att_mock45c_ape_rfib_419",
-    "itemId": "ape_rfib_419",
+    "id": "att_mock45c_ape_fibdd_419",
+    "itemId": "ape_fibdd_419",
     "taskType": "RFIB",
     "section": "reading",
     "isMock45CBaseline": true,
     "userAudioUrl": null,
     "userResponse": {
-      "blanks": {}
+      "blanks": {
+        "b1": "creative",
+        "b2": "potential",
+        "b3": "levels"
+      }
     },
     "scores": {
       "taskType": "RFIB",
       "section": "reading",
-      "rawPoints": 0,
-      "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "rawPoints": 2,
+      "maxPoints": 3,
+      "percentage": 67,
+      "pteScaleEquivalent": 64,
+      "subscores": {
+        "choice": {
+          "score": 2,
+          "max": 3
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 2/3] choice: 2/3"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 2/3] choice: 2/3"
     },
     "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "createdAt": "2026-10-21T16:05:46.166+08:00"
   },
   {
-    "id": "att_mock45c_ape_rfib_1044",
-    "itemId": "ape_rfib_1044",
+    "id": "att_mock45c_ape_fibdd_1044",
+    "itemId": "ape_fibdd_1044",
     "taskType": "RFIB",
     "section": "reading",
     "isMock45CBaseline": true,
     "userAudioUrl": null,
     "userResponse": {
-      "blanks": {}
+      "blanks": {
+        "b1": "experience",
+        "b2": "switch",
+        "b3": "downside",
+        "b4": "nature"
+      }
     },
     "scores": {
       "taskType": "RFIB",
       "section": "reading",
-      "rawPoints": 0,
-      "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "rawPoints": 4,
+      "maxPoints": 4,
+      "percentage": 100,
+      "pteScaleEquivalent": 90,
+      "subscores": {
+        "choice": {
+          "score": 4,
+          "max": 4
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 4/4] choice: 4/4"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 4/4] choice: 4/4"
     },
     "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "createdAt": "2026-10-21T16:06:27.881+08:00"
   },
   {
-    "id": "att_mock45c_ape_rfib_1031",
-    "itemId": "ape_rfib_1031",
+    "id": "att_mock45c_ape_fibdd_1031",
+    "itemId": "ape_fibdd_1031",
     "taskType": "RFIB",
     "section": "reading",
     "isMock45CBaseline": true,
     "userAudioUrl": null,
     "userResponse": {
-      "blanks": {}
+      "blanks": {
+        "b1": "associated",
+        "b2": "celebrated",
+        "b3": "attaining",
+        "b4": "overcoming"
+      }
     },
     "scores": {
       "taskType": "RFIB",
       "section": "reading",
-      "rawPoints": 0,
-      "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "rawPoints": 3,
+      "maxPoints": 4,
+      "percentage": 75,
+      "pteScaleEquivalent": 70,
+      "subscores": {
+        "choice": {
+          "score": 3,
+          "max": 4
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 3/4] choice: 3/4"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 3/4] choice: 3/4"
     },
     "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "createdAt": "2026-10-21T16:07:41.320+08:00"
   },
   {
-    "id": "att_mock45c_ape_rfib_1015",
-    "itemId": "ape_rfib_1015",
+    "id": "att_mock45c_ape_fibdd_1015",
+    "itemId": "ape_fibdd_1015",
     "taskType": "RFIB",
     "section": "reading",
     "isMock45CBaseline": true,
     "userAudioUrl": null,
     "userResponse": {
-      "blanks": {}
+      "blanks": {
+        "b1": "vast",
+        "b2": "undergo",
+        "b3": "push",
+        "b4": "thick"
+      }
     },
     "scores": {
       "taskType": "RFIB",
       "section": "reading",
-      "rawPoints": 0,
-      "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "rawPoints": 2,
+      "maxPoints": 4,
+      "percentage": 50,
+      "pteScaleEquivalent": 50,
+      "subscores": {
+        "choice": {
+          "score": 2,
+          "max": 4
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 2/4] choice: 2/4"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 2/4] choice: 2/4"
     },
     "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "createdAt": "2026-10-21T16:08:51.918+08:00"
   },
   {
-    "id": "att_mock45c_ape_mcsa_r_50",
-    "itemId": "ape_mcsa_r_50",
+    "id": "att_mock45c_ape_mcsr_50",
+    "itemId": "ape_mcsr_50",
     "taskType": "MCSA_R",
     "section": "reading",
     "isMock45CBaseline": true,
     "userAudioUrl": null,
     "userResponse": {
-      "selectedOption": ""
+      "selectedOption": "D"
     },
     "scores": {
       "taskType": "MCSA_R",
       "section": "reading",
-      "rawPoints": 0,
-      "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "rawPoints": 1,
+      "maxPoints": 1,
+      "percentage": 100,
+      "pteScaleEquivalent": 90,
+      "subscores": {
+        "choice": {
+          "score": 1,
+          "max": 1
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 1/1] choice: 1/1"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 1/1] choice: 1/1"
     },
     "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "createdAt": "2026-10-21T16:34:36.225+08:00"
   },
   {
-    "id": "att_mock45c_ape_mcsa_r_55",
-    "itemId": "ape_mcsa_r_55",
+    "id": "att_mock45c_ape_mcsr_55",
+    "itemId": "ape_mcsr_55",
     "taskType": "MCSA_R",
     "section": "reading",
     "isMock45CBaseline": true,
     "userAudioUrl": null,
     "userResponse": {
-      "selectedOption": ""
+      "selectedOption": "C"
     },
     "scores": {
       "taskType": "MCSA_R",
       "section": "reading",
-      "rawPoints": 0,
-      "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "rawPoints": 1,
+      "maxPoints": 1,
+      "percentage": 100,
+      "pteScaleEquivalent": 90,
+      "subscores": {
+        "choice": {
+          "score": 1,
+          "max": 1
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 1/1] choice: 1/1"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 1/1] choice: 1/1"
     },
     "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "createdAt": "2026-10-21T16:36:54.997+08:00"
   },
   {
     "id": "att_mock45c_ape_sst_211",
@@ -1553,127 +2107,185 @@ export const APEUNI_MOCK_45C_ATTEMPTS = [
     "isMock45CBaseline": true,
     "userAudioUrl": null,
     "userResponse": {
-      "textAnswer": ""
+      "textAnswer": "The lecture is about consumers habits and products descriptions. Consumers are incredible smart, they can make a decision based on the junction of performance and price in seconds. The product shows a description and can promise a lot of benefits but it should do what its promise or, in conclusion, the consumer will be not satisfied."
     },
     "scores": {
       "taskType": "SST",
       "section": "listening",
-      "rawPoints": 0,
-      "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "rawPoints": 5.2,
+      "maxPoints": 12,
+      "percentage": 43,
+      "pteScaleEquivalent": 44,
+      "subscores": {
+        "content": {
+          "score": 1,
+          "max": 4
+        },
+        "form": {
+          "score": 2,
+          "max": 2
+        },
+        "grammar": {
+          "score": 0,
+          "max": 2
+        },
+        "spelling": {
+          "score": 2,
+          "max": 2
+        },
+        "vocab": {
+          "score": 0.2,
+          "max": 2
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 5.2/12] content: 1/4 • form: 2/2 • grammar: 0/2 • spelling: 2/2 • vocab: 0.2/2"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 5.2/12] content: 1/4 • form: 2/2 • grammar: 0/2 • spelling: 2/2 • vocab: 0.2/2"
     },
     "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "createdAt": "2026-10-21T16:41:56.162+08:00"
   },
   {
-    "id": "att_mock45c_ape_mcma_l_104",
-    "itemId": "ape_mcma_l_104",
+    "id": "att_mock45c_ape_mcml_104",
+    "itemId": "ape_mcml_104",
     "taskType": "MCMA_L",
     "section": "listening",
     "isMock45CBaseline": true,
     "userAudioUrl": null,
     "userResponse": {
-      "selectedOptions": []
+      "selectedOptions": [
+        "B",
+        "D"
+      ]
     },
     "scores": {
       "taskType": "MCMA_L",
       "section": "listening",
-      "rawPoints": 0,
-      "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "rawPoints": 2,
+      "maxPoints": 2,
+      "percentage": 100,
+      "pteScaleEquivalent": 90,
+      "subscores": {
+        "choice": {
+          "score": 2,
+          "max": 2
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 2/2] choice: 2/2"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 2/2] choice: 2/2"
     },
     "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "createdAt": "2026-10-21T16:43:07.263+08:00"
   },
   {
-    "id": "att_mock45c_ape_mcma_l_107",
-    "itemId": "ape_mcma_l_107",
+    "id": "att_mock45c_ape_mcml_107",
+    "itemId": "ape_mcml_107",
     "taskType": "MCMA_L",
     "section": "listening",
     "isMock45CBaseline": true,
     "userAudioUrl": null,
     "userResponse": {
-      "selectedOptions": []
+      "selectedOptions": [
+        "B",
+        "E"
+      ]
     },
     "scores": {
       "taskType": "MCMA_L",
       "section": "listening",
       "rawPoints": 0,
-      "maxPoints": 90,
+      "maxPoints": 2,
       "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "pteScaleEquivalent": 10,
+      "subscores": {
+        "choice": {
+          "score": 0,
+          "max": 2
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 0/2] choice: 0/2"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 0/2] choice: 0/2"
     },
     "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "createdAt": "2026-10-21T16:44:55.166+08:00"
   },
   {
-    "id": "att_mock45c_ape_lfib_205",
-    "itemId": "ape_lfib_205",
+    "id": "att_mock45c_ape_fibl_205",
+    "itemId": "ape_fibl_205",
     "taskType": "LFIB",
     "section": "listening",
     "isMock45CBaseline": true,
     "userAudioUrl": null,
     "userResponse": {
-      "blanks": {}
+      "blanks": {
+        "b1": "list",
+        "b2": "insect",
+        "b3": "significant",
+        "b4": "impose"
+      }
     },
     "scores": {
       "taskType": "LFIB",
       "section": "listening",
-      "rawPoints": 0,
-      "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "rawPoints": 3,
+      "maxPoints": 4,
+      "percentage": 75,
+      "pteScaleEquivalent": 70,
+      "subscores": {
+        "choice": {
+          "score": 3,
+          "max": 4
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 3/4] choice: 3/4"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 3/4] choice: 3/4"
     },
     "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "createdAt": "2026-10-21T16:45:39.331+08:00"
   },
   {
-    "id": "att_mock45c_ape_lfib_204",
-    "itemId": "ape_lfib_204",
+    "id": "att_mock45c_ape_fibl_204",
+    "itemId": "ape_fibl_204",
     "taskType": "LFIB",
     "section": "listening",
     "isMock45CBaseline": true,
     "userAudioUrl": null,
     "userResponse": {
-      "blanks": {}
+      "blanks": {
+        "b1": "resistent",
+        "b2": "stick",
+        "b3": "shutted",
+        "b4": "investors",
+        "b5": "yields"
+      }
     },
     "scores": {
       "taskType": "LFIB",
       "section": "listening",
-      "rawPoints": 0,
-      "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "rawPoints": 3,
+      "maxPoints": 5,
+      "percentage": 60,
+      "pteScaleEquivalent": 58,
+      "subscores": {
+        "choice": {
+          "score": 3,
+          "max": 5
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 3/5] choice: 3/5"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 3/5] choice: 3/5"
     },
     "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "createdAt": "2026-10-21T16:46:44.030+08:00"
   },
   {
     "id": "att_mock45c_ape_hcs_94",
@@ -1683,23 +2295,28 @@ export const APEUNI_MOCK_45C_ATTEMPTS = [
     "isMock45CBaseline": true,
     "userAudioUrl": null,
     "userResponse": {
-      "selectedOption": ""
+      "selectedOption": "B"
     },
     "scores": {
       "taskType": "HCS",
       "section": "listening",
       "rawPoints": 0,
-      "maxPoints": 90,
+      "maxPoints": 1,
       "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "pteScaleEquivalent": 10,
+      "subscores": {
+        "choice": {
+          "score": 0,
+          "max": 1
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 0/1] choice: 0/1"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 0/1] choice: 0/1"
     },
     "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "createdAt": "2026-10-21T16:48:27.316+08:00"
   },
   {
     "id": "att_mock45c_ape_hcs_95",
@@ -1709,75 +2326,90 @@ export const APEUNI_MOCK_45C_ATTEMPTS = [
     "isMock45CBaseline": true,
     "userAudioUrl": null,
     "userResponse": {
-      "selectedOption": ""
+      "selectedOption": "D"
     },
     "scores": {
       "taskType": "HCS",
       "section": "listening",
-      "rawPoints": 0,
-      "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "rawPoints": 1,
+      "maxPoints": 1,
+      "percentage": 100,
+      "pteScaleEquivalent": 90,
+      "subscores": {
+        "choice": {
+          "score": 1,
+          "max": 1
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 1/1] choice: 1/1"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 1/1] choice: 1/1"
     },
     "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "createdAt": "2026-10-21T16:50:13.124+08:00"
   },
   {
-    "id": "att_mock45c_ape_mcsa_l_49",
-    "itemId": "ape_mcsa_l_49",
+    "id": "att_mock45c_ape_mcsl_49",
+    "itemId": "ape_mcsl_49",
     "taskType": "MCSA_L",
     "section": "listening",
     "isMock45CBaseline": true,
     "userAudioUrl": null,
     "userResponse": {
-      "selectedOption": ""
+      "selectedOption": "A"
     },
     "scores": {
       "taskType": "MCSA_L",
       "section": "listening",
-      "rawPoints": 0,
-      "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "rawPoints": 1,
+      "maxPoints": 1,
+      "percentage": 100,
+      "pteScaleEquivalent": 90,
+      "subscores": {
+        "choice": {
+          "score": 1,
+          "max": 1
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 1/1] choice: 1/1"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 1/1] choice: 1/1"
     },
     "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "createdAt": "2026-10-21T16:51:00.837+08:00"
   },
   {
-    "id": "att_mock45c_ape_mcsa_l_101",
-    "itemId": "ape_mcsa_l_101",
+    "id": "att_mock45c_ape_mcsl_101",
+    "itemId": "ape_mcsl_101",
     "taskType": "MCSA_L",
     "section": "listening",
     "isMock45CBaseline": true,
     "userAudioUrl": null,
     "userResponse": {
-      "selectedOption": ""
+      "selectedOption": "D"
     },
     "scores": {
       "taskType": "MCSA_L",
       "section": "listening",
-      "rawPoints": 0,
-      "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "rawPoints": 1,
+      "maxPoints": 1,
+      "percentage": 100,
+      "pteScaleEquivalent": 90,
+      "subscores": {
+        "choice": {
+          "score": 1,
+          "max": 1
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 1/1] choice: 1/1"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 1/1] choice: 1/1"
     },
     "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "createdAt": "2026-10-21T16:52:00.916+08:00"
   },
   {
     "id": "att_mock45c_ape_smw_94",
@@ -1787,23 +2419,28 @@ export const APEUNI_MOCK_45C_ATTEMPTS = [
     "isMock45CBaseline": true,
     "userAudioUrl": null,
     "userResponse": {
-      "selectedOption": ""
+      "selectedOption": "D"
     },
     "scores": {
       "taskType": "SMW",
       "section": "listening",
       "rawPoints": 0,
-      "maxPoints": 90,
+      "maxPoints": 1,
       "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "pteScaleEquivalent": 10,
+      "subscores": {
+        "choice": {
+          "score": 0,
+          "max": 1
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 0/1] choice: 0/1"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 0/1] choice: 0/1"
     },
     "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "createdAt": "2026-10-21T16:52:57.342+08:00"
   },
   {
     "id": "att_mock45c_ape_hiw_306",
@@ -1813,28 +2450,28 @@ export const APEUNI_MOCK_45C_ATTEMPTS = [
     "isMock45CBaseline": true,
     "userAudioUrl": null,
     "userResponse": {
-      "selectedIndices": [
-        51,
-        115,
-        153,
-        173
-      ]
+      "selectedIndices": []
     },
     "scores": {
       "taskType": "HIW",
       "section": "listening",
-      "rawPoints": 0,
-      "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "rawPoints": 4,
+      "maxPoints": 4,
+      "percentage": 100,
+      "pteScaleEquivalent": 90,
+      "subscores": {
+        "choice": {
+          "score": 4,
+          "max": 4
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 4/4] choice: 4/4"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 4/4] choice: 4/4"
     },
     "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "createdAt": "2026-10-21T16:54:09.697+08:00"
   },
   {
     "id": "att_mock45c_ape_hiw_285",
@@ -1844,29 +2481,28 @@ export const APEUNI_MOCK_45C_ATTEMPTS = [
     "isMock45CBaseline": true,
     "userAudioUrl": null,
     "userResponse": {
-      "selectedIndices": [
-        23,
-        74,
-        129,
-        180,
-        205
-      ]
+      "selectedIndices": []
     },
     "scores": {
       "taskType": "HIW",
       "section": "listening",
-      "rawPoints": 0,
-      "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "rawPoints": 5,
+      "maxPoints": 5,
+      "percentage": 100,
+      "pteScaleEquivalent": 90,
+      "subscores": {
+        "choice": {
+          "score": 5,
+          "max": 5
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 5/5] choice: 5/5"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 5/5] choice: 5/5"
     },
     "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "createdAt": "2026-10-21T16:55:24.081+08:00"
   },
   {
     "id": "att_mock45c_ape_wfd_1986",
@@ -1876,23 +2512,28 @@ export const APEUNI_MOCK_45C_ATTEMPTS = [
     "isMock45CBaseline": true,
     "userAudioUrl": null,
     "userResponse": {
-      "textAnswer": ""
+      "textAnswer": "a good academic paper represents a clear argument"
     },
     "scores": {
       "taskType": "WFD",
       "section": "listening",
-      "rawPoints": 0,
-      "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "rawPoints": 7,
+      "maxPoints": 9,
+      "percentage": 78,
+      "pteScaleEquivalent": 72,
+      "subscores": {
+        "choice": {
+          "score": 7,
+          "max": 9
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 7/9] choice: 7/9"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 7/9] choice: 7/9"
     },
     "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "createdAt": "2026-10-21T16:55:45.066+08:00"
   },
   {
     "id": "att_mock45c_ape_wfd_48",
@@ -1902,23 +2543,28 @@ export const APEUNI_MOCK_45C_ATTEMPTS = [
     "isMock45CBaseline": true,
     "userAudioUrl": null,
     "userResponse": {
-      "textAnswer": ""
+      "textAnswer": "technology has changed the media that we both used and studied"
     },
     "scores": {
       "taskType": "WFD",
       "section": "listening",
-      "rawPoints": 0,
-      "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "rawPoints": 10,
+      "maxPoints": 10,
+      "percentage": 100,
+      "pteScaleEquivalent": 90,
+      "subscores": {
+        "choice": {
+          "score": 10,
+          "max": 10
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 10/10] choice: 10/10"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 10/10] choice: 10/10"
     },
     "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "createdAt": "2026-10-21T16:56:21.044+08:00"
   },
   {
     "id": "att_mock45c_ape_wfd_1059",
@@ -1928,23 +2574,28 @@ export const APEUNI_MOCK_45C_ATTEMPTS = [
     "isMock45CBaseline": true,
     "userAudioUrl": null,
     "userResponse": {
-      "textAnswer": ""
+      "textAnswer": "philosophy uses human experiences to explain occurred phenomens"
     },
     "scores": {
       "taskType": "WFD",
       "section": "listening",
-      "rawPoints": 0,
-      "maxPoints": 90,
-      "percentage": 0,
-      "pteScaleEquivalent": 0,
-      "subscores": {},
-      "feedback": "[Mock Test 45C Official Result] "
+      "rawPoints": 4,
+      "maxPoints": 9,
+      "percentage": 44,
+      "pteScaleEquivalent": 45,
+      "subscores": {
+        "choice": {
+          "score": 4,
+          "max": 9
+        }
+      },
+      "feedback": "[Mock Test 45C Official Result: 4/9] choice: 4/9"
     },
     "feedback": {
-      "text": "[Mock Test 45C Official Result] "
+      "text": "[Mock Test 45C Official Result: 4/9] choice: 4/9"
     },
     "durationSec": 60,
-    "createdAt": "2026-10-21T15:30:00.000Z"
+    "createdAt": "2026-10-21T16:57:09.232+08:00"
   }
 ];
 

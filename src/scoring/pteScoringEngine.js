@@ -570,6 +570,8 @@ export function evaluateFluencyAndPronunciation({
   return {
     oralFluency: fluencyScore,
     pronunciation: pronScore,
+    oralFluencyPte: Math.round(10 + (fluencyScore / 5.0) * 80),
+    pronunciationPte: Math.round(10 + (pronScore / 5.0) * 80),
     wpm,
     activeDurationSec: effectiveDuration,
     hesitationCount: fillerCount + repetitionCount,
@@ -964,6 +966,92 @@ export function scoreSummarizeSpokenText(item, userText = '', aiEvaluation = nul
 }
 
 /**
+ * Exact Cross-Module Skill Contribution Matrix
+ * Calculates the exact points and percentage this single question transfers to
+ * the communicative skills (Speaking, Writing, Reading, Listening) on the PTE 10-90 scale.
+ */
+export function calculateCrossModuleImpact(taskType, result = {}) {
+  const raw = Number(result?.rawPoints || 0)
+  const max = Number(result?.maxPoints || 1)
+  const ratio = Math.max(0, Math.min(1, max > 0 ? raw / max : 0))
+
+  switch (taskType) {
+    case 'SWT':
+      return [
+        { skill: 'Writing', points: Number((ratio * 2.8).toFixed(1)), max: 2.8, desc: 'Aporta el 28% de toda la nota de Writing (+2.8 pts máx)' },
+        { skill: 'Reading', points: Number((ratio * 2.3).toFixed(1)), max: 2.3, desc: 'Transferencia cruzada de lectura comprensiva (23% de Reading, +2.3 pts máx)' },
+      ]
+    case 'WFD':
+      return [
+        { skill: 'Writing', points: Number((raw * 1.0).toFixed(1)), max: Number((max * 1.0).toFixed(1)), desc: '+1.0 pt a Writing por palabra exacta escrita' },
+        { skill: 'Listening', points: Number((raw * 0.6).toFixed(1)), max: Number((max * 0.6).toFixed(1)), desc: '+0.6 pt a Listening por palabra escuchada y retenida' },
+      ]
+    case 'RS':
+      return [
+        { skill: 'Speaking', points: Number((ratio * 1.6).toFixed(1)), max: 1.6, desc: 'Fluidez y articulación oral inmediata (16% de Speaking)' },
+        { skill: 'Listening', points: Number((ratio * 1.7).toFixed(1)), max: 1.7, desc: 'Retención auditiva inmediata (17% de Listening)' },
+      ]
+    case 'RA':
+      return [
+        { skill: 'Speaking', points: Number((ratio * 1.5).toFixed(1)), max: 1.5, desc: 'Pronunciación y fluidez continua (Speaking)' },
+        { skill: 'Reading', points: Number((ratio * 1.2).toFixed(1)), max: 1.2, desc: 'Decodificación fonética de texto escrito (Reading)' },
+      ]
+    case 'WE':
+      return [
+        { skill: 'Writing', points: Number((ratio * 3.1).toFixed(1)), max: 3.1, desc: 'Discurso argumentativo, estructura y vocabulario (31% de Writing)' },
+      ]
+    case 'SST':
+      return [
+        { skill: 'Writing', points: Number((ratio * 1.8).toFixed(1)), max: 1.8, desc: 'Síntesis escrita, gramática y ortografía (18% de Writing)' },
+        { skill: 'Listening', points: Number((ratio * 1.0).toFixed(1)), max: 1.0, desc: 'Extracción de ideas y keywords del audio (10% de Listening)' },
+      ]
+    case 'HIW':
+      return [
+        { skill: 'Reading', points: Number((ratio * 1.3).toFixed(1)), max: 1.3, desc: 'Escaneo visual de discrepancias textuales (13% de Reading)' },
+        { skill: 'Listening', points: Number((ratio * 0.8).toFixed(1)), max: 0.8, desc: 'Seguimiento auditivo en tiempo real (8% de Listening)' },
+      ]
+    case 'RWFIB':
+      return [
+        { skill: 'Reading', points: Number((ratio * 2.5).toFixed(1)), max: 2.5, desc: 'Colocaciones y comprensión contextual (25% de Reading)' },
+        { skill: 'Writing', points: Number((ratio * 1.2).toFixed(1)), max: 1.2, desc: 'Concordancia y selección gramatical cruzada' },
+      ]
+    case 'RFIB':
+      return [
+        { skill: 'Reading', points: Number((ratio * 2.0).toFixed(1)), max: 2.0, desc: 'Vocabulario y sintaxis contextual por arrastre (20% de Reading)' },
+      ]
+    case 'ROP':
+      return [
+        { skill: 'Reading', points: Number((ratio * 1.4).toFixed(1)), max: 1.4, desc: 'Cohesión textual y orden de párrafos adyacentes (9% de Reading)' },
+      ]
+    case 'DI':
+      return [
+        { skill: 'Speaking', points: Number((ratio * 3.1).toFixed(1)), max: 3.1, desc: 'La tarea individual más pesada de Speaking (31% del total)' },
+      ]
+    case 'SGD':
+      return [
+        { skill: 'Listening', points: Number((ratio * 2.0).toFixed(1)), max: 2.0, desc: '20% de todo el Listening (Comprensión de múltiples interlocutores)' },
+        { skill: 'Speaking', points: Number((ratio * 1.9).toFixed(1)), max: 1.9, desc: '19% de todo el Speaking (Resumen oral estructurado)' },
+      ]
+    case 'RL':
+      return [
+        { skill: 'Speaking', points: Number((ratio * 1.3).toFixed(1)), max: 1.3, desc: '13% de Speaking (Re-narración oral estructurada)' },
+        { skill: 'Listening', points: Number((ratio * 1.3).toFixed(1)), max: 1.3, desc: '13% de Listening (Comprensión de conferencia académica)' },
+      ]
+    case 'RTS':
+      return [
+        { skill: 'Speaking', points: Number((ratio * 1.3).toFixed(1)), max: 1.3, desc: '13% de Speaking (Respuesta situacional pragmática)' },
+      ]
+    case 'LFIB':
+      return [
+        { skill: 'Listening', points: Number((ratio * 0.8).toFixed(1)), max: 0.8, desc: '8% de Listening (Identificación auditiva de palabras)' },
+        { skill: 'Writing', points: Number((ratio * 0.6).toFixed(1)), max: 0.6, desc: 'Ortografía exacta de palabras escuchadas (Writing)' },
+      ]
+    default:
+      return []
+  }
+}
+
+/**
  * Unified Item Evaluator for any of the 20 PTE Academic Task Types
  */
 export function evaluatePteTask(item, userResponse = {}, aiEvaluation = null) {
@@ -1231,11 +1319,14 @@ export function evaluatePteTask(item, userResponse = {}, aiEvaluation = null) {
     enablingContribution[enabling] = Math.round(pteScaleEquivalent * weight)
   })
 
+  const crossModuleImpact = calculateCrossModuleImpact(type, result)
+
   return {
     ...result,
     pteScaleEquivalent,
     communicativeContribution,
     enablingContribution,
+    crossModuleImpact,
   }
 }
 

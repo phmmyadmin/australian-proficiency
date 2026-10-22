@@ -51,11 +51,15 @@ export default function PracticeView({
 
   const filteredQuestions = useMemo(() => {
     const qLower = searchQuery.trim().toLowerCase()
-    return questions.filter(q => {
+    let list = questions.filter(q => {
       if (selectedSection !== 'all' && q.section !== selectedSection) return false
       if (selectedTaskType !== 'ALL' && q.taskType !== selectedTaskType) return false
-      if (selectedSource === 'mock45c' && q.source !== 'apeuni_mock_45c') return false
-      if (selectedSource === 'mock_a' && q.source !== 'apeuni_mock_a') return false
+      if (selectedSource === 'mock44b' && q.mockExamBadge !== 'Mock 44B' && q.source !== 'mock_44b') return false
+      if (selectedSource === 'mock45c' && q.mockExamBadge !== 'Mock 45C' && q.source !== 'apeuni_mock_45c') return false
+      if (selectedSource === 'mock_a' && q.mockExamBadge !== 'Mock Test A' && q.source !== 'apeuni_mock_a') return false
+      if (selectedSource === 'wfd_sprint' && q.taskType !== 'WFD') return false
+      if (selectedSource === 'rs_ladder' && q.taskType !== 'RS') return false
+      if (selectedSource === 'swt_gate' && q.taskType !== 'SWT') return false
       if (selectedSource === 'apeuni_bank' && !String(q.source || '').startsWith('apeuni')) return false
       if (qLower) {
         const titleMatch = String(q.title || '').toLowerCase().includes(qLower)
@@ -64,6 +68,16 @@ export default function PracticeView({
       }
       return true
     })
+
+    if (selectedSource === 'rs_ladder') {
+      list = [...list].sort((a, b) => {
+        const lenA = (a.audioScript || a.promptText || '').split(/\s+/).filter(Boolean).length
+        const lenB = (b.audioScript || b.promptText || '').split(/\s+/).filter(Boolean).length
+        return lenA - lenB
+      })
+    }
+
+    return list
   }, [questions, selectedSection, selectedTaskType, selectedSource, searchQuery])
 
   const visibleQuestions = useMemo(() => {
@@ -137,6 +151,16 @@ export default function PracticeView({
           </button>
           <button
             type="button"
+            className={`task-type-chip ${selectedSource === 'mock44b' ? 'active' : ''}`}
+            onClick={() => {
+              setSelectedSource('mock44b')
+              setVisibleLimit(80)
+            }}
+          >
+            ⚡ Mock Test 44B (65)
+          </button>
+          <button
+            type="button"
             className={`task-type-chip ${selectedSource === 'mock45c' ? 'active' : ''}`}
             onClick={() => {
               setSelectedSource('mock45c')
@@ -157,13 +181,52 @@ export default function PracticeView({
           </button>
           <button
             type="button"
+            className={`task-type-chip ${selectedSource === 'wfd_sprint' ? 'active' : ''}`}
+            style={{ background: selectedSource === 'wfd_sprint' ? '#0F766E' : '#CCFBF1', color: selectedSource === 'wfd_sprint' ? '#FFFFFF' : '#0F766E', borderColor: '#14B8A6' }}
+            onClick={() => {
+              setSelectedSource('wfd_sprint')
+              setSelectedSection('all')
+              setSelectedTaskType('ALL')
+              setVisibleLimit(80)
+            }}
+          >
+            🎯 WFD Spelling Sprint
+          </button>
+          <button
+            type="button"
+            className={`task-type-chip ${selectedSource === 'rs_ladder' ? 'active' : ''}`}
+            style={{ background: selectedSource === 'rs_ladder' ? '#15803D' : '#DCFCE7', color: selectedSource === 'rs_ladder' ? '#FFFFFF' : '#15803D', borderColor: '#22C55E' }}
+            onClick={() => {
+              setSelectedSource('rs_ladder')
+              setSelectedSection('all')
+              setSelectedTaskType('ALL')
+              setVisibleLimit(80)
+            }}
+          >
+            🗣️ RS Fluency Ladder
+          </button>
+          <button
+            type="button"
+            className={`task-type-chip ${selectedSource === 'swt_gate' ? 'active' : ''}`}
+            style={{ background: selectedSource === 'swt_gate' ? '#B45309' : '#FEF3C7', color: selectedSource === 'swt_gate' ? '#FFFFFF' : '#B45309', borderColor: '#F59E0B' }}
+            onClick={() => {
+              setSelectedSource('swt_gate')
+              setSelectedSection('all')
+              setSelectedTaskType('ALL')
+              setVisibleLimit(80)
+            }}
+          >
+            ✍️ SWT Single-Sentence Gate
+          </button>
+          <button
+            type="button"
             className={`task-type-chip ${selectedSource === 'apeuni_bank' ? 'active' : ''}`}
             onClick={() => {
               setSelectedSource('apeuni_bank')
               setVisibleLimit(80)
             }}
           >
-            📚 Full Bank (1,121)
+            📚 Full Bank ({questions.length})
           </button>
           <button
             type="button"
@@ -326,6 +389,92 @@ export default function PracticeView({
         </aside>
 
         <section className="active-runner-pane">
+          {selectedSource === 'wfd_sprint' && (
+            <div style={{
+              background: '#F0FDFA',
+              border: '1px solid #99F6E4',
+              borderRadius: '8px',
+              padding: '0.9rem 1.1rem',
+              marginBottom: '1rem',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '0.4rem',
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.4rem' }}>
+                <strong style={{ color: '#0F766E', fontSize: '0.95rem' }}>
+                  🎯 WFD Spelling & Plural Sprint (23% de Writing • 13% de Listening)
+                </strong>
+                <span style={{ fontSize: '0.8rem', background: '#CCFBF1', color: '#115E59', padding: '0.15rem 0.5rem', borderRadius: '4px', fontWeight: 600 }}>
+                  Meta: 90%+ Exactitud (+1.0 pt/palabra a Writing)
+                </span>
+              </div>
+              <p style={{ margin: 0, fontSize: '0.84rem', color: '#134E4A', lineHeight: 1.45 }}>
+                En Write From Dictation cada palabra exacta suma <strong>+1.0 pt a Writing</strong> y <strong>+0.6 pt a Listening</strong>. En tu Mock 44B perdiste 7 palabras (-8.5 pts en Writing). Presta máxima atención a:
+              </p>
+              <ul style={{ margin: 0, paddingLeft: '1.2rem', fontSize: '0.82rem', color: '#115E59', lineHeight: 1.4 }}>
+                <li><strong>Plurales críticos (-s / -es)</strong>: <code>meeting</code> vs <code>meetings</code>, <code>strategy</code> vs <code>strategies</code>, <code>knife</code> vs <code>knives</code>.</li>
+                <li><strong>Voz pasiva con terminación -ed</strong>: tras <code>was / were</code> siempre va participio (ej. <code>was imposed</code>, el audio enlaza <em>impose-din</em>).</li>
+                <li><strong>Dobles consonantes académicas</strong>: <code>accommodate</code>, <code>occurrence</code>, <code>committee</code>, <code>millennium</code>, <code>embarrass</code>.</li>
+              </ul>
+            </div>
+          )}
+
+          {selectedSource === 'rs_ladder' && (
+            <div style={{
+              background: '#F0FDF4',
+              border: '1px solid #BBF7D0',
+              borderRadius: '8px',
+              padding: '0.9rem 1.1rem',
+              marginBottom: '1rem',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '0.4rem',
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.4rem' }}>
+                <strong style={{ color: '#166534', fontSize: '0.95rem' }}>
+                  🗣️ RS Fluency Ladder (16% de Speaking • 17% de Listening)
+                </strong>
+                <span style={{ fontSize: '0.8rem', background: '#DCFCE7', color: '#14532D', padding: '0.15rem 0.5rem', borderRadius: '4px', fontWeight: 600 }}>
+                  Regla de Oro: Fluidez 5/5 Salva el 70% de la Nota
+                </span>
+              </div>
+              <p style={{ margin: 0, fontSize: '0.84rem', color: '#14532D', lineHeight: 1.45 }}>
+                <strong>Si olvidas una palabra a mitad de frase, ¡NUNCA TE DETENGAS A PENSAR!</strong> En Pearson Score Guide, mantener la fluidez continua sin pausas (&gt;0.6s) garantiza <strong>5/5 en Oral Fluency</strong>. Cuando dudaste en el Mock 45C (#1233, #1351), la nota cayó a 16–17/90; cuando hablaste continuo, sacaste 61–71/90.
+              </p>
+              <span style={{ fontSize: '0.8rem', color: '#15803D', fontWeight: 600 }}>
+                🪜 Escalera progresiva activa: Las frases están ordenadas de menor a mayor longitud (de 6 a 14 palabras).
+              </span>
+            </div>
+          )}
+
+          {selectedSource === 'swt_gate' && (
+            <div style={{
+              background: '#FEF3C7',
+              border: '1px solid #FCD34D',
+              borderRadius: '8px',
+              padding: '0.9rem 1.1rem',
+              marginBottom: '1rem',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '0.4rem',
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.4rem' }}>
+                <strong style={{ color: '#92400E', fontSize: '0.95rem' }}>
+                  ✍️ SWT Single-Sentence Master Gate (28% de Writing • 23% de Reading)
+                </strong>
+                <span style={{ fontSize: '0.8rem', background: '#FDE68A', color: '#78350F', padding: '0.15rem 0.5rem', borderRadius: '4px', fontWeight: 700 }}>
+                  Compuerta Binaria: 1 Frase = Puntos • 2 Frases = 0/9 Total
+                </span>
+              </div>
+              <p style={{ margin: 0, fontSize: '0.84rem', color: '#78350F', lineHeight: 1.45 }}>
+                En Summarize Written Text tu resumen <strong>DEBE ser exactamente UNA SOLA ORACIÓN</strong> (5 a 75 palabras con un único punto final <code>.</code>). En el Mock 45C pusiste <code>. In conclusion,</code> en ambos resúmenes y sacaste <strong>0/9</strong> (-20 pts en Writing y -13 en Reading).
+              </p>
+              <div style={{ fontSize: '0.82rem', color: '#92400E', background: '#FFFBEB', padding: '0.4rem 0.6rem', borderRadius: '4px', border: '1px solid #FDE68A' }}>
+                💡 <strong>Plantilla Segura</strong>: <code>&quot;[Idea principal del texto], even though [segunda idea], so [conclusión final].&quot;</code> (Usa comas y conectores subordinantes: <code>, which</code>, <code>, although</code>, <code>, so</code> en vez de puntos seguidos).
+              </div>
+            </div>
+          )}
+
           {activeItem ? (
             <PteTaskRunner
               item={activeItem}

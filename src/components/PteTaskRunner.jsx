@@ -754,6 +754,61 @@ export default function PteTaskRunner({
             )}
           </div>
 
+          {/* Explicit Cross-Module Score Contribution (PTE Macro Skills) */}
+          {Array.isArray(evaluationResult.crossModuleImpact) && evaluationResult.crossModuleImpact.length > 0 && (
+            <div className="cross-module-impact-strip" style={{
+              background: '#F0FDF4',
+              border: '1px solid #BBF7D0',
+              borderRadius: '8px',
+              padding: '0.75rem 1rem',
+              marginTop: '0.8rem',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '0.4rem',
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.4rem' }}>
+                <span style={{ fontSize: '0.85rem', fontWeight: 700, color: '#166534', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                  🎯 Transferencia Cruzada a Escala PTE (0–90):
+                </span>
+                <span style={{ fontSize: '0.78rem', color: '#15803D' }}>
+                  Impacto directo en tu meta de Visa Australiana (79+ Superior / 65+ Proficient)
+                </span>
+              </div>
+              <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap' }}>
+                {evaluationResult.crossModuleImpact.map((c, idx) => (
+                  <div
+                    key={idx}
+                    style={{
+                      background: '#FFFFFF',
+                      border: '1px solid #86EFAC',
+                      borderRadius: '6px',
+                      padding: '0.35rem 0.65rem',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '0.4rem',
+                      boxShadow: '0 1px 2px rgba(0,0,0,0.04)',
+                    }}
+                    title={c.desc}
+                  >
+                    <span style={{
+                      fontWeight: 800,
+                      color: c.skill === 'Writing' ? '#0284C7' : c.skill === 'Reading' ? '#D97706' : c.skill === 'Speaking' ? '#16A34A' : '#9333EA',
+                      fontSize: '0.85rem'
+                    }}>
+                      {c.skill.toUpperCase()}:
+                    </span>
+                    <strong style={{ color: '#111827', fontSize: '0.9rem' }}>
+                      +{c.points} {c.max > 0 ? `/ ${c.max} pts` : 'pts'}
+                    </strong>
+                    <span style={{ fontSize: '0.75rem', color: '#6B7280' }}>
+                      ({c.desc})
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
           {/* Word-Level Alignment Diff + Exact Pause Badges for RA, RS, WFD */}
           {Array.isArray(evaluationResult.diff) && evaluationResult.diff.length > 0 && (
             <div className="word-diff-container">
