@@ -23,6 +23,7 @@ import {
   stopSpeaking,
   createSpeechCaptureSession,
 } from '../utils/aussieAudio'
+import WordPronunciationModal from './WordPronunciationModal'
 
 export default function PteTaskRunner({
   item,
@@ -58,6 +59,7 @@ export default function PteTaskRunner({
   const [timeLeft, setTimeLeft] = useState(meta.answerSec || 60)
   const [isEvaluating, setIsEvaluating] = useState(false)
   const [evaluationResult, setEvaluationResult] = useState(null)
+  const [selectedWordToken, setSelectedWordToken] = useState(null)
 
   const speechSessionRef = useRef(null)
 
@@ -70,6 +72,7 @@ export default function PteTaskRunner({
     setSelectedOption('')
     setSelectedWordIndices([])
     setEvaluationResult(null)
+    setSelectedWordToken(null)
     setMicNotice('')
     setIsRecording(false)
     setIsPlayingAudio(false)
@@ -754,9 +757,14 @@ export default function PteTaskRunner({
           {/* Word-Level Alignment Diff + Exact Pause Badges for RA, RS, WFD */}
           {Array.isArray(evaluationResult.diff) && evaluationResult.diff.length > 0 && (
             <div className="word-diff-container">
-              <h5>
-                Word-by-Word Alignment & Pause Map (Shows Exact Places Where You Paused):
-              </h5>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.4rem', marginBottom: '0.4rem' }}>
+                <h5 style={{ margin: 0 }}>
+                  Word-by-Word Alignment & Pause Map:
+                </h5>
+                <span style={{ fontSize: '0.8rem', color: '#0F766E', fontWeight: 600 }}>
+                  💡 Click any word to hear native audio, see IPA phonetics & practice pronunciation
+                </span>
+              </div>
               <div className="word-diff-tokens">
                 {evaluationResult.diff.map((tok, i) => {
                   const pauseSec = tok.pauseBeforeSec || 0
@@ -776,10 +784,16 @@ export default function PteTaskRunner({
                             : `⏸ +${pauseSec}s`}
                         </span>
                       )}
-                      <span className={`diff-token diff-${tok.status}`}>
+                      <button
+                        type="button"
+                        className={`diff-token diff-${tok.status}`}
+                        style={{ background: 'none', border: 'none', padding: 0, font: 'inherit', cursor: 'pointer' }}
+                        title="Click to view IPA phonetics & practice pronunciation"
+                        onClick={() => setSelectedWordToken(tok)}
+                      >
                         {tok.word}
                         {tok.status === 'replaced' && tok.spoken ? ` (${tok.spoken})` : ''}
-                      </span>
+                      </button>
                     </React.Fragment>
                   )
                 })}
@@ -800,7 +814,12 @@ export default function PteTaskRunner({
             Array.isArray(evaluationResult.speechFlowTokens) &&
             evaluationResult.speechFlowTokens.length > 0 && (
               <div className="word-diff-container">
-                <h5>Spoken Rhythm & Pause Map (Shows Where You Hesitated or Paused):</h5>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.4rem', marginBottom: '0.4rem' }}>
+                  <h5 style={{ margin: 0 }}>Spoken Rhythm & Pause Map:</h5>
+                  <span style={{ fontSize: '0.8rem', color: '#0F766E', fontWeight: 600 }}>
+                    💡 Click any word to hear native audio, see IPA phonetics & practice pronunciation
+                  </span>
+                </div>
                 <div className="word-diff-tokens">
                   {evaluationResult.speechFlowTokens.map((tok, i) => {
                     const pauseSec = tok.pauseBeforeSec || 0
@@ -819,13 +838,17 @@ export default function PteTaskRunner({
                               : `⏸ +${pauseSec}s`}
                           </span>
                         )}
-                        <span
+                        <button
+                          type="button"
                           className={`diff-token ${
                             tok.isFiller || tok.isRepeat ? 'diff-replaced' : 'diff-correct'
                           }`}
+                          style={{ background: 'none', border: 'none', padding: 0, font: 'inherit', cursor: 'pointer' }}
+                          title="Click to view IPA phonetics & practice pronunciation"
+                          onClick={() => setSelectedWordToken(tok)}
                         >
                           {tok.word}
-                        </span>
+                        </button>
                       </React.Fragment>
                     )
                   })}
@@ -1030,6 +1053,13 @@ export default function PteTaskRunner({
             </div>
           )}
         </div>
+      )}
+
+      {selectedWordToken && (
+        <WordPronunciationModal
+          token={selectedWordToken}
+          onClose={() => setSelectedWordToken(null)}
+        />
       )}
     </div>
   )
