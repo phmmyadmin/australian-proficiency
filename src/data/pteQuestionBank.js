@@ -6,10 +6,11 @@
 import {
   APEUNI_SCRAPED_QUESTIONS,
   APEUNI_MOCK_45C_IDS,
+  APEUNI_MOCK_A_IDS,
   APEUNI_MOCK_45C_ATTEMPTS,
 } from './apeuniScrapedBank'
 
-export { APEUNI_MOCK_45C_IDS, APEUNI_MOCK_45C_ATTEMPTS }
+export { APEUNI_MOCK_45C_IDS, APEUNI_MOCK_A_IDS, APEUNI_MOCK_45C_ATTEMPTS }
 
 const BUILT_IN_PTE_QUESTIONS = [
   // ==================== SPEAKING ====================
@@ -468,6 +469,15 @@ export const MOCK_TEST_BLUEPRINTS = [
     description:
       'All 65 real decrypted questions from your APEUni Mock Test 45C (32 Speaking, 3 Writing, 15 Reading, 15 Listening) with real APEUni MP3 audio, images, and your baseline score (58/90) pre-loaded.',
     itemIds: APEUNI_MOCK_45C_IDS,
+  },
+  {
+    id: 'mock_apeuni_free_a',
+    title: '【Full Exam】PTE Mock Test A — 65 Questions (100% Offline with Audio)',
+    mode: 'full',
+    durationMinutes: 120,
+    description:
+      'Full 65-question official Pearson PTE simulation from APEUni Mock Test A (6 RA, 10 RS, 5 DI, 2 RL, 5 ASQ, 2 SGD, 2 RTS, 2 SWT, 1 WE, 5 RWFIB, 2 MCMA-R, 2 ROP, 4 RFIB, 2 MCSA-R, 1 SST, 2 MCMA-L, 2 LFIB, 2 HCS, 2 MCSA-L, 1 SMW, 2 HIW, 3 WFD) with local offline MP3 audio and images.',
+    itemIds: APEUNI_MOCK_A_IDS,
   },
   {
     id: 'mock_apeuni_45c_recovery',

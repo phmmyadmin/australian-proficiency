@@ -55,6 +55,7 @@ export default function PracticeView({
       if (selectedSection !== 'all' && q.section !== selectedSection) return false
       if (selectedTaskType !== 'ALL' && q.taskType !== selectedTaskType) return false
       if (selectedSource === 'mock45c' && q.source !== 'apeuni_mock_45c') return false
+      if (selectedSource === 'mock_a' && q.source !== 'apeuni_mock_a') return false
       if (selectedSource === 'apeuni_bank' && !String(q.source || '').startsWith('apeuni')) return false
       if (qLower) {
         const titleMatch = String(q.title || '').toLowerCase().includes(qLower)
@@ -146,13 +147,23 @@ export default function PracticeView({
           </button>
           <button
             type="button"
+            className={`task-type-chip ${selectedSource === 'mock_a' ? 'active' : ''}`}
+            onClick={() => {
+              setSelectedSource('mock_a')
+              setVisibleLimit(80)
+            }}
+          >
+            🎯 Mock Test A (65)
+          </button>
+          <button
+            type="button"
             className={`task-type-chip ${selectedSource === 'apeuni_bank' ? 'active' : ''}`}
             onClick={() => {
               setSelectedSource('apeuni_bank')
               setVisibleLimit(80)
             }}
           >
-            📚 Full APEUni Bank (1,056)
+            📚 Full Bank (1,121)
           </button>
           <button
             type="button"
@@ -281,6 +292,11 @@ export default function PracticeView({
                     {q.source === 'apeuni_mock_45c' && (
                       <span className="q-ai-badge" style={{ background: '#FEF3C7', color: '#B45309' }}>
                         45C
+                      </span>
+                    )}
+                    {q.source === 'apeuni_mock_a' && (
+                      <span className="q-ai-badge" style={{ background: '#E0E7FF', color: '#3730A3' }}>
+                        Mock A
                       </span>
                     )}
                     {q.source === 'ai_generated' && (
